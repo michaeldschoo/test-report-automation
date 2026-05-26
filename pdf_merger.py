@@ -20,13 +20,28 @@ def merge_pdfs(input_files, output_path):
         else:
             print(f"File not found: {pdf}")
 
+    # 결과 폴더가 없으면 생성
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
     with open(output_path, "wb") as output_file:
         writer.write(output_file)
     
     print(f"Merged PDF saved to: {output_path}")
 
+def merge_all_in_folder(folder_path, output_filename):
+    """
+    특정 폴더 내의 모든 PDF 파일을 이름 순으로 정렬하여 통합합니다.
+    """
+    pdf_files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.endswith(".pdf")]
+    pdf_files.sort() # 파일명 순으로 정렬 (회차별 정렬 등에 유리)
+    
+    if not pdf_files:
+        print(f"No PDF files found in {folder_path}")
+        return
+
+    merge_pdfs(pdf_files, output_filename)
+
 if __name__ == "__main__":
-    # 간단한 테스트 코드
-    test_files = [] # 여기에 테스트용 파일 경로 추가 가능
-    if test_files:
-        merge_pdfs(test_files, "merged_test.pdf")
+    # 테스트 예시
+    # merge_all_in_folder("./downloads/student_name", "./output/student_name_total.pdf")
+    pass
