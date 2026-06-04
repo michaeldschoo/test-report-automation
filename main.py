@@ -89,8 +89,14 @@ async def download_and_extract(page, link, base_download_path, subject, val):
         pdf_files = [f for f in os.listdir(zip_temp) if f.endswith(".pdf")]
         for f in pdf_files:
             s_name = f
-            for sep in ["_Year", "_Selective", "_Trial", "_Report", "_Term", "_Student", f"_{val}", ".pdf"]:
-                if sep in s_name: s_name = s_name.split(sep)[0]
+            # Use regex to split student name from the file name more accurately
+            # It splits at the first occurrence of common keywords or the specific round/term number
+            patterns = ["_Year", "_Selective", "_Trial", "_Report", "_Term", "_Student", rf"_{val}\b", r"\.pdf"]
+            combined_pattern = "|".join(patterns)
+            split_match = re.search(combined_pattern, s_name)
+            if split_match:
+                s_name = s_name[:split_match.start()]
+            
             s_name = s_name.strip().replace(" ", "-")
             s_dir = os.path.join(base_download_path, s_name)
             os.makedirs(s_dir, exist_ok=True)
@@ -113,6 +119,11 @@ async def process_selective_test(page, test_round):
     list_url = "https://edukingdomcollege.com/online-selective-test-report-list/"
     base_path = f"./downloads/Selective_R{test_round}"
     output_path = f"./output/Selective_R{test_round}"
+    
+    # Clean start: remove existing downloads for this round to avoid mixing old/new files
+    if os.path.exists(base_path):
+        print_log(f"  > Cleaning existing download folder: {base_path}")
+        shutil.rmtree(base_path)
     os.makedirs(base_path, exist_ok=True)
 
     print_log(f"[STEP] Navigating to Selective list...")
@@ -131,15 +142,15 @@ async def process_selective_test(page, test_round):
     print_log("--------------------------")
 
     # Find ANY row that contains the round number '57'
-    # Try multiple ways to locate
-    rows = page.locator("tr").filter(has_text=str(test_round))
+    # Use regex for exact round number match to avoid matching 15, 25, 35 when searching for 5
+    rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
     count = await rows.count()
     print_log(f"  > Found {count} rows containing '{test_round}'")
 
     if count == 0:
         print_log("  ! No exact row match. Trying global search for links...")
         # Fallback: search for any link that contains 'test-report' and the round number in its text
-        links = page.locator("a").filter(has_text=str(test_round))
+        links = page.locator("a").filter(has_text=re.compile(rf"\b{test_round}\b"))
         link_count = await links.count()
         print_log(f"  > Found {link_count} potential links matching '{test_round}'")
         
@@ -151,26 +162,55 @@ async def process_selective_test(page, test_round):
                 await download_and_extract(page, link, base_path, subj, test_round)
         return
 
+    processed_subjects = {}
+
     for i in range(count):
         if not is_on_page(page.url, list_url):
             await page.goto(list_url, wait_until="load")
-            await asyncio.sleep(3)
+            await asyncio.sleep(5) # Increased wait to ensure list is stable
+            # Re-locate rows after navigation to avoid stale element reference
+            rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
             
         row = rows.nth(i)
-        text = await row.inner_text()
-        print_log(f"  > Processing {i+1}/{count}: {text.strip()[:60]}...")
         
-        subj = "Other"
-        if any(k in text.lower() for k in ["reading", "power", "english"]): subj = "Reading"
-        elif any(k in text.lower() for k in ["math", "reasoning"]): subj = "Math"
-        elif any(k in text.lower() for k in ["ts", "thinking"]): subj = "Thinking-Skills"
-        elif any(k in text.lower() for k in ["writing", "wrt"]): subj = "Writing"
+        # Extract Subject from 'Test Subject' column (direct reference)
+        tds = row.locator("td")
+        td_count = await tds.count()
+        subj_base = "Other"
+        
+        # Scan all columns to find the one that looks like a subject name
+        # We ignore buttons (View, Report) and generic numbers
+        for j in range(td_count):
+            cell_text = (await tds.nth(j).inner_text()).strip()
+            if not cell_text: continue
+            if any(btn in cell_text for btn in ["View", "Report", "Click", "Download"]): continue
+            if cell_text.isdigit(): continue
+            # If it contains subject keywords, this is likely our subject column
+            if any(k in cell_text.lower() for k in ["math", "reasoning", "reading", "thinking", "skills", "writing", "general", "ability"]):
+                subj_base = cell_text
+                break
+        
+        # Fallback if no keywords matched
+        if subj_base == "Other" and td_count >= 2:
+            subj_base = (await tds.nth(1).inner_text()).strip() or "Other"
+        
+        # Clean up the subject name for filename safety
+        subj_base = subj_base.replace(" ", "-").replace("/", "-")
+        
+        text = await row.inner_text()
+        print_log(f"  > Processing {i+1}/{count}: {subj_base} ({text.strip()[:40]}...)")
+        
+        # Tracking subjects to handle duplicates correctly
+        processed_subjects[subj_base] = processed_subjects.get(subj_base, 0) + 1
+        subj = subj_base if processed_subjects[subj_base] == 1 else f"{subj_base}_{processed_subjects[subj_base]}"
         
         link = row.locator("a").filter(has_text=re.compile("Report|View|Click|Download", re.I)).first
         if not await link.is_visible(): link = row.locator("a").first
         
         if await link.is_visible():
-            await download_and_extract(page, link, base_path, subj, test_round)
+            success = await download_and_extract(page, link, base_path, subj, test_round)
+            if not success:
+                print_log(f"      ! Failed to download {subj}")
 
     print_log(f"[FINISH] Merging results...")
     merge_all_students(base_path, output_path, f"R{test_round}")
@@ -184,7 +224,8 @@ async def process_term_test(page, term_num):
         if not is_on_page(page.url, list_url): await page.goto(list_url, wait_until="load")
         await asyncio.sleep(4)
 
-        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=str(term_num))
+        # Use regex for exact term number match
+        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=re.compile(rf"\b{term_num}\b"))
         count = await matching_rows.count()
         print_log(f"  > Found {count} rows for {yr}")
 
