@@ -28,12 +28,15 @@ def merge_pdfs(input_files, output_path):
     
     print(f"Merged PDF saved to: {output_path}")
 
-def merge_all_in_folder(folder_path, output_filename):
+def merge_all_in_folder(folder_path, output_filename, sort_key=None):
     """
-    특정 폴더 내의 모든 PDF 파일을 이름 순으로 정렬하여 통합합니다.
+    특정 폴더 내의 모든 PDF 파일을 정렬하여 통합합니다.
     """
     pdf_files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.endswith(".pdf")]
-    pdf_files.sort() # 파일명 순으로 정렬 (회차별 정렬 등에 유리)
+    if sort_key:
+        pdf_files.sort(key=sort_key)
+    else:
+        pdf_files.sort() # 파일명 순으로 정렬 (회차별 정렬 등에 유리)
     
     if not pdf_files:
         print(f"No PDF files found in {folder_path}")

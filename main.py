@@ -213,7 +213,7 @@ async def process_selective_test(page, test_round):
                 print_log(f"      ! Failed to download {subj}")
 
     print_log(f"[FINISH] Merging results...")
-    merge_all_students(base_path, output_path, f"R{test_round}")
+    merge_all_students(base_path, output_path, f"R{test_round}", is_selective=True)
 
 async def process_term_test(page, term_num):
     list_url = "https://edukingdomcollege.com/offline-test-report-list/"
@@ -254,16 +254,43 @@ async def process_term_test(page, term_num):
 
         merge_all_students(yr_path, yr_out, f"T{term_num}")
 
-def merge_all_students(base_path, output_path, suffix):
+def merge_all_students(base_path, output_path, suffix, is_selective=False):
     if not os.path.exists(base_path): return
     os.makedirs(output_path, exist_ok=True)
     dirs = [d for d in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, d)) and not d.startswith("temp_")]
     for sid in dirs:
         folder = os.path.join(base_path, sid)
         if any(f.endswith(".pdf") for f in os.listdir(folder)):
-            out = os.path.join(output_path, f"Total_Report_{sid}_{suffix}.pdf")
-            try: merge_all_in_folder(folder, out)
-            except: pass
+            if is_selective:
+                round_num = suffix[1:] if suffix.startswith("R") else suffix
+                # 성을 제외하고 이름만 추출 (예: 'Adrio-Maheswaran' -> 'Adrio')
+                first_name = sid.split('-')[0]
+                out = os.path.join(output_path, f"STT{round_num} {first_name}.pdf")
+                
+                # 동명이인이 있을 경우 파일 덮어쓰기 방지
+                counter = 1
+                while os.path.exists(out):
+                    out = os.path.join(output_path, f"STT{round_num} {first_name}_{counter}.pdf")
+                    counter += 1
+                # Reading Skills -> 1, Mathematical Reasoning -> 2, Thinking Skills -> 3, others -> 4
+                def sort_by_subject(file_path):
+                    filename = os.path.basename(file_path).lower()
+                    if "reading" in filename:
+                        return (1, filename)
+                    elif "math" in filename or "reasoning" in filename:
+                        return (2, filename)
+                    elif "thinking" in filename or "general" in filename or "ability" in filename:
+                        return (3, filename)
+                    return (4, filename)
+                
+                try: merge_all_in_folder(folder, out, sort_key=sort_by_subject)
+                except Exception as e:
+                    print(f"Error merging selective for {sid}: {e}")
+            else:
+                out = os.path.join(output_path, f"Total_Report_{sid}_{suffix}.pdf")
+                try: merge_all_in_folder(folder, out)
+                except Exception as e:
+                    print(f"Error merging term for {sid}: {e}")
 
 async def main():
     while True:
