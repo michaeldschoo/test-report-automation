@@ -219,13 +219,18 @@ async def process_term_test(page, term_num):
     list_url = "https://edukingdomcollege.com/offline-test-report-list/"
     years = [f"Year {i}" for i in range(1, 7)]
     
+    base_path = f"./downloads/TermTest_T{term_num}"
+    if os.path.exists(base_path):
+        print_log(f"  > Cleaning existing download folder: {base_path}")
+        shutil.rmtree(base_path)
+    
     for yr in years:
         print_log(f"{yr} - Term {term_num} Discovery")
         if not is_on_page(page.url, list_url): await page.goto(list_url, wait_until="load")
         await asyncio.sleep(4)
 
-        # Use regex for exact term number match
-        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=re.compile(rf"\b{term_num}\b"))
+        # Use regex for exact term match to avoid matching 'Year 5' when term_num is 5
+        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=re.compile(rf"Term\s*{term_num}\b", re.I))
         count = await matching_rows.count()
         print_log(f"  > Found {count} rows for {yr}")
 
