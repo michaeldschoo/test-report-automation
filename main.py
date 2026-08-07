@@ -252,9 +252,9 @@ async def process_term_test(page, term_num):
                     await download_and_extract(page, link, yr_path, subj, term_num)
             except: continue
 
-        merge_all_students(yr_path, yr_out, f"T{term_num}")
+        merge_all_students(yr_path, yr_out, f"T{term_num}", is_selective=False, year_str=yr, term_num=term_num)
 
-def merge_all_students(base_path, output_path, suffix, is_selective=False):
+def merge_all_students(base_path, output_path, suffix, is_selective=False, year_str="", term_num=""):
     if not os.path.exists(base_path): return
     os.makedirs(output_path, exist_ok=True)
     dirs = [d for d in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, d)) and not d.startswith("temp_")]
@@ -287,7 +287,20 @@ def merge_all_students(base_path, output_path, suffix, is_selective=False):
                 except Exception as e:
                     print(f"Error merging selective for {sid}: {e}")
             else:
-                out = os.path.join(output_path, f"Total_Report_{sid}_{suffix}.pdf")
+                first_name = sid.split('-')[0]
+                y_num = year_str.replace("Year ", "") if year_str.startswith("Year ") else year_str
+                year_format = f"Y{y_num}" if y_num else ""
+                term_format = f"T{term_num}" if term_num else ""
+                
+                out_filename = f"{first_name} {year_format} {term_format}".strip() + ".pdf"
+                out = os.path.join(output_path, out_filename)
+                
+                counter = 1
+                while os.path.exists(out):
+                    out_filename = f"{first_name}_{counter} {year_format} {term_format}".strip() + ".pdf"
+                    out = os.path.join(output_path, out_filename)
+                    counter += 1
+
                 try: merge_all_in_folder(folder, out)
                 except Exception as e:
                     print(f"Error merging term for {sid}: {e}")
