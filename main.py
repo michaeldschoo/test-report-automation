@@ -229,23 +229,29 @@ async def process_term_test(page, term_num):
         if not is_on_page(page.url, list_url): await page.goto(list_url, wait_until="load")
         await asyncio.sleep(4)
 
-        # Use regex for exact term match to avoid matching 'Year 5' when term_num is 5
-        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=re.compile(rf"Term\s*{term_num}\b", re.I))
+        # Use a broad regex to find rows, and then filter in Python to prevent 'Year 5' conflict
+        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=re.compile(rf"\b{term_num}\b"))
         count = await matching_rows.count()
-        print_log(f"  > Found {count} rows for {yr}")
-
-        if count == 0:
-            continue
-
+        
         yr_path = os.path.join("./downloads", f"TermTest_T{term_num}", yr.replace(' ', ''))
         yr_out = os.path.join("./output", f"TermTest_T{term_num}", yr.replace(' ', ''))
-        os.makedirs(yr_path, exist_ok=True)
-
+        
+        valid_downloads = 0
         for i in range(count):
             if not is_on_page(page.url, list_url): await page.goto(list_url, wait_until="load")
             row = matching_rows.nth(i)
             try:
                 text = await row.inner_text(timeout=5000)
+                
+                # 방어 로직: 'Year 5'의 '5' 때문에 매칭된 것인지, 실제 Term과 관련된 '5'가 있는지 확인
+                text_without_yr = text.replace(yr, "")
+                if not re.search(rf"\b{term_num}\b", text_without_yr):
+                    continue
+                
+                if valid_downloads == 0:
+                    os.makedirs(yr_path, exist_ok=True)
+                
+                valid_downloads += 1
                 subj = "Other"
                 if any(k in text.lower() for k in ["reading", "power", "english"]): subj = "English"
                 elif any(k in text.lower() for k in ["math", "reasoning", "mathematics"]): subj = "Math"
@@ -257,7 +263,9 @@ async def process_term_test(page, term_num):
                     await download_and_extract(page, link, yr_path, subj, term_num)
             except: continue
 
-        merge_all_students(yr_path, yr_out, f"T{term_num}", is_selective=False, year_str=yr, term_num=term_num)
+        print_log(f"  > Found {valid_downloads} valid rows for {yr}")
+        if valid_downloads > 0:
+            merge_all_students(yr_path, yr_out, f"T{term_num}", is_selective=False, year_str=yr, term_num=term_num)
 
 def merge_all_students(base_path, output_path, suffix, is_selective=False, year_str="", term_num=""):
     if not os.path.exists(base_path): return
