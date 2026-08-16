@@ -91,7 +91,7 @@ async def download_and_extract(page, link, base_download_path, subject, val):
             s_name = f
             # Use regex to split student name from the file name more accurately
             # It splits at the first occurrence of common keywords or the specific round/term number
-            patterns = ["_Year", "_Selective", "_Trial", "_Report", "_Term", "_Student", rf"_{val}\b", r"\.pdf"]
+            patterns = ["_Year", "_Selective", "_Trial", "_Report", "_Term", "_Student", "_OC", rf"_{val}\b", r"\.pdf"]
             combined_pattern = "|".join(patterns)
             split_match = re.search(combined_pattern, s_name)
             if split_match:
@@ -213,7 +213,82 @@ async def process_selective_test(page, test_round):
                 print_log(f"      ! Failed to download {subj}")
 
     print_log(f"[FINISH] Merging results...")
-    merge_all_students(base_path, output_path, f"R{test_round}", is_selective=True)
+    merge_all_students(base_path, output_path, f"R{test_round}", is_selective=False, is_oc=True)
+
+async def process_oc_test(page, test_round):
+    list_url = "https://edukingdomcollege.com/online-test-report-list/"
+    base_path = f"./downloads/OC_R{test_round}"
+    output_path = f"./output/OC_R{test_round}"
+    
+    if os.path.exists(base_path):
+        print_log(f"  > Cleaning existing download folder: {base_path}")
+        shutil.rmtree(base_path)
+    os.makedirs(base_path, exist_ok=True)
+
+    print_log(f"[STEP] Navigating to OC Trial list...")
+    await page.goto(list_url, wait_until="load")
+    
+    print_log("  > Waiting for data to load (8s)...")
+    await asyncio.sleep(8)
+    
+    rows = page.locator("tr").filter(has_text=re.compile(rf"OC Trial Test\s+{test_round}\b", re.I))
+    count = await rows.count()
+    print_log(f"  > Found {count} rows containing 'OC Trial Test {test_round}'")
+
+    if count == 0:
+        print_log("  ! No exact row match. Trying global search for exact round number...")
+        rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
+        count = await rows.count()
+        if count == 0:
+            print_log(f"  ! Found {count} rows. Exiting.")
+            return
+
+    processed_subjects = {}
+
+    for i in range(count):
+        if not is_on_page(page.url, list_url):
+            await page.goto(list_url, wait_until="load")
+            await asyncio.sleep(5)
+            rows = page.locator("tr").filter(has_text=re.compile(rf"OC Trial Test\s+{test_round}\b", re.I))
+            if await rows.count() == 0:
+                rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
+            
+        row = rows.nth(i)
+        
+        tds = row.locator("td")
+        td_count = await tds.count()
+        subj_base = "Other"
+        
+        for j in range(td_count):
+            cell_text = (await tds.nth(j).inner_text()).strip()
+            if not cell_text: continue
+            if any(btn in cell_text for btn in ["View", "Report", "Click", "Download"]): continue
+            if cell_text.isdigit(): continue
+            if any(k in cell_text.lower() for k in ["math", "reasoning", "reading", "thinking", "skills", "writing", "general", "ability"]):
+                subj_base = cell_text
+                break
+        
+        if subj_base == "Other" and td_count >= 2:
+            subj_base = (await tds.nth(1).inner_text()).strip() or "Other"
+        
+        subj_base = subj_base.replace(" ", "-").replace("/", "-")
+        
+        text = await row.inner_text()
+        print_log(f"  > Processing {i+1}/{count}: {subj_base} ({text.strip()[:40]}...)")
+        
+        processed_subjects[subj_base] = processed_subjects.get(subj_base, 0) + 1
+        subj = subj_base if processed_subjects[subj_base] == 1 else f"{subj_base}_{processed_subjects[subj_base]}"
+        
+        link = row.locator("a").filter(has_text=re.compile("Report|View|Click|Download", re.I)).first
+        if not await link.is_visible(): link = row.locator("a").first
+        
+        if await link.is_visible():
+            success = await download_and_extract(page, link, base_path, subj, test_round)
+            if not success:
+                print_log(f"      ! Failed to download {subj}")
+
+    print_log(f"[FINISH] Merging results...")
+    merge_all_students(base_path, output_path, f"R{test_round}", is_selective=False, is_oc=True)
 
 async def process_term_test(page, term_num):
     list_url = "https://edukingdomcollege.com/offline-test-report-list/"
@@ -267,7 +342,7 @@ async def process_term_test(page, term_num):
         if valid_downloads > 0:
             merge_all_students(yr_path, yr_out, f"T{term_num}", is_selective=False, year_str=yr, term_num=term_num)
 
-def merge_all_students(base_path, output_path, suffix, is_selective=False, year_str="", term_num=""):
+def merge_all_students(base_path, output_path, suffix, is_selective=False, year_str="", term_num="", is_oc=False):
     if not os.path.exists(base_path): return
     os.makedirs(output_path, exist_ok=True)
     dirs = [d for d in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, d)) and not d.startswith("temp_")]
@@ -299,6 +374,29 @@ def merge_all_students(base_path, output_path, suffix, is_selective=False, year_
                 try: merge_all_in_folder(folder, out, sort_key=sort_by_subject)
                 except Exception as e:
                     print(f"Error merging selective for {sid}: {e}")
+            elif is_oc:
+                round_num = suffix[1:] if suffix.startswith("R") else suffix
+                first_name = sid.split('-')[0]
+                out = os.path.join(output_path, f"OC{round_num} {first_name}.pdf")
+                
+                counter = 1
+                while os.path.exists(out):
+                    out = os.path.join(output_path, f"OC{round_num} {first_name}_{counter}.pdf")
+                    counter += 1
+                    
+                def sort_by_subject(file_path):
+                    filename = os.path.basename(file_path).lower()
+                    if "reading" in filename:
+                        return (1, filename)
+                    elif "math" in filename or "reasoning" in filename:
+                        return (2, filename)
+                    elif "thinking" in filename or "general" in filename or "ability" in filename:
+                        return (3, filename)
+                    return (4, filename)
+                
+                try: merge_all_in_folder(folder, out, sort_key=sort_by_subject)
+                except Exception as e:
+                    print(f"Error merging OC for {sid}: {e}")
             else:
                 first_name = sid.split('-')[0]
                 y_num = year_str.replace("Year ", "") if year_str.startswith("Year ") else year_str
@@ -321,16 +419,20 @@ def merge_all_students(base_path, output_path, suffix, is_selective=False, year_
 async def main():
     while True:
         await asyncio.sleep(0.5)
-        print_log("="*50 + "\n   EduKingdom Automation v2.2 - Main Menu\n" + "="*50)
-        print_log(" 1. Online Selective Test Report\n 2. Term Test Report (Year 1-6)\n 3. Exit")
+        print_log("="*50 + "\n   EduKingdom Automation v2.3 - Main Menu\n" + "="*50)
+        print_log(" 1. Online Selective Test Report\n 2. Term Test Report (Year 1-6)\n 3. Online OC Trial Test Report\n 4. Exit")
         choice = input("\nSelect Option: ").strip()
         
-        if choice == '3': break
-        if choice not in ['1', '2']: continue
+        if choice == '4': break
+        if choice not in ['1', '2', '3']: continue
 
-        val = input(f"Enter {'Round' if choice=='1' else 'Term'} Number: ").strip()
+        prompt_text = "Enter Term Number: " if choice == '2' else "Enter Round Number: "
+        val = input(prompt_text).strip()
         if not val: continue
-        mode = "selective" if choice == '1' else "term"
+        
+        if choice == '1': mode = "selective"
+        elif choice == '2': mode = "term"
+        elif choice == '3': mode = "oc"
 
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=False)
@@ -341,7 +443,8 @@ async def main():
             try:
                 if await login(page):
                     if mode == "selective": await process_selective_test(page, val)
-                    else: await process_term_test(page, val)
+                    elif mode == "term": await process_term_test(page, val)
+                    elif mode == "oc": await process_oc_test(page, val)
                     print_log(f"[DONE] {mode.capitalize()} Test {val} completed.")
                 else: print_log("[STOP] Login failed.")
             except Exception as e:
