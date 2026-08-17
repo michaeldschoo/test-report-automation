@@ -116,6 +116,7 @@ def is_on_page(current, target):
     return current.split('?')[0].rstrip('/') == target.rstrip('/')
 
 async def process_selective_test(page, test_round):
+    regex_val = rf"0*{int(test_round)}" if str(test_round).isdigit() else test_round
     list_url = "https://edukingdomcollege.com/online-selective-test-report-list/"
     base_path = f"./downloads/Selective_R{test_round}"
     output_path = f"./output/Selective_R{test_round}"
@@ -143,14 +144,14 @@ async def process_selective_test(page, test_round):
 
     # Find ANY row that contains the round number '57'
     # Use regex for exact round number match to avoid matching 15, 25, 35 when searching for 5
-    rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
+    rows = page.locator("tr").filter(has_text=re.compile(rf"\b{regex_val}\b"))
     count = await rows.count()
     print_log(f"  > Found {count} rows containing '{test_round}'")
 
     if count == 0:
         print_log("  ! No exact row match. Trying global search for links...")
         # Fallback: search for any link that contains 'test-report' and the round number in its text
-        links = page.locator("a").filter(has_text=re.compile(rf"\b{test_round}\b"))
+        links = page.locator("a").filter(has_text=re.compile(rf"\b{regex_val}\b"))
         link_count = await links.count()
         print_log(f"  > Found {link_count} potential links matching '{test_round}'")
         
@@ -169,7 +170,7 @@ async def process_selective_test(page, test_round):
             await page.goto(list_url, wait_until="load")
             await asyncio.sleep(5) # Increased wait to ensure list is stable
             # Re-locate rows after navigation to avoid stale element reference
-            rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
+            rows = page.locator("tr").filter(has_text=re.compile(rf"\b{regex_val}\b"))
             
         row = rows.nth(i)
         
@@ -216,6 +217,7 @@ async def process_selective_test(page, test_round):
     merge_all_students(base_path, output_path, f"R{test_round}", is_selective=False, is_oc=True)
 
 async def process_oc_test(page, test_round):
+    regex_val = rf"0*{int(test_round)}" if str(test_round).isdigit() else test_round
     list_url = "https://edukingdomcollege.com/online-test-report-list/"
     base_path = f"./downloads/OC_R{test_round}"
     output_path = f"./output/OC_R{test_round}"
@@ -231,13 +233,13 @@ async def process_oc_test(page, test_round):
     print_log("  > Waiting for data to load (8s)...")
     await asyncio.sleep(8)
     
-    rows = page.locator("tr").filter(has_text=re.compile(rf"OC Trial Test\s+{test_round}\b", re.I))
+    rows = page.locator("tr").filter(has_text=re.compile(rf"OC Trial Test\s+{regex_val}\b", re.I))
     count = await rows.count()
     print_log(f"  > Found {count} rows containing 'OC Trial Test {test_round}'")
 
     if count == 0:
         print_log("  ! No exact row match. Trying global search for exact round number...")
-        rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
+        rows = page.locator("tr").filter(has_text=re.compile(rf"\b{regex_val}\b"))
         count = await rows.count()
         if count == 0:
             print_log(f"  ! Found {count} rows. Exiting.")
@@ -249,9 +251,9 @@ async def process_oc_test(page, test_round):
         if not is_on_page(page.url, list_url):
             await page.goto(list_url, wait_until="load")
             await asyncio.sleep(5)
-            rows = page.locator("tr").filter(has_text=re.compile(rf"OC Trial Test\s+{test_round}\b", re.I))
+            rows = page.locator("tr").filter(has_text=re.compile(rf"OC Trial Test\s+{regex_val}\b", re.I))
             if await rows.count() == 0:
-                rows = page.locator("tr").filter(has_text=re.compile(rf"\b{test_round}\b"))
+                rows = page.locator("tr").filter(has_text=re.compile(rf"\b{regex_val}\b"))
             
         row = rows.nth(i)
         
@@ -291,6 +293,7 @@ async def process_oc_test(page, test_round):
     merge_all_students(base_path, output_path, f"R{test_round}", is_selective=False, is_oc=True)
 
 async def process_term_test(page, term_num):
+    regex_val = rf"0*{int(term_num)}" if str(term_num).isdigit() else term_num
     list_url = "https://edukingdomcollege.com/offline-test-report-list/"
     years = [f"Year {i}" for i in range(1, 7)]
     
@@ -305,7 +308,7 @@ async def process_term_test(page, term_num):
         await asyncio.sleep(4)
 
         # Use a broad regex to find rows, and then filter in Python to prevent 'Year 5' conflict
-        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=re.compile(rf"\b{term_num}\b"))
+        matching_rows = page.locator("tr").filter(has_text=yr).filter(has_text=re.compile(rf"\b{regex_val}\b"))
         count = await matching_rows.count()
         
         yr_path = os.path.join("./downloads", f"TermTest_T{term_num}", yr.replace(' ', ''))
@@ -320,7 +323,7 @@ async def process_term_test(page, term_num):
                 
                 # 방어 로직: 'Year 5'의 '5' 때문에 매칭된 것인지, 실제 Term과 관련된 '5'가 있는지 확인
                 text_without_yr = text.replace(yr, "")
-                if not re.search(rf"\b{term_num}\b", text_without_yr):
+                if not re.search(rf"\b{regex_val}\b", text_without_yr):
                     continue
                 
                 if valid_downloads == 0:
@@ -351,6 +354,8 @@ def merge_all_students(base_path, output_path, suffix, is_selective=False, year_
         if any(f.endswith(".pdf") for f in os.listdir(folder)):
             if is_selective:
                 round_num = suffix[1:] if suffix.startswith("R") else suffix
+                if round_num.isdigit():
+                    round_num = round_num.zfill(2)
                 # 성을 제외하고 이름만 추출 (예: 'Adrio-Maheswaran' -> 'Adrio')
                 first_name = sid.split('-')[0]
                 out = os.path.join(output_path, f"STT{round_num} {first_name}.pdf")
@@ -376,6 +381,8 @@ def merge_all_students(base_path, output_path, suffix, is_selective=False, year_
                     print(f"Error merging selective for {sid}: {e}")
             elif is_oc:
                 round_num = suffix[1:] if suffix.startswith("R") else suffix
+                if round_num.isdigit():
+                    round_num = round_num.zfill(2)
                 first_name = sid.split('-')[0]
                 out = os.path.join(output_path, f"OC{round_num} {first_name}.pdf")
                 
