@@ -214,7 +214,7 @@ async def process_selective_test(page, test_round):
                 print_log(f"      ! Failed to download {subj}")
 
     print_log(f"[FINISH] Merging results...")
-    merge_all_students(base_path, output_path, f"R{test_round}", is_selective=False, is_oc=True)
+    merge_all_students(base_path, output_path, f"R{test_round}", is_selective=True, is_oc=False)
 
 async def process_oc_test(page, test_round):
     regex_val = rf"0*{int(test_round)}" if str(test_round).isdigit() else test_round
