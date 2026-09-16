@@ -424,43 +424,94 @@ def merge_all_students(base_path, output_path, suffix, is_selective=False, year_
                     print(f"Error merging term for {sid}: {e}")
 
 async def main():
-    while True:
-        await asyncio.sleep(0.5)
-        print_log("="*50 + "\n   EduKingdom Automation v2.3 - Main Menu\n" + "="*50)
-        print_log(" 1. Online Selective Test Report\n 2. Term Test Report (Year 1-6)\n 3. Online OC Trial Test Report\n 4. Exit")
-        choice = input("\nSelect Option: ").strip()
-        
-        if choice == '4': break
-        if choice not in ['1', '2', '3']: continue
+    async with async_playwright() as p:
+        browser = None
+        context = None
+        page = None
+        is_logged_in = False
+        post_login_url = None
 
-        prompt_text = "Enter Term Number: " if choice == '2' else "Enter Round Number: "
-        val = input(prompt_text).strip()
-        if not val: continue
-        
-        if choice == '1': mode = "selective"
-        elif choice == '2': mode = "term"
-        elif choice == '3': mode = "oc"
+        try:
+            while True:
+                await asyncio.sleep(0.5)
+                print_log("="*50 + "\n   EduKingdom Automation v2.4 - Main Menu\n" + "="*50)
+                print_log(" 1. Online Selective Test Report\n 2. Term Test Report (Year 1-6)\n 3. Online OC Trial Test Report\n 4. Return to Menu (메뉴로 돌아가기)\n 5. Exit (프로그램 종료)")
+                choice = input("\nSelect Option: ").strip()
+                
+                # 5. Exit program and close browser
+                if choice == '5':
+                    print_log("[EXIT] 프로그램을 종료하고 브라우저를 닫습니다.")
+                    break
 
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=False)
-            context = await browser.new_context()
-            page = await context.new_page()
-            page.on("dialog", lambda d: asyncio.create_task(d.accept()))
+                # 4. Return to menu (refresh/navigate to post-login main page)
+                if choice == '4':
+                    print_log("[MENU] 초기 메뉴로 복귀합니다.")
+                    if page and is_logged_in:
+                        try:
+                            target_url = post_login_url or "https://edukingdomcollege.com/"
+                            print_log(f"  > 로그인 후 메인 대기 페이지로 이동 중: {target_url}")
+                            await page.goto(target_url, wait_until="load", timeout=30000)
+                        except Exception as e:
+                            print_log(f"  ! 페이지 이동 알림: {e}")
+                    continue
 
-            try:
-                if await login(page):
-                    if mode == "selective": await process_selective_test(page, val)
-                    elif mode == "term": await process_term_test(page, val)
-                    elif mode == "oc": await process_oc_test(page, val)
+                if choice not in ['1', '2', '3']:
+                    print_log("  ! 잘못된 입력입니다. 1~5번 메뉴를 선택해 주세요.")
+                    continue
+
+                prompt_text = "Enter Term Number: " if choice == '2' else "Enter Round Number: "
+                val = input(prompt_text).strip()
+                if not val:
+                    continue
+                
+                if choice == '1': mode = "selective"
+                elif choice == '2': mode = "term"
+                elif choice == '3': mode = "oc"
+
+                # Launch browser & login if not already open/logged-in
+                if browser is None or page is None or page.is_closed():
+                    browser = await p.chromium.launch(headless=False)
+                    context = await browser.new_context()
+                    page = await context.new_page()
+                    page.on("dialog", lambda d: asyncio.create_task(d.accept()))
+                    is_logged_in = False
+
+                if not is_logged_in:
+                    is_logged_in = await login(page)
+                    if not is_logged_in:
+                        print_log("[STOP] Login failed. 메뉴로 돌아갑니다.")
+                        continue
+                    post_login_url = page.url
+
+                try:
+                    if mode == "selective":
+                        await process_selective_test(page, val)
+                    elif mode == "term":
+                        await process_term_test(page, val)
+                    elif mode == "oc":
+                        await process_oc_test(page, val)
                     print_log(f"[DONE] {mode.capitalize()} Test {val} completed.")
-                else: print_log("[STOP] Login failed.")
-            except Exception as e:
-                print_log(f"[ERROR] {e}")
-                traceback.print_exc()
+                except Exception as e:
+                    print_log(f"[ERROR] {e}")
+                    traceback.print_exc()
 
-            print_log("Process complete. Press Enter to return to menu...")
-            await asyncio.get_event_loop().run_in_executor(None, input, "")
-            await browser.close()
+                # After processing, navigate back to post-login page and keep browser open
+                if page and not page.is_closed():
+                    try:
+                        target_url = post_login_url or "https://edukingdomcollege.com/"
+                        await page.goto(target_url, wait_until="load", timeout=30000)
+                    except Exception:
+                        pass
+
+                print_log("작업이 완료되었습니다. 브라우저는 로그인 상태를 유지한 채 대기 중입니다.\n[Enter]를 누르면 메인 메뉴로 돌아갑니다...")
+                await asyncio.get_event_loop().run_in_executor(None, input, "")
+
+        finally:
+            if browser:
+                try:
+                    await browser.close()
+                except Exception:
+                    pass
 
 if __name__ == "__main__":
     asyncio.run(main())
