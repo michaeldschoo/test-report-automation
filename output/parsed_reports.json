@@ -1,0 +1,4553 @@
+[
+  {
+    "filename": "OC01 Apson.pdf",
+    "filepath": "D:\\EKCRPA\\test-report-automation\\output\\OC_R01\\OC01 Apson.pdf",
+    "test_type": "OC",
+    "test_round": 1,
+    "student_name": "Apson Adhikari",
+    "student_id": "44359",
+    "subjects": [
+      {
+        "name_raw": "OC Trial Test Reading",
+        "name": "Reading",
+        "score": 57.6,
+        "test_no": 1,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 62.6,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 49.5,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 48.2,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 75.1,
+            "topic": "Narrative",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 47.8,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 56.5,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 32.4,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 8,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 39.3,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 9,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 63.8,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 54.1,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 63.2,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 12,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 53.4,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 43.7,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 58.0,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 69.0,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 75.1,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 67.8,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 55.5,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 55.9,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 62.8,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 21,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 49.5,
+            "topic": "Cloze Passage",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 69.4,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 76.1,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 84.8,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 76.9,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 26,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 77.8,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 27,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 48.7,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 28,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 50.9,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 49.7,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 30,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 51.4,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 31,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 80.5,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 32,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 80.5,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 33,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 90.8,
+            "topic": "Linked Extracts",
+            "correct": false
+          }
+        ],
+        "total": 33,
+        "correct_count": 19,
+        "wrong_count": 14,
+        "no_response_count": 0,
+        "score_calc": 57.6
+      },
+      {
+        "name_raw": "OC Trial Test Mathematical Reasoning",
+        "name": "Mathematical Reasoning",
+        "score": 48.6,
+        "test_no": 1,
+        "rank_pct": 39.3,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 38.5,
+            "topic": "3D Shape",
+            "correct": false
+          },
+          {
+            "qn": 2,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 60.3,
+            "topic": "Duration",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 39.7,
+            "topic": "Time",
+            "correct": false
+          },
+          {
+            "qn": 4,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 69.6,
+            "topic": "Addition",
+            "correct": true
+          },
+          {
+            "qn": 5,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 36.6,
+            "topic": "Mathematical Symbols",
+            "correct": false
+          },
+          {
+            "qn": 6,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 36.8,
+            "topic": "Age Problem",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 42.4,
+            "topic": "Addition",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 58.6,
+            "topic": "Unit Conversion",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 66.7,
+            "topic": "Counting Shapes",
+            "correct": true
+          },
+          {
+            "qn": 10,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 89.4,
+            "topic": "Counting Years",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 68.8,
+            "topic": "Multiplication",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 55.1,
+            "topic": "3D Shape",
+            "correct": false
+          },
+          {
+            "qn": 13,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 51.8,
+            "topic": "Time",
+            "correct": true
+          },
+          {
+            "qn": 14,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 29.7,
+            "topic": "Time",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 85.2,
+            "topic": "Multiplication",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 37.6,
+            "topic": "Mathematical Symbols",
+            "correct": false
+          },
+          {
+            "qn": 17,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 61.7,
+            "topic": "Subtraction",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 35.5,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 19,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 77.8,
+            "topic": "Unit Conversion",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 20.8,
+            "topic": "Volume",
+            "correct": false
+          },
+          {
+            "qn": 21,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 63.4,
+            "topic": "Counting Years",
+            "correct": false
+          },
+          {
+            "qn": 22,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 48.0,
+            "topic": "Multiplication",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 32.4,
+            "topic": "Decimal Percentage",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 63.0,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 25,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 39.3,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 26,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 43.7,
+            "topic": "Comparing",
+            "correct": true
+          },
+          {
+            "qn": 27,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 33.3,
+            "topic": "Number and Algebra",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 43.5,
+            "topic": "Pattern",
+            "correct": false
+          },
+          {
+            "qn": 29,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 59.7,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 30,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 55.1,
+            "topic": "Comparing",
+            "correct": false
+          },
+          {
+            "qn": 31,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 66.1,
+            "topic": "Number and Algebra",
+            "correct": false
+          },
+          {
+            "qn": 32,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 19.5,
+            "topic": "Identifying Patterns and",
+            "correct": false
+          },
+          {
+            "qn": 33,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 50.1,
+            "topic": "Identifying Patterns and",
+            "correct": false
+          },
+          {
+            "qn": 34,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 28.9,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 35,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 45.9,
+            "topic": "Measurement and Geometry",
+            "correct": true
+          }
+        ],
+        "total": 35,
+        "correct_count": 17,
+        "wrong_count": 18,
+        "no_response_count": 0,
+        "score_calc": 48.6
+      },
+      {
+        "name_raw": "OC Trial Test Thinking Skills",
+        "name": "Thinking Skills",
+        "score": 33.3,
+        "test_no": 1,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 69.6,
+            "topic": "Numerical Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 2,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 55.9,
+            "topic": "Drawing conclusion",
+            "correct": false
+          },
+          {
+            "qn": 3,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 51.3,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 4,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 63.6,
+            "topic": "Finding Correct Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 59.7,
+            "topic": "Drawing conclusion",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 67.2,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 67.1,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 69.4,
+            "topic": "Detecting Reasoning Errors",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 59.5,
+            "topic": "Finding Correct Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 50.3,
+            "topic": "Pattern",
+            "correct": false
+          },
+          {
+            "qn": 11,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 37.2,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 56.3,
+            "topic": "Probability",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 40.5,
+            "topic": "Finding Correct Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 78.8,
+            "topic": "Rearrangement",
+            "correct": true
+          },
+          {
+            "qn": 15,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 48.7,
+            "topic": "Assessing the impact of additional",
+            "correct": false
+          },
+          {
+            "qn": 16,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 30.3,
+            "topic": "Subtraction Tower",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 39.9,
+            "topic": "Drawing conclusion",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 53.6,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 19,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 40.3,
+            "topic": "Coded Word",
+            "correct": false
+          },
+          {
+            "qn": 20,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 33.9,
+            "topic": "Matching Arguments",
+            "correct": false
+          },
+          {
+            "qn": 21,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 33.9,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 22,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 60.3,
+            "topic": "Pattern",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 64.2,
+            "topic": "Numerical Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 62.6,
+            "topic": "Flaws in Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 36.0,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 26,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 19.8,
+            "topic": "Subtraction Tower",
+            "correct": false
+          },
+          {
+            "qn": 27,
+            "resp": null,
+            "symbol": "X",
+            "ans": "C",
+            "pct": 42.2,
+            "topic": "Evaluative reasoning",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": null,
+            "symbol": "X",
+            "ans": "C",
+            "pct": 48.7,
+            "topic": "Statistics and Probability",
+            "correct": false
+          },
+          {
+            "qn": 29,
+            "resp": null,
+            "symbol": "X",
+            "ans": "A",
+            "pct": 47.0,
+            "topic": "Statistics and Probability",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": null,
+            "symbol": "X",
+            "ans": "A",
+            "pct": 41.0,
+            "topic": "Coded Word",
+            "correct": false
+          }
+        ],
+        "total": 30,
+        "correct_count": 10,
+        "wrong_count": 20,
+        "no_response_count": 4,
+        "score_calc": 33.3
+      }
+    ],
+    "parsed_at": "2026-09-14T11:26:15.298097"
+  },
+  {
+    "filename": "OC03 Apson.pdf",
+    "filepath": "D:\\EKCRPA\\test-report-automation\\output\\OC_R03\\OC03 Apson.pdf",
+    "test_type": "OC",
+    "test_round": 3,
+    "student_name": "Apson Adhikari",
+    "student_id": "44359",
+    "subjects": [
+      {
+        "name_raw": "OC Trial Test Reading",
+        "name": "Reading",
+        "score": 30.3,
+        "test_no": 3,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 30.1,
+            "topic": "Narrative",
+            "correct": false
+          },
+          {
+            "qn": 2,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 64.8,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 26.4,
+            "topic": "Narrative",
+            "correct": false
+          },
+          {
+            "qn": 4,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 43.1,
+            "topic": "Narrative",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 26.4,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 32.6,
+            "topic": "Narrative",
+            "correct": false
+          },
+          {
+            "qn": 7,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 70.1,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 8,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 49.8,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 9,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 54.2,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 71.8,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 61.5,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 64.2,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 60.5,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 70.3,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 71.5,
+            "topic": "Poetry",
+            "correct": false
+          },
+          {
+            "qn": 16,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 56.1,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 31.4,
+            "topic": "Poetry",
+            "correct": false
+          },
+          {
+            "qn": 18,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 44.4,
+            "topic": "Poetry",
+            "correct": false
+          },
+          {
+            "qn": 19,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 64.2,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 30.7,
+            "topic": "Cloze Passage",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 31.0,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 22,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 50.4,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 66.5,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 29.5,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 79.3,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 26,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 29.9,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 27,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 63.8,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 54.2,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 29,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 61.9,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 51.1,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 31,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 40.2,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 32,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 41.0,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 33,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 50.2,
+            "topic": "Linked Extracts",
+            "correct": false
+          }
+        ],
+        "total": 33,
+        "correct_count": 10,
+        "wrong_count": 23,
+        "no_response_count": 0,
+        "score_calc": 30.3
+      },
+      {
+        "name_raw": "OC Trial Test Mathematical Reasoning",
+        "name": "Mathematical Reasoning",
+        "score": 48.6,
+        "test_no": 3,
+        "rank_pct": 46.9,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 52.5,
+            "topic": "Time",
+            "correct": false
+          },
+          {
+            "qn": 2,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 52.7,
+            "topic": "Time",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 73.2,
+            "topic": "Numeration",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 33.9,
+            "topic": "Symbol",
+            "correct": true
+          },
+          {
+            "qn": 5,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 61.3,
+            "topic": "Logical reasoning",
+            "correct": false
+          },
+          {
+            "qn": 6,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 65.9,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 36.4,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 48.3,
+            "topic": "Numeration",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 47.9,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 46.0,
+            "topic": "Magic Square",
+            "correct": false
+          },
+          {
+            "qn": 11,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 72.8,
+            "topic": "Time",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 87.2,
+            "topic": "Area",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 57.1,
+            "topic": "Logical reasoning",
+            "correct": true
+          },
+          {
+            "qn": 14,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 42.9,
+            "topic": "Fraction",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 27.6,
+            "topic": "Pattern",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 37.7,
+            "topic": "Numeration",
+            "correct": false
+          },
+          {
+            "qn": 17,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 85.8,
+            "topic": "Multiplication",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 37.5,
+            "topic": "Decimal",
+            "correct": false
+          },
+          {
+            "qn": 19,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 43.7,
+            "topic": "Division",
+            "correct": false
+          },
+          {
+            "qn": 20,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 70.5,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 21,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 58.6,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 54.2,
+            "topic": "Fraction",
+            "correct": true
+          },
+          {
+            "qn": 23,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 44.6,
+            "topic": "Area",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 59.4,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 74.5,
+            "topic": "Fraction",
+            "correct": true
+          },
+          {
+            "qn": 26,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 31.2,
+            "topic": "Missing Number",
+            "correct": false
+          },
+          {
+            "qn": 27,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 74.9,
+            "topic": "Fraction",
+            "correct": true
+          },
+          {
+            "qn": 28,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 73.4,
+            "topic": "Equation",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 10.2,
+            "topic": "Shape",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 33.0,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 31,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 62.8,
+            "topic": "Missing Number",
+            "correct": true
+          },
+          {
+            "qn": 32,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 30.8,
+            "topic": "Missing Number",
+            "correct": false
+          },
+          {
+            "qn": 33,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 81.8,
+            "topic": "Analogy",
+            "correct": false
+          },
+          {
+            "qn": 34,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 36.2,
+            "topic": "Comparison",
+            "correct": false
+          },
+          {
+            "qn": 35,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 33.1,
+            "topic": "Problem Solving",
+            "correct": false
+          }
+        ],
+        "total": 35,
+        "correct_count": 17,
+        "wrong_count": 18,
+        "no_response_count": 0,
+        "score_calc": 48.6
+      },
+      {
+        "name_raw": "OC Trial Test Thinking Skills",
+        "name": "Thinking Skills",
+        "score": 30.0,
+        "test_no": 3,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 68.6,
+            "topic": "Deductive Reasoning",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 41.4,
+            "topic": "Assessing the impact of additional",
+            "correct": false
+          },
+          {
+            "qn": 3,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 56.5,
+            "topic": "Numeration",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 33.1,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 24.5,
+            "topic": "Find correct reasoning or",
+            "correct": false
+          },
+          {
+            "qn": 6,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 59.6,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 7,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 56.3,
+            "topic": "Deductive Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 8,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 72.6,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 36.8,
+            "topic": "Detecting Reasoning Errors",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 39.3,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 11,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 35.6,
+            "topic": "Finding Correct Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 12,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 70.7,
+            "topic": "Vocabulary",
+            "correct": false
+          },
+          {
+            "qn": 13,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 52.3,
+            "topic": "Identifying an Assumption",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 33.9,
+            "topic": "Identifying Patterns and",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 35.1,
+            "topic": "Matching Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 16,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 60.7,
+            "topic": "Deductive Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 17,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 81.4,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 64.2,
+            "topic": "Assessing the impact of additional",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 76.6,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 48.9,
+            "topic": "Detecting Reasoning Errors",
+            "correct": false
+          },
+          {
+            "qn": 21,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 58.4,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 22,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 33.3,
+            "topic": "Finding Correct Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 58.0,
+            "topic": "Space 3D",
+            "correct": true
+          },
+          {
+            "qn": 24,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 79.9,
+            "topic": "Evaluative reasoning",
+            "correct": true
+          },
+          {
+            "qn": 25,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 46.0,
+            "topic": "Dialogue reasoning questions",
+            "correct": false
+          },
+          {
+            "qn": 26,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 59.6,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 27,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 27.8,
+            "topic": "Pattern",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 23.4,
+            "topic": "Assessing the impact of additional",
+            "correct": false
+          },
+          {
+            "qn": 29,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 53.6,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": null,
+            "symbol": "X",
+            "ans": "D",
+            "pct": 48.9,
+            "topic": "Drawing conclusion",
+            "correct": false
+          }
+        ],
+        "total": 30,
+        "correct_count": 9,
+        "wrong_count": 21,
+        "no_response_count": 1,
+        "score_calc": 30.0
+      }
+    ],
+    "parsed_at": "2026-09-14T11:26:16.304278"
+  },
+  {
+    "filename": "OC04 Apson.pdf",
+    "filepath": "D:\\EKCRPA\\test-report-automation\\output\\OC_R04\\OC04 Apson.pdf",
+    "test_type": "OC",
+    "test_round": 4,
+    "student_name": "Apson Adhikari",
+    "student_id": "44359",
+    "subjects": [
+      {
+        "name_raw": "OC Trial Test Reading",
+        "name": "Reading",
+        "score": 60.6,
+        "test_no": 4,
+        "rank_pct": 19.6,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 51.3,
+            "topic": "Article",
+            "correct": false
+          },
+          {
+            "qn": 2,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 43.5,
+            "topic": "Article",
+            "correct": false
+          },
+          {
+            "qn": 3,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 55.7,
+            "topic": "Article",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 52.7,
+            "topic": "Article",
+            "correct": true
+          },
+          {
+            "qn": 5,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 58.0,
+            "topic": "Article",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 42.9,
+            "topic": "Article",
+            "correct": false
+          },
+          {
+            "qn": 7,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 64.8,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 58.4,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 63.0,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 53.8,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 55.4,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 48.9,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 53.1,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 46.2,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 54.6,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 31.0,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 64.0,
+            "topic": "Poetry",
+            "correct": false
+          },
+          {
+            "qn": 18,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 50.0,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 26.2,
+            "topic": "Poetry",
+            "correct": false
+          },
+          {
+            "qn": 20,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 47.9,
+            "topic": "Cloze Passage",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 65.1,
+            "topic": "Cloze Passage",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 45.6,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 49.6,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 44.1,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 63.0,
+            "topic": "Cloze Passage",
+            "correct": true
+          },
+          {
+            "qn": 26,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 53.3,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 27,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 50.6,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 41.2,
+            "topic": "Linked Extracts",
+            "correct": false
+          },
+          {
+            "qn": 29,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 42.7,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 30,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 50.8,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 31,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 54.0,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 32,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 54.0,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 33,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 50.4,
+            "topic": "Linked Extracts",
+            "correct": true
+          }
+        ],
+        "total": 33,
+        "correct_count": 20,
+        "wrong_count": 13,
+        "no_response_count": 0,
+        "score_calc": 60.6
+      },
+      {
+        "name_raw": "OC Trial Test Mathematical Reasoning",
+        "name": "Mathematical Reasoning",
+        "score": 31.4,
+        "test_no": 4,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 47.9,
+            "topic": "Logical reasoning",
+            "correct": false
+          },
+          {
+            "qn": 2,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 78.5,
+            "topic": "Logical reasoning",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 62.3,
+            "topic": "Volume",
+            "correct": false
+          },
+          {
+            "qn": 4,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 33.1,
+            "topic": "Deductive reasoning",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 43.3,
+            "topic": "Measurement",
+            "correct": false
+          },
+          {
+            "qn": 6,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 28.5,
+            "topic": "Measurement",
+            "correct": false
+          },
+          {
+            "qn": 7,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 61.5,
+            "topic": "Time",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 34.9,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 9,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 55.9,
+            "topic": "Numeration",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 34.9,
+            "topic": "Logical reasoning",
+            "correct": false
+          },
+          {
+            "qn": 11,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 72.8,
+            "topic": "Multiplication",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 44.8,
+            "topic": "Money",
+            "correct": false
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 48.1,
+            "topic": "Number",
+            "correct": true
+          },
+          {
+            "qn": 14,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 72.0,
+            "topic": "Numeration",
+            "correct": true
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 16.1,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 16,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 86.4,
+            "topic": "Division",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 53.8,
+            "topic": "Number",
+            "correct": false
+          },
+          {
+            "qn": 18,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 27.8,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 19,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 59.2,
+            "topic": "Subtraction",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 86.6,
+            "topic": "Multiplication",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 63.0,
+            "topic": "Percentage",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 33.0,
+            "topic": "True or False",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 33.3,
+            "topic": "Percentage",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 35.1,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 38.3,
+            "topic": "Fraction Subtraction",
+            "correct": false
+          },
+          {
+            "qn": 26,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 20.9,
+            "topic": "Missing number",
+            "correct": false
+          },
+          {
+            "qn": 27,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 26.1,
+            "topic": "Decimal Point",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 60.2,
+            "topic": "Decimal Multiplication",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 26.6,
+            "topic": "Calendar",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 23.9,
+            "topic": "Money",
+            "correct": false
+          },
+          {
+            "qn": 31,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 72.0,
+            "topic": "Numeration",
+            "correct": true
+          },
+          {
+            "qn": 32,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 38.3,
+            "topic": "Palindrome",
+            "correct": false
+          },
+          {
+            "qn": 33,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 35.8,
+            "topic": "Decimal Division",
+            "correct": false
+          },
+          {
+            "qn": 34,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 41.2,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 35,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 24.9,
+            "topic": "Distance",
+            "correct": false
+          }
+        ],
+        "total": 35,
+        "correct_count": 11,
+        "wrong_count": 24,
+        "no_response_count": 0,
+        "score_calc": 31.4
+      },
+      {
+        "name_raw": "OC Trial Test Thinking Skills",
+        "name": "Thinking Skills",
+        "score": 56.7,
+        "test_no": 4,
+        "rank_pct": 6.5,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 56.5,
+            "topic": "Making inferences",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 36.8,
+            "topic": "Date",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 16.5,
+            "topic": "Logical reasoning",
+            "correct": false
+          },
+          {
+            "qn": 4,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 38.5,
+            "topic": "Find correct reasoning",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 45.4,
+            "topic": "Roman Numeral",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 48.9,
+            "topic": "Percentage",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 45.4,
+            "topic": "Logical reasoning",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 37.2,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 9,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 30.1,
+            "topic": "Spatial Awareness",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 51.1,
+            "topic": "Find correct reasoning",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 55.0,
+            "topic": "Coding",
+            "correct": false
+          },
+          {
+            "qn": 12,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 70.9,
+            "topic": "Logical reasoning",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 53.3,
+            "topic": "Dialogue reasoning questions",
+            "correct": true
+          },
+          {
+            "qn": 14,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 26.8,
+            "topic": "Deductive reasoning",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 47.9,
+            "topic": "Missing number",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 30.3,
+            "topic": "Flaws in reasoning",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 74.3,
+            "topic": "Deductive reasoning",
+            "correct": false
+          },
+          {
+            "qn": 18,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 24.3,
+            "topic": "Sentence rearrangement",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 37.7,
+            "topic": "Detecting Reasoning Error",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 42.0,
+            "topic": "Deductive reasoning",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 64.2,
+            "topic": "Assessing the impact of Additional",
+            "correct": false
+          },
+          {
+            "qn": 22,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 50.4,
+            "topic": "Number",
+            "correct": true
+          },
+          {
+            "qn": 23,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 36.2,
+            "topic": "Deductive reasoning",
+            "correct": true
+          },
+          {
+            "qn": 24,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 66.9,
+            "topic": "Matching Arguments",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 49.4,
+            "topic": "Verbal reasoning",
+            "correct": false
+          },
+          {
+            "qn": 26,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 29.5,
+            "topic": "Letter Patterns",
+            "correct": false
+          },
+          {
+            "qn": 27,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 54.0,
+            "topic": "Matching Arguments",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 21.6,
+            "topic": "Prime number",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 34.1,
+            "topic": "Detecting Reasoning Error",
+            "correct": true
+          },
+          {
+            "qn": 30,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 52.3,
+            "topic": "Sequence",
+            "correct": false
+          }
+        ],
+        "total": 30,
+        "correct_count": 17,
+        "wrong_count": 13,
+        "no_response_count": 0,
+        "score_calc": 56.7
+      }
+    ],
+    "parsed_at": "2026-09-14T11:26:17.283967"
+  },
+  {
+    "filename": "OC05 Apson.pdf",
+    "filepath": "D:\\EKCRPA\\test-report-automation\\output\\OC_R05\\OC05 Apson.pdf",
+    "test_type": "OC",
+    "test_round": 5,
+    "student_name": "Apson Adhikari",
+    "student_id": "44359",
+    "subjects": [
+      {
+        "name_raw": "OC Trial Test Reading",
+        "name": "Reading",
+        "score": 66.7,
+        "test_no": 5,
+        "rank_pct": 25.5,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 55.6,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 54.7,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 69.0,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 42.1,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 5,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 54.5,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 75.5,
+            "topic": "Narrative",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 63.7,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 54.9,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 60.4,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 56.4,
+            "topic": "Cloze Exercise",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 75.9,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 12,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 66.5,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 43.8,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 57.7,
+            "topic": "Cloze Exercise",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 57.0,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 27.0,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 62.9,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 49.3,
+            "topic": "Poetry",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 80.9,
+            "topic": "Poetry",
+            "correct": false
+          },
+          {
+            "qn": 20,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 39.6,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 21,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 41.5,
+            "topic": "Cloze Passage",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 39.0,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 58.9,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 66.2,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 71.5,
+            "topic": "Cloze Passage",
+            "correct": false
+          },
+          {
+            "qn": 26,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 38.8,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 27,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 52.0,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 28,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 50.9,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 51.1,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 30,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 48.4,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 31,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 43.0,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 32,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 3.3,
+            "topic": "Linked Extracts",
+            "correct": true
+          },
+          {
+            "qn": 33,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 46.8,
+            "topic": "Linked Extracts",
+            "correct": true
+          }
+        ],
+        "total": 33,
+        "correct_count": 22,
+        "wrong_count": 11,
+        "no_response_count": 0,
+        "score_calc": 66.7
+      },
+      {
+        "name_raw": "OC Trial Test Mathematical Reasoning",
+        "name": "Mathematical Reasoning",
+        "score": 45.7,
+        "test_no": 5,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 56.6,
+            "topic": "3D Shape",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 32.1,
+            "topic": "Time",
+            "correct": false
+          },
+          {
+            "qn": 3,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 51.8,
+            "topic": "Measurement",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 72.8,
+            "topic": "Numeration",
+            "correct": true
+          },
+          {
+            "qn": 5,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 41.3,
+            "topic": "Symbol",
+            "correct": false
+          },
+          {
+            "qn": 6,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 84.1,
+            "topic": "Numeration",
+            "correct": false
+          },
+          {
+            "qn": 7,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 69.8,
+            "topic": "Divisibility",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 60.6,
+            "topic": "Logical reasoning",
+            "correct": false
+          },
+          {
+            "qn": 9,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 50.1,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 47.0,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 11,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 22.0,
+            "topic": "Deductive reasoning",
+            "correct": false
+          },
+          {
+            "qn": 12,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 38.8,
+            "topic": "Logical reasoning",
+            "correct": false
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 32.3,
+            "topic": "Deductive reasoning",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 53.2,
+            "topic": "Time",
+            "correct": true
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 59.5,
+            "topic": "Area",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 44.6,
+            "topic": "Angle",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 65.0,
+            "topic": "Mathematical Terms",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 60.4,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 19,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 39.8,
+            "topic": "Numeration",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 24.3,
+            "topic": "Pattern",
+            "correct": false
+          },
+          {
+            "qn": 21,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 37.5,
+            "topic": "Numeration",
+            "correct": false
+          },
+          {
+            "qn": 22,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 30.8,
+            "topic": "(미지정)",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 79.0,
+            "topic": "Units",
+            "correct": true
+          },
+          {
+            "qn": 24,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 59.8,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 25,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 61.6,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 26,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 48.4,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 27,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 52.2,
+            "topic": "Time",
+            "correct": true
+          },
+          {
+            "qn": 28,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 58.5,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "E",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 40.7,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 56.6,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 31,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 54.3,
+            "topic": "Number pattern",
+            "correct": false
+          },
+          {
+            "qn": 32,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "E",
+            "pct": 38.0,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 33,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 48.6,
+            "topic": "Units",
+            "correct": false
+          },
+          {
+            "qn": 34,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 42.8,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 35,
+            "resp": "E",
+            "symbol": "O",
+            "ans": "E",
+            "pct": 47.0,
+            "topic": "Problem Solving",
+            "correct": true
+          }
+        ],
+        "total": 35,
+        "correct_count": 16,
+        "wrong_count": 19,
+        "no_response_count": 0,
+        "score_calc": 45.7
+      },
+      {
+        "name_raw": "OC Trial Test Thinking Skills",
+        "name": "Thinking Skills",
+        "score": 40.0,
+        "test_no": 5,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 44.8,
+            "topic": "Matching Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 2,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 50.0,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 70.7,
+            "topic": "Deductive reasoning",
+            "correct": false
+          },
+          {
+            "qn": 4,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 40.6,
+            "topic": "Number Pattern",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 51.7,
+            "topic": "Coding",
+            "correct": false
+          },
+          {
+            "qn": 6,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 60.0,
+            "topic": "Drawing conclusion",
+            "correct": false
+          },
+          {
+            "qn": 7,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 82.0,
+            "topic": "Coding",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 49.2,
+            "topic": "Flaws in reasoning",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 27.6,
+            "topic": "Making inferences",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 43.5,
+            "topic": "Pattern",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 60.0,
+            "topic": "Missing Letters",
+            "correct": false
+          },
+          {
+            "qn": 12,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 81.4,
+            "topic": "Dialogue reasoning questions",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 47.3,
+            "topic": "Find correct reasoning",
+            "correct": false
+          },
+          {
+            "qn": 14,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 35.4,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 15,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 54.0,
+            "topic": "Pattern",
+            "correct": false
+          },
+          {
+            "qn": 16,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 44.8,
+            "topic": "Coding",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 45.8,
+            "topic": "Problem Solving",
+            "correct": false
+          },
+          {
+            "qn": 18,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 17.0,
+            "topic": "Missing number",
+            "correct": false
+          },
+          {
+            "qn": 19,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 56.7,
+            "topic": "Making inferences",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 58.8,
+            "topic": "Coding",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 73.6,
+            "topic": "Probability",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 70.5,
+            "topic": "Sequence",
+            "correct": false
+          },
+          {
+            "qn": 23,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 66.5,
+            "topic": "Drawing conclusion",
+            "correct": false
+          },
+          {
+            "qn": 24,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 29.5,
+            "topic": "Date calculation",
+            "correct": false
+          },
+          {
+            "qn": 25,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 27.8,
+            "topic": "Pattern",
+            "correct": true
+          },
+          {
+            "qn": 26,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 44.3,
+            "topic": "Missing number",
+            "correct": true
+          },
+          {
+            "qn": 27,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 69.7,
+            "topic": "Analogy",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 33.0,
+            "topic": "Problem Solving",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 49.0,
+            "topic": "Evaluative reasoning",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "A",
+            "pct": 69.7,
+            "topic": "Magic Square",
+            "correct": false
+          }
+        ],
+        "total": 30,
+        "correct_count": 12,
+        "wrong_count": 18,
+        "no_response_count": 0,
+        "score_calc": 40.0
+      }
+    ],
+    "parsed_at": "2026-09-14T11:26:18.258709"
+  },
+  {
+    "filename": "Apson Y3 T5.pdf",
+    "filepath": "D:\\EKCRPA\\test-report-automation\\output\\TermTest_T5\\Year3\\Apson Y3 T5.pdf",
+    "test_type": "Unknown",
+    "test_round": null,
+    "student_name": "Apson Adhikari",
+    "student_id": "44359",
+    "subjects": [
+      {
+        "name_raw": "Year 3 Term Test English",
+        "name": "Year 3 Term Test English",
+        "score": 100.0,
+        "test_no": 5,
+        "rank_pct": 0.3,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 89.7,
+            "topic": "Reading Comprehension",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 59.7,
+            "topic": "Reading Comprehension",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 71.1,
+            "topic": "Reading Comprehension",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 68.9,
+            "topic": "Reading Comprehension",
+            "correct": true
+          },
+          {
+            "qn": 5,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 74.7,
+            "topic": "Reading Comprehension",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 68.1,
+            "topic": "Reading Comprehension",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 80.8,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 78.9,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 93.1,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 10,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 95.0,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 97.5,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 76.1,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 80.0,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 14,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 71.1,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 15,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 65.8,
+            "topic": "Spelling and Word skills",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 75.0,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 83.6,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 36.9,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 73.3,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 58.3,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 75.3,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 36.9,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 23,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 76.4,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 24,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 91.9,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          },
+          {
+            "qn": 25,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 37.2,
+            "topic": "Grammar and Language Use",
+            "correct": true
+          }
+        ],
+        "total": 25,
+        "correct_count": 25,
+        "wrong_count": 0,
+        "no_response_count": 0,
+        "score_calc": 100.0
+      },
+      {
+        "name_raw": "Year 3 Term Test Mathematics",
+        "name": "Year 3 Term Test Mathematics",
+        "score": 76.7,
+        "test_no": 5,
+        "rank_pct": 49.1,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 91.9,
+            "topic": "Addition",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 92.4,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 82.1,
+            "topic": "Number Pattern",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 80.8,
+            "topic": "Division",
+            "correct": true
+          },
+          {
+            "qn": 5,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 90.5,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 84.0,
+            "topic": "Numbers",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 97.6,
+            "topic": "Graph Analysis",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 56.1,
+            "topic": "Division",
+            "correct": false
+          },
+          {
+            "qn": 9,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 86.2,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 10,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 85.6,
+            "topic": "Division",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 39.3,
+            "topic": "Length",
+            "correct": false
+          },
+          {
+            "qn": 12,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 67.8,
+            "topic": "Fraction",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 95.7,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 14,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 74.3,
+            "topic": "Transformation",
+            "correct": true
+          },
+          {
+            "qn": 15,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 77.2,
+            "topic": "Calendar",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 62.9,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 17,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 60.7,
+            "topic": "Symmetry",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 93.8,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 63.4,
+            "topic": "Division",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 71.0,
+            "topic": "Time",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 51.5,
+            "topic": "Addition",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 82.7,
+            "topic": "Chance",
+            "correct": true
+          },
+          {
+            "qn": 23,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 76.7,
+            "topic": "True Statement",
+            "correct": true
+          },
+          {
+            "qn": 24,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 79.4,
+            "topic": "Equivalent fraction",
+            "correct": true
+          },
+          {
+            "qn": 25,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 47.4,
+            "topic": "Fraction",
+            "correct": true
+          },
+          {
+            "qn": 26,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 75.9,
+            "topic": "Length",
+            "correct": false
+          },
+          {
+            "qn": 27,
+            "resp": "B",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 52.8,
+            "topic": "Time",
+            "correct": false
+          },
+          {
+            "qn": 28,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 88.1,
+            "topic": "Substitution",
+            "correct": false
+          },
+          {
+            "qn": 29,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 80.5,
+            "topic": "Problem solving",
+            "correct": false
+          },
+          {
+            "qn": 30,
+            "resp": null,
+            "symbol": "X",
+            "ans": "D",
+            "pct": 79.7,
+            "topic": "Perimeter",
+            "correct": false
+          }
+        ],
+        "total": 30,
+        "correct_count": 23,
+        "wrong_count": 7,
+        "no_response_count": 1,
+        "score_calc": 76.7
+      },
+      {
+        "name_raw": "Year 3 Term Test Thinking Ability",
+        "name": "Year 3 Term Test Thinking Ability",
+        "score": 86.7,
+        "test_no": 5,
+        "rank_pct": 3.9,
+        "questions": [
+          {
+            "qn": 1,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 46.1,
+            "topic": "Spelling",
+            "correct": true
+          },
+          {
+            "qn": 2,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 40.8,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 3,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 34.1,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 4,
+            "resp": "D",
+            "symbol": "X",
+            "ans": "C",
+            "pct": 41.9,
+            "topic": "Find Correct Reasoning",
+            "correct": false
+          },
+          {
+            "qn": 5,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 67.3,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 6,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 86.6,
+            "topic": "Multiplication",
+            "correct": true
+          },
+          {
+            "qn": 7,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 60.1,
+            "topic": "Reasoning",
+            "correct": true
+          },
+          {
+            "qn": 8,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 93.9,
+            "topic": "General Knowledge",
+            "correct": true
+          },
+          {
+            "qn": 9,
+            "resp": "C",
+            "symbol": "X",
+            "ans": "B",
+            "pct": 26.0,
+            "topic": "Shape pattern",
+            "correct": false
+          },
+          {
+            "qn": 10,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 37.4,
+            "topic": "Detecting Reasoning Error",
+            "correct": true
+          },
+          {
+            "qn": 11,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 58.1,
+            "topic": "Patterns and Algebra",
+            "correct": true
+          },
+          {
+            "qn": 12,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 29.6,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 13,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 74.3,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 14,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 88.5,
+            "topic": "Number sequence",
+            "correct": true
+          },
+          {
+            "qn": 15,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 71.5,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 16,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 29.3,
+            "topic": "Time",
+            "correct": false
+          },
+          {
+            "qn": 17,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 83.5,
+            "topic": "Numerical reasoning",
+            "correct": true
+          },
+          {
+            "qn": 18,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 62.8,
+            "topic": "Assessing the Impact of Additional",
+            "correct": true
+          },
+          {
+            "qn": 19,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 88.3,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 20,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 68.4,
+            "topic": "Alphabetical order",
+            "correct": true
+          },
+          {
+            "qn": 21,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 82.1,
+            "topic": "Correct Reasoning",
+            "correct": true
+          },
+          {
+            "qn": 22,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 67.6,
+            "topic": "Problem solving",
+            "correct": true
+          },
+          {
+            "qn": 23,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 83.5,
+            "topic": "Matching Reasoning",
+            "correct": true
+          },
+          {
+            "qn": 24,
+            "resp": "B",
+            "symbol": "O",
+            "ans": "B",
+            "pct": 38.5,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 25,
+            "resp": "A",
+            "symbol": "O",
+            "ans": "A",
+            "pct": 45.3,
+            "topic": "General Knowledge",
+            "correct": true
+          },
+          {
+            "qn": 26,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 50.3,
+            "topic": "Common saying",
+            "correct": true
+          },
+          {
+            "qn": 27,
+            "resp": "C",
+            "symbol": "O",
+            "ans": "C",
+            "pct": 83.2,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 28,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 52.0,
+            "topic": "Identifying Assumptions",
+            "correct": true
+          },
+          {
+            "qn": 29,
+            "resp": "D",
+            "symbol": "O",
+            "ans": "D",
+            "pct": 69.8,
+            "topic": "Literal reasoning",
+            "correct": true
+          },
+          {
+            "qn": 30,
+            "resp": "A",
+            "symbol": "X",
+            "ans": "D",
+            "pct": 50.6,
+            "topic": "Drawing a Conclusion",
+            "correct": false
+          }
+        ],
+        "total": 30,
+        "correct_count": 26,
+        "wrong_count": 4,
+        "no_response_count": 0,
+        "score_calc": 86.7
+      }
+    ],
+    "parsed_at": "2026-09-14T11:26:54.652309"
+  }
+]

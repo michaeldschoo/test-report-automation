@@ -1,0 +1,55 @@
+{
+  "Reading": {
+    "source": "PT1 - NSW Education / Cambridge University Press & Assessment",
+    "copyright_note": "© Cambridge University Press & Assessment. For personal/non-commercial use. Not CC BY 4.0.",
+    "ekc_taxonomy_version": "v1.0",
+    "questions_mapped": []
+  },
+  "Mathematical Reasoning": {
+    "source": "PT1 - NSW Education / Cambridge University Press & Assessment",
+    "copyright_note": "© Cambridge University Press & Assessment. For personal/non-commercial use. Not CC BY 4.0.",
+    "ekc_taxonomy_version": "v1.0",
+    "questions_mapped": [
+      {
+        "source_question_number": 1,
+        "answer": "N/A",
+        "question_text_preview": "67 -       = 32 + 17 What number is          ? A 17 B 18 C 32 D 49 E 116 2 What number is six hundreds less than 74 251? A 70 2 51 B 70 051 C 73 651 D 73 751 E 74 191 3 Liu Wei got on a train at twent",
+        "explanation_preview": "",
+        "nsw_skills_hint": [
+          "(해설에서 직접 판단 필요)"
+        ],
+        "ekc_topic_group": "수학 - 도형(Shape & Space)",
+        "ekc_skill": "Angle - 각도 측정 및 성질",
+        "match_confidence": "high",
+        "estimated_level": 2,
+        "notes": "각도 문제",
+        "source_subject": "Mathematical Reasoning",
+        "source_test": "PT1",
+        "source_copyright": "Cambridge University Press & Assessment (personal/non-commercial use only)"
+      },
+      {
+        "source_question_number": 2,
+        "answer": "N/A",
+        "question_text_preview": "A box containing 500 g costs $1. A box containing 2 kg costs $4. 50. Joe needs to buy exactly 4 kg of dog food. What is the lowest total price he can pay? A $5.50 B $6 C $6.50 D $7 E $7. 50 13 In this",
+        "explanation_preview": "",
+        "nsw_skills_hint": [
+          "(해설에서 직접 판단 필요)"
+        ],
+        "ekc_topic_group": "수학 - 도형(Shape & Space)",
+        "ekc_skill": "3D Shape - 입체도형 전개도/면/꼭짓점 이해",
+        "match_confidence": "high",
+        "estimated_level": 4,
+        "notes": "입체도형 문제 (NSW 해설 힌트 기반)",
+        "source_subject": "Mathematical Reasoning",
+        "source_test": "PT1",
+        "source_copyright": "Cambridge University Press & Assessment (personal/non-commercial use only)"
+      }
+    ]
+  },
+  "Thinking Skills": {
+    "source": "PT1 - NSW Education / Cambridge University Press & Assessment",
+    "copyright_note": "© Cambridge University Press & Assessment. For personal/non-commercial use. Not CC BY 4.0.",
+    "ekc_taxonomy_version": "v1.0",
+    "questions_mapped": []
+  }
+}

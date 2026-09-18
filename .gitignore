@@ -1,6 +1,14 @@
 .env
 __pycache__/
 downloads/
+!downloads/
+!downloads/*/
+!downloads/*/.gitkeep
 output/
+!output/
+!output/*.py
+!output/*.json
+!output/*/
+!output/*/.gitkeep
 *.png
 *.pdf
