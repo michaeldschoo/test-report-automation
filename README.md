@@ -47,5 +47,25 @@ python main.py
 - **다운로드 원본**: `downloads/` 폴더 내에 저장됩니다.
 - **최종 통합 리포트**: `output/` 폴더 내에서 학생 이름별로 확인 가능합니다.
 
+## 5. 시험 결과 주간 처리
+J: 드라이브에 시험 결과 PDF가 준비된 후 프로젝트 루트에서 전체 파이프라인을 실행합니다.
+
+```powershell
+# 결과 PDF 파싱, 질문 은행 갱신, 학생별 PDF 보고서 생성
+python run_pipeline.py
+
+# 특정 시험 유형만 처리
+python run_pipeline.py --test-type OC
+python run_pipeline.py --test-type Selective
+
+# JSON은 기존 파일을 사용하고 보고서 PDF만 다시 생성
+python run_pipeline.py --no-parse --no-bank
+
+# 파싱과 JSON 갱신만 수행하고 PDF는 생성하지 않음
+python run_pipeline.py --no-reports
+```
+
+파싱 결과와 질문 은행 JSON은 `output/`에 저장됩니다. `run_pipeline.py`는 프로젝트 루트에 있으므로 `output/output/`이 아니라 올바른 `output/` 경로를 사용합니다.
+
 ---
 **주의사항**: 실행 중 PDF 파일이 다른 프로그램(Adobe Reader 등)에서 열려 있으면 병합 과정에서 오류가 발생할 수 있습니다. 결과 파일을 확인하기 전에는 이전 결과 파일을 닫아주세요.
