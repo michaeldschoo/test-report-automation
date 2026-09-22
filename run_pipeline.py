@@ -37,6 +37,7 @@ from datetime import datetime
 # ===== 경로 설정 =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 J_DRIVE_BASE = r"J:\My Drive\EKC  OFFICE"
+TERM_TEST_OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 
 REPORTS_OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 PARSED_JSON = os.path.join(REPORTS_OUTPUT_DIR, "parsed_reports_v2.json")
@@ -194,7 +195,7 @@ def parse_pdf(pdf_path):
         parsed_name = m.group(1).strip()
     
     student_id = None
-    m_id = re.search(r'Student ID:\s*(\d+)', first_text)
+    m_id = re.search(r'Student ID:\s*([A-Za-z0-9-]+)', first_text)
     if m_id:
         student_id = m_id.group(1).strip()
     
@@ -218,46 +219,68 @@ def parse_pdf(pdf_path):
 
 
 def scan_result_pdfs(test_type_filter=None):
-    """J: 드라이브에서 결과지 PDF를 스캔하고 파싱"""
+    """J: 드라이브와 로컬 Term Test 결과 폴더에서 결과지 PDF를 스캔하고 파싱"""
     print(f"\n{'='*60}")
     print("1단계: 결과지 PDF 스캔 및 파싱")
     print(f"{'='*60}")
-    
-    if not os.path.exists(J_DRIVE_BASE):
-        print(f"오류: J: 드라이브 경로를 찾을 수 없음: {J_DRIVE_BASE}")
-        print("  Google Drive for Desktop이 설치되고 J:로 마운트되어 있는지 확인하세요.")
-        return None
-    
+
+    scan_roots = []
+    # TermTest 단독 실행은 로컬 결과 폴더만 읽어 J: 전체 재귀 검색을 피한다.
+    if test_type_filter == 'TermTest':
+        if os.path.exists(TERM_TEST_OUTPUT_DIR):
+            scan_roots.extend(
+                os.path.join(TERM_TEST_OUTPUT_DIR, name)
+                for name in os.listdir(TERM_TEST_OUTPUT_DIR)
+                if name.startswith('TermTest_')
+                and os.path.isdir(os.path.join(TERM_TEST_OUTPUT_DIR, name))
+            )
+    else:
+        if os.path.exists(J_DRIVE_BASE):
+            scan_roots.append(J_DRIVE_BASE)
+        else:
+            print(f"오류: J: 드라이브 경로를 찾을 수 없음: {J_DRIVE_BASE}")
+            print("  Google Drive for Desktop이 설치되고 J:로 마운트되어 있는지 확인하세요.")
+            return None
+
+        # 전체 실행에서는 다운로드·검증된 Term Test 결과도 함께 읽는다.
+        if os.path.exists(TERM_TEST_OUTPUT_DIR):
+            scan_roots.append(TERM_TEST_OUTPUT_DIR)
+
     all_reports = []
     total_pdfs = 0
-    
-    for root, dirs, files in os.walk(J_DRIVE_BASE):
-        for fn in files:
-            if not fn.lower().endswith('.pdf'):
-                continue
-            
-            # 시험 유형 필터 적용
-            test_type, test_round = detect_test_type_and_round(fn)
-            if test_type_filter and test_type != test_type_filter:
-                continue
-            
-            fp = os.path.join(root, fn)
-            total_pdfs += 1
-            
-            try:
-                report = parse_pdf(fp)
-                all_reports.append(report)
-                status = f"R{test_round}" if test_round else "?"
-                print(f"  ✓ [{test_type:10s}] {status:>4s} {report['student_name'] or '?':25s} {fn}")
-            except Exception as e:
-                print(f"  ✗ 파싱 실패: {fn} — {e}")
-    
+    seen_files = set()
+
+    for scan_root in scan_roots:
+        for root, dirs, files in os.walk(scan_root):
+            for fn in files:
+                if not fn.lower().endswith('.pdf'):
+                    continue
+                # 결과 다운로드 과정에서 생긴 동일 PDF 복사본(예: "_1")은 한 번만 처리한다.
+                if re.search(r'_\d+(?:\s|\.pdf$)', fn, re.IGNORECASE):
+                    continue
+
+                test_type, test_round = detect_test_type_and_round(fn)
+                if test_type_filter and test_type != test_type_filter:
+                    continue
+
+                fp = os.path.abspath(os.path.join(root, fn))
+                if fp in seen_files:
+                    continue
+                seen_files.add(fp)
+                total_pdfs += 1
+
+                try:
+                    report = parse_pdf(fp)
+                    all_reports.append(report)
+                    status = f"R{test_round}" if test_round else "?"
+                    print(f"  ✓ [{test_type:10s}] {status:>4s} {report['student_name'] or '?':25s} {fn}")
+                except Exception as e:
+                    print(f"  ✗ 파싱 실패: {fn} — {e}")
+
     print(f"\n총 {len(all_reports)}개 결과지 파싱 완료 (스캔: {total_pdfs}개 PDF)")
-    
     if not all_reports:
         print("오류: 파싱된 결과지가 없습니다.")
         return None
-    
     return all_reports
 
 
@@ -528,8 +551,18 @@ def recommend_for_topic(topic, subject, bank, max_n=2):
     candidates = [q for q in bank
                   if q.get('topic') == topic
                   and q.get('subject') == subject]
-    candidates.sort(key=lambda x: x.get('difficulty', 99))
-    return candidates[:max_n]
+    candidates.sort(key=lambda x: (x.get('difficulty', 99), x.get('round', 0), x.get('question_no', 0)))
+    unique = []
+    seen = set()
+    for candidate in candidates:
+        key = (candidate.get('round'), candidate.get('question_no'), candidate.get('subject'))
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(candidate)
+        if len(unique) >= max_n:
+            break
+    return unique
 
 
 def build_report_data(sn, test_type, target_round, bank, all_reports, student_history):
@@ -603,10 +636,11 @@ def build_report_data(sn, test_type, target_round, bank, all_reports, student_hi
     strongest_subject = max(scores, key=scores.get) if scores else None
     
     return {
-        'student_name': sn,
+        'student_name': latest.get('student_name') or sn,
         'test_type': test_type,
         'latest_round': target_round,
         'latest_filename': latest.get('filename', ''),
+        'latest_filepath': latest.get('filepath', ''),
         'student_id': latest.get('student_id'),
         'other_test_types': other_types,
         'subjects': subject_analysis,
@@ -669,7 +703,11 @@ def generate_pdf(rpt, output_path):
     
     # 학생 정보
     story.append(Paragraph(f"Student: {rpt['student_name']}", heading_style))
-    test_label = 'OC Trial Test' if rpt['test_type'] == 'OC' else 'Selective Trial Test'
+    test_label = {
+        'OC': 'OC Trial Test',
+        'Selective': 'Selective Trial Test',
+        'TermTest': 'Term Test',
+    }.get(rpt['test_type'], rpt['test_type'])
     story.append(Paragraph(f"Test: <b>{test_label}</b> — Round {rpt['latest_round']}", normal_style))
     story.append(Paragraph(f"Report Date: {today_str}", normal_style))
     if rpt.get('student_id'):
@@ -681,7 +719,11 @@ def generate_pdf(rpt, output_path):
     if other:
         story.append(Paragraph("Student's Other Test History", subheading_style))
         for tt_name, rounds in other.items():
-            label = 'OC Trial Test' if tt_name == 'OC' else 'Selective Trial Test'
+            label = {
+                'OC': 'OC Trial Test',
+                'Selective': 'Selective Trial Test',
+                'TermTest': 'Term Test',
+            }.get(tt_name, tt_name)
             rlist = ', '.join(f'R{r}' for r in sorted(rounds))
             story.append(Paragraph(f"• <b>{label}</b>: {rlist}", normal_style))
         story.append(Spacer(1, 3*mm))
@@ -814,6 +856,18 @@ def generate_pdf(rpt, output_path):
 # ============================================================
 # 메인 파이프라인
 # ============================================================
+def get_target_folder(test_type, test_round):
+    """시험 유형과 차수에 해당하는 보고서 출력 폴더를 반환"""
+    if test_type == 'TermTest':
+        folder_name = f"TermTest_T{test_round}"
+    elif test_type == 'OC':
+        folder_name = f"OC_R{int(test_round):02d}"
+    elif test_type == 'Selective':
+        folder_name = f"Selective_R{int(test_round):02d}"
+    else:
+        folder_name = f"{test_type}_R{test_round}"
+    return os.path.join(REPORTS_OUTPUT_DIR, folder_name)
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -821,6 +875,8 @@ def main():
     )
     parser.add_argument('--test-type', '-t', choices=['OC', 'Selective', 'TermTest'],
                         help='처리할 시험 유형 필터')
+    parser.add_argument('--round', type=int,
+                        help='지정한 시험 차수만 보고서 생성')
     parser.add_argument('--dry-run', action='store_true',
                         help='실제 PDF 생성 없이 절차만 실행 (파싱·은행 생성은 정상 수행)')
     parser.add_argument('--no-parse', action='store_true',
@@ -856,6 +912,26 @@ def main():
         if all_reports is None:
             print("\n오류: 파싱에 실패했습니다. 파이프라인을 중단합니다.")
             sys.exit(1)
+
+        # 유형 필터 실행 시에도 기존 유형의 파싱 결과를 보존한다.
+        if args.test_type and os.path.exists(PARSED_JSON):
+            try:
+                with open(PARSED_JSON, 'r', encoding='utf-8-sig') as f:
+                    previous_reports = json.load(f)
+                merged = {
+                    os.path.abspath(r.get('filepath', '')): r
+                    for r in previous_reports
+                    if r.get('filepath')
+                }
+                for report in all_reports:
+                    filepath = os.path.abspath(report.get('filepath', ''))
+                    if filepath:
+                        merged[filepath] = report
+                all_reports = list(merged.values())
+                print(f"  기존 결과와 병합: {len(previous_reports)}개 → {len(all_reports)}개")
+            except (OSError, json.JSONDecodeError) as e:
+                print(f"  기존 파싱 결과 병합 생략: {e}")
+
         save_parsed_reports(all_reports)
     else:
         if os.path.exists(PARSED_JSON):
@@ -883,6 +959,8 @@ def main():
             print(f"  로드: {BANK_JSON}")
             with open(BANK_JSON, 'r', encoding='utf-8') as f:
                 bank_data = json.load(f)
+            if isinstance(bank_data, dict) and isinstance(bank_data.get('question_bank'), dict):
+                bank_data = bank_data['question_bank']
             print(f"  로드 완료")
         else:
             print(f"\n오류: --no-bank 지정했으나 질문 은행 파일이 없음: {BANK_JSON}")
@@ -902,7 +980,8 @@ def main():
         student_history = defaultdict(lambda: defaultdict(list))
         for r in all_reports:
             sn = r.get('student_name')
-            if not sn:
+            student_key = r.get('student_id') or sn
+            if not student_key:
                 continue
             tt = r.get('test_type', 'Unknown')
             tr = r.get('test_round')
@@ -931,15 +1010,17 @@ def main():
                         ts['avg_pct'] = round(sum(ts['pct_values']) / len(ts['pct_values']), 1)
                     else:
                         ts['avg_pct'] = None
-            student_history[sn][tt].append({
+            student_history[student_key][tt].append({
                 'round': tr,
                 'filename': r.get('filename', ''),
+                'filepath': r.get('filepath', ''),
+                'student_name': sn,
                 'subjects': subjects,
                 'student_id': r.get('student_id'),
             })
-        for sn in student_history:
-            for tt in student_history[sn]:
-                student_history[sn][tt].sort(key=lambda x: x['round'])
+        for student_key in student_history:
+            for tt in student_history[student_key]:
+                student_history[student_key][tt].sort(key=lambda x: x['round'])
         
         # 처리할 시험 유형
         test_types_to_process = [args.test_type] if args.test_type else ['OC', 'Selective', 'TermTest']
@@ -950,10 +1031,11 @@ def main():
         for test_type in test_types_to_process:
             type_rounds = defaultdict(set)
             for r in all_reports:
-                if r.get('test_type') == test_type and r.get('student_name'):
+                student_key = r.get('student_id') or r.get('student_name')
+                if r.get('test_type') == test_type and student_key:
                     tr = r.get('test_round')
                     if tr is not None:
-                        type_rounds[r['student_name']].add(tr)
+                        type_rounds[student_key].add(tr)
             
             if not type_rounds:
                 print(f"\n{test_type}: 해당 유형의 결과지 없음")
@@ -975,21 +1057,34 @@ def main():
                     continue
                 
                 students_in_round = []
-                for sn, rounds in type_rounds.items():
+                for student_key, rounds in type_rounds.items():
                     if target_round in rounds:
-                        rpt = build_report_data(sn, test_type, target_round, bank_data, all_reports, student_history)
+                        rpt = build_report_data(student_key, test_type, target_round, bank_data, all_reports, student_history)
                         if rpt:
-                            students_in_round.append((sn, rpt))
+                            students_in_round.append((student_key, rpt))
                 
                 if not students_in_round:
                     continue
                 
                 print(f"\n{test_type} Round {target_round}: {len(students_in_round)}명 보고서 생성")
                 
-                for sn, rpt in students_in_round:
-                    safe_name = sn.replace(' ', '_')
-                    filename = f"{test_type}{target_round}_{safe_name}_Progress_Report.pdf"
-                    output_path = os.path.join(target_folder, filename)
+                for student_key, rpt in students_in_round:
+                    # 내부 매칭은 Student ID를 사용하지만, 출력 파일명은 학생명을 사용한다.
+                    display_name = rpt.get('student_name') or student_key
+                    safe_name = re.sub(r'[<>:"/\\|?*]+', '_', display_name).strip().replace(' ', '_')
+                    base_filename = f"{test_type}{target_round}_{safe_name}_Progress_Report.pdf"
+                    if test_type == 'TermTest' and rpt.get('latest_filepath'):
+                        result_folder = os.path.dirname(rpt['latest_filepath'])
+                        if os.path.basename(result_folder).startswith('Year'):
+                            target_folder = result_folder
+                            os.makedirs(target_folder, exist_ok=True)
+                    output_path = os.path.join(target_folder, base_filename)
+                    counter = 1
+                    while os.path.exists(output_path):
+                        filename = f"{test_type}{target_round}_{safe_name}_{counter}_Progress_Report.pdf"
+                        output_path = os.path.join(target_folder, filename)
+                        counter += 1
+                    filename = os.path.basename(output_path)
                     
                     if args.dry_run:
                         print(f"  📄 {filename} (DRY-RUN — 생성 안 함)")
@@ -998,7 +1093,7 @@ def main():
                     try:
                         generate_pdf(rpt, output_path)
                         size_kb = os.path.getsize(output_path) / 1024
-                        print(f"  ✅ {sn}: {filename} ({size_kb:.1f} KB)")
+                        print(f"  ✅ {display_name}: {filename} ({size_kb:.1f} KB)")
                         total_generated += 1
                     except Exception as e:
                         print(f"  ❌ {sn}: {e}")
