@@ -227,13 +227,17 @@ def scan_result_pdfs(test_type_filter=None, round_filter=None):
     scan_roots = []
     # 회차가 지정되면 로컬 회차 폴더만 스캔해 J: 전체 재귀 검색을 피한다.
     if test_type_filter and round_filter is not None:
-        local_round_dir = get_target_folder(test_type_filter, round_filter)
-        if os.path.isdir(local_round_dir):
-            scan_roots.append(local_round_dir)
-        elif os.path.exists(J_DRIVE_BASE):
+        local_round_dirs = [get_target_folder(test_type_filter, round_filter)]
+        # main.py stores OC downloads in OC_R7 while the report pipeline uses OC_R07.
+        if test_type_filter == 'OC':
+            unpadded_dir = os.path.join(REPORTS_OUTPUT_DIR, f"OC_R{int(round_filter)}")
+            if unpadded_dir not in local_round_dirs:
+                local_round_dirs.append(unpadded_dir)
+        scan_roots.extend(path for path in local_round_dirs if os.path.isdir(path))
+        if not scan_roots and os.path.exists(J_DRIVE_BASE):
             scan_roots.append(J_DRIVE_BASE)
-        else:
-            print(f"오류: 회차 폴더와 J: 드라이브를 찾을 수 없음: {local_round_dir}")
+        elif not scan_roots:
+            print(f"오류: 회차 폴더와 J: 드라이브를 찾을 수 없음: {local_round_dirs[0]}")
             return None
     # TermTest 단독 실행은 로컬 결과 폴더만 읽어 J: 전체 재귀 검색을 피한다.
     elif test_type_filter == 'TermTest':
