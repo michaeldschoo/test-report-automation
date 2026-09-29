@@ -218,15 +218,25 @@ def parse_pdf(pdf_path):
     }
 
 
-def scan_result_pdfs(test_type_filter=None):
-    """J: 드라이브와 로컬 Term Test 결과 폴더에서 결과지 PDF를 스캔하고 파싱"""
+def scan_result_pdfs(test_type_filter=None, round_filter=None):
+    """결과지 PDF를 스캔하고 지정된 시험 유형·차수만 파싱"""
     print(f"\n{'='*60}")
     print("1단계: 결과지 PDF 스캔 및 파싱")
     print(f"{'='*60}")
 
     scan_roots = []
+    # 회차가 지정되면 로컬 회차 폴더만 스캔해 J: 전체 재귀 검색을 피한다.
+    if test_type_filter and round_filter is not None:
+        local_round_dir = get_target_folder(test_type_filter, round_filter)
+        if os.path.isdir(local_round_dir):
+            scan_roots.append(local_round_dir)
+        elif os.path.exists(J_DRIVE_BASE):
+            scan_roots.append(J_DRIVE_BASE)
+        else:
+            print(f"오류: 회차 폴더와 J: 드라이브를 찾을 수 없음: {local_round_dir}")
+            return None
     # TermTest 단독 실행은 로컬 결과 폴더만 읽어 J: 전체 재귀 검색을 피한다.
-    if test_type_filter == 'TermTest':
+    elif test_type_filter == 'TermTest':
         if os.path.exists(TERM_TEST_OUTPUT_DIR):
             scan_roots.extend(
                 os.path.join(TERM_TEST_OUTPUT_DIR, name)
@@ -261,6 +271,8 @@ def scan_result_pdfs(test_type_filter=None):
 
                 test_type, test_round = detect_test_type_and_round(fn)
                 if test_type_filter and test_type != test_type_filter:
+                    continue
+                if round_filter is not None and test_round != round_filter:
                     continue
 
                 fp = os.path.abspath(os.path.join(root, fn))
@@ -368,6 +380,15 @@ def build_question_bank(all_reports):
     print(f"\n{'='*60}")
     print("2단계: 질문 은행 생성")
     print(f"{'='*60}")
+
+    type_stats = defaultdict(lambda: {'reports': 0, 'students': set(), 'rounds': set()})
+    for report in all_reports:
+        test_type = report.get('test_type', 'Unknown')
+        type_stats[test_type]['reports'] += 1
+        if report.get('student_name'):
+            type_stats[test_type]['students'].add(report['student_name'])
+        if report.get('test_round') is not None:
+            type_stats[test_type]['rounds'].add(report['test_round'])
     
     question_stats = defaultdict(lambda: {
         'total_students_seen': 0,
@@ -876,7 +897,7 @@ def main():
     parser.add_argument('--test-type', '-t', choices=['OC', 'Selective', 'TermTest'],
                         help='처리할 시험 유형 필터')
     parser.add_argument('--round', type=int,
-                        help='지정한 시험 차수만 보고서 생성')
+                        help='지정한 시험 차수만 파싱·보고서 생성 (예: --test-type OC --round 7)')
     parser.add_argument('--dry-run', action='store_true',
                         help='실제 PDF 생성 없이 절차만 실행 (파싱·은행 생성은 정상 수행)')
     parser.add_argument('--no-parse', action='store_true',
@@ -908,7 +929,7 @@ def main():
     # ===== 1단계: 파싱 =====
     all_reports = None
     if not args.no_parse:
-        all_reports = scan_result_pdfs(args.test_type)
+        all_reports = scan_result_pdfs(args.test_type, args.round)
         if all_reports is None:
             print("\n오류: 파싱에 실패했습니다. 파이프라인을 중단합니다.")
             sys.exit(1)
@@ -1052,7 +1073,9 @@ def main():
                     continue
                 
                 target_folder = get_target_folder(test_type, target_round)
-                if not os.path.exists(target_folder):
+                if test_type != 'TermTest':
+                    os.makedirs(target_folder, exist_ok=True)
+                elif not os.path.exists(target_folder):
                     print(f"\n{test_type} Round {target_round}: 폴더 없음 — {target_folder}")
                     continue
                 
@@ -1079,11 +1102,6 @@ def main():
                             target_folder = result_folder
                             os.makedirs(target_folder, exist_ok=True)
                     output_path = os.path.join(target_folder, base_filename)
-                    counter = 1
-                    while os.path.exists(output_path):
-                        filename = f"{test_type}{target_round}_{safe_name}_{counter}_Progress_Report.pdf"
-                        output_path = os.path.join(target_folder, filename)
-                        counter += 1
                     filename = os.path.basename(output_path)
                     
                     if args.dry_run:
@@ -1096,7 +1114,7 @@ def main():
                         print(f"  ✅ {display_name}: {filename} ({size_kb:.1f} KB)")
                         total_generated += 1
                     except Exception as e:
-                        print(f"  ❌ {sn}: {e}")
+                        print(f"  ❌ {display_name}: {e}")
                         total_skipped += 1
         
         print(f"\n{'='*60}")
