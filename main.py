@@ -4,6 +4,7 @@ import re
 import sys
 import zipfile
 import shutil
+import subprocess
 import traceback
 from playwright.async_api import async_playwright
 from pdf_merger import merge_pdfs, merge_all_in_folder
@@ -423,6 +424,30 @@ def merge_all_students(base_path, output_path, suffix, is_selective=False, year_
                 except Exception as e:
                     print(f"Error merging term for {sid}: {e}")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def run_progress_pipeline(test_type, test_round=None):
+    """병합된 결과지를 run_pipeline.py로 파싱하고 학생별 Progress Report를 생성합니다."""
+    cmd = [sys.executable, os.path.join(BASE_DIR, "run_pipeline.py")]
+    if test_type:
+        cmd.extend(["--test-type", test_type])
+    if test_round is not None:
+        cmd.extend(["--round", str(test_round)])
+
+    print_log("[PIPELINE] 병합 완료 후 run_pipeline.py 실행")
+    print_log("  > " + " ".join(cmd))
+    env = os.environ.copy()
+    env["PYTHONIOENCODING"] = "utf-8"
+    env["PYTHONUTF8"] = "1"
+    result = subprocess.run(cmd, cwd=BASE_DIR, env=env, check=False)
+    if result.returncode != 0:
+        print_log(f"  ! run_pipeline.py 실행 실패 (exit code: {result.returncode})")
+        return False
+    print_log("[PIPELINE] 학생별 Progress Report 생성 완료")
+    return True
+
+
 async def main():
     async with async_playwright() as p:
         browser = None
@@ -435,16 +460,39 @@ async def main():
             while True:
                 await asyncio.sleep(0.5)
                 print_log("="*50 + "\n   EduKingdom Automation v2.4 - Main Menu\n" + "="*50)
-                print_log(" 1. Online Selective Test Report\n 2. Term Test Report (Year 1-6)\n 3. Online OC Trial Test Report\n 4. Return to Menu (메뉴로 돌아가기)\n 5. Exit (프로그램 종료)")
+                print_log(" 1. Online Selective Test Report\n 2. Term Test Report (Year 1-6)\n 3. Online OC Trial Test Report\n 4. run_pipeline.py (병합/학생별 Progress Report 생성)\n 5. Return to Menu (메뉴로 돌아가기)\n 6. Exit (프로그램 종료)")
                 choice = input("\nSelect Option: ").strip()
-                
-                # 5. Exit program and close browser
-                if choice == '5':
+
+                # 6. Exit program and close browser
+                if choice == '6':
                     print_log("[EXIT] 프로그램을 종료하고 브라우저를 닫습니다.")
                     break
 
-                # 4. Return to menu (refresh/navigate to post-login main page)
+                # 4. run_pipeline.py standalone execution
                 if choice == '4':
+                    print_log("[PIPELINE] 시험 유형을 선택하세요: 1=OC, 2=Selective, 3=TermTest, 4=전체")
+                    type_choice = input("Select Test Type: ").strip()
+                    pipeline_types = {'1': 'OC', '2': 'Selective', '3': 'TermTest'}
+                    test_type = pipeline_types.get(type_choice)
+                    if type_choice == '4':
+                        test_type = None
+                    elif test_type is None:
+                        print_log("  ! 잘못된 시험 유형입니다. 1~4번을 선택해 주세요.")
+                        continue
+
+                    round_value = input("Enter Round Number (전체 차수 또는 생략: Enter): ").strip()
+                    pipeline_round = int(round_value) if round_value.isdigit() else None
+                    if round_value and pipeline_round is None:
+                        print_log("  ! 차수는 숫자로 입력해 주세요.")
+                        continue
+
+                    run_progress_pipeline(test_type, pipeline_round)
+                    print_log("작업이 완료되었습니다. [Enter]를 누르면 메인 메뉴로 돌아갑니다...")
+                    await asyncio.get_event_loop().run_in_executor(None, input, "")
+                    continue
+
+                # 5. Return to menu (refresh/navigate to post-login main page)
+                if choice == '5':
                     print_log("[MENU] 초기 메뉴로 복귀합니다.")
                     if page and is_logged_in:
                         try:
@@ -456,7 +504,7 @@ async def main():
                     continue
 
                 if choice not in ['1', '2', '3']:
-                    print_log("  ! 잘못된 입력입니다. 1~5번 메뉴를 선택해 주세요.")
+                    print_log("  ! 잘못된 입력입니다. 1~6번 메뉴를 선택해 주세요.")
                     continue
 
                 prompt_text = "Enter Term Number: " if choice == '2' else "Enter Round Number: "
@@ -491,6 +539,13 @@ async def main():
                     elif mode == "oc":
                         await process_oc_test(page, val)
                     print_log(f"[DONE] {mode.capitalize()} Test {val} completed.")
+
+                    # 병합이 끝난 뒤 결과지 파싱 및 학생별 Progress Report 생성
+                    pipeline_type = {'selective': 'Selective', 'term': 'TermTest', 'oc': 'OC'}[mode]
+                    if val.isdigit():
+                        run_progress_pipeline(pipeline_type, int(val))
+                    else:
+                        run_progress_pipeline(pipeline_type, val)
                 except Exception as e:
                     print_log(f"[ERROR] {e}")
                     traceback.print_exc()
