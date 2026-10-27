@@ -24,7 +24,7 @@ styles.add(ParagraphStyle(name="PS",parent=styles["Normal"],fontSize=8,leading=1
 def load_pool():
     """
     문제 은행을 로드합니다.
-    Reading은 Cloze Exercise만 사용 (긴 지문 문제는 품질 이슈로 임시 제외)
+    Reading은 모든 유형 포함 (Linked Extracts, Poetry, Cloze, Paired Comprehension)
     """
     text=(BASE/"tools"/"generate_personalized_practice.py").read_text(encoding="utf-8")
     tree=ast.parse(text); pools={}
@@ -33,15 +33,10 @@ def load_pool():
             if node.targets[0].id in ("MATH_POOL","READING_POOL"):
                 pools[node.targets[0].id]=ast.literal_eval(node.value)
     math=[dict(q,subject="Mathematical Reasoning",verified=False) for q in pools.get("MATH_POOL",[])]
+    reading=[dict(q,subject="Reading",verified=False) for q in pools.get("READING_POOL",[])]
     
-    # Reading: Cloze Exercise만 필터링 (다른 유형은 지문이 너무 짧아 품질 문제)
-    reading_all=pools.get("READING_POOL",[])
-    reading=[dict(q,subject="Reading",verified=False) for q in reading_all 
-             if "Cloze" in q.get("topic","")]
-    
-    print(f"[INFO] Question pool loaded: {len(math)} Math, {len(reading)} Reading (Cloze only)")
-    if len(reading)<len(reading_all):
-        print(f"       Note: {len(reading_all)-len(reading)} non-Cloze Reading questions excluded due to quality concerns.")
+    print(f"[INFO] Question pool loaded: {len(math)} Math, {len(reading)} Reading (all types)")
+    print(f"       Note: Reading passages are shorter than NSW exam standards (future improvement planned)")
     
     return math+reading
 

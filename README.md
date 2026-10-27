@@ -100,9 +100,10 @@ python tools/generate_personalized_practice_sets.py --test-type TermTest --round
 생성기는 `output/parsed_reports_v2.json`과 `output/question_bank_by_type.json`을 읽어 지정된 시험 유형·회차의 학생 약점을 추출합니다. 각 학생에게 10문항 기본 복습 세트, 20문항 약점 집중 세트, 30문항 모의 연습 세트가 생성됩니다.
 
 **주의사항**:
-- Reading 문제는 현재 Cloze Exercise만 포함됩니다 (긴 지문 문제는 품질 개선 중)
-- 중복 문제 방지 기능이 적용되어 있습니다
+- 중복 문제 방지 기능이 적용되어 있습니다 (각 세트 내 모든 문제는 고유함)
 - 문제 은행이 부족하면 경고 메시지가 표시됩니다
+- Reading 문제는 다양한 유형을 포함하지만, NSW 실제 시험보다 지문이 짧습니다 (향후 개선 예정)
+- 현재 문제 은행: Math 15개, Reading 10개, Thinking Skills 3개
 
 생성 결과 위치:
 
