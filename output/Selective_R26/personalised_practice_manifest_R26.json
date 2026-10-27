@@ -1,0 +1,2204 @@
+{
+  "test_type": "Selective",
+  "round": 26,
+  "generated_at": "2026-10-26",
+  "students": {
+    "Aanya Surve": {
+      "student": "Aanya Surve",
+      "student_id": "43031",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 6,
+          "total": 8,
+          "error_rate": 75.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 5,
+          "total": 10,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 3,
+          "total": 8,
+          "error_rate": 37.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Average Speed",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Combination",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Money Problem",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Aaron He": {
+      "student": "Aaron He",
+      "student_id": "43933",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 5,
+          "total": 10,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Problem Solving",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Number",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Speed",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Coding",
+          "wrong": 3,
+          "total": 4,
+          "error_rate": 75.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Assessing the impact of",
+          "wrong": 2,
+          "total": 3,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 2,
+          "total": 4,
+          "error_rate": 50.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Adrio Maheswaran": {
+      "student": "Adrio Maheswaran",
+      "student_id": "45009",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 6,
+          "total": 6,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 3,
+          "total": 6,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Combination",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Money Problem",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Average",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Drawing conclusion",
+          "wrong": 2,
+          "total": 3,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 2,
+          "total": 4,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Flaws in Reasoning",
+          "wrong": 1,
+          "total": 2,
+          "error_rate": 50.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Asees Kaur": {
+      "student": "Asees Kaur",
+      "student_id": "44034",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 7,
+          "total": 8,
+          "error_rate": 87.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 6,
+          "total": 8,
+          "error_rate": 75.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 3,
+          "total": 6,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 4,
+          "total": 10,
+          "error_rate": 40.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Angle",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Estimation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Magic Square",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 4,
+          "total": 4,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Anagram",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Detecting Reasoning Errors",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Bellina Garan": {
+      "student": "Bellina Garan",
+      "student_id": "45881",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Money Problem",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Addition",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Average",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Distance",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Detecting Reasoning Errors",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Number",
+          "wrong": 3,
+          "total": 5,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Problem Solving",
+          "wrong": 3,
+          "total": 5,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 2,
+          "total": 4,
+          "error_rate": 50.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Deeksha Parthasarathy": {
+      "student": "Deeksha Parthasarathy",
+      "student_id": "44773",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 5,
+          "total": 6,
+          "error_rate": 83.3
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 6,
+          "total": 8,
+          "error_rate": 75.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 6,
+          "total": 8,
+          "error_rate": 75.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Combination",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Problem Solving",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Detecting Reasoning Errors",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Abstract reasoning",
+          "wrong": 2,
+          "total": 3,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Drawing conclusion",
+          "wrong": 2,
+          "total": 3,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Problem Solving",
+          "wrong": 3,
+          "total": 5,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 2,
+          "total": 4,
+          "error_rate": 50.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Diyez GC": {
+      "student": "Diyez GC",
+      "student_id": "43879",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 6,
+          "total": 8,
+          "error_rate": 75.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Combination",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Addition",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Distance",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Estimation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Anagram",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Synonym",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Abstract reasoning",
+          "wrong": 2,
+          "total": 3,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Problem Solving",
+          "wrong": 3,
+          "total": 5,
+          "error_rate": 60.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Elisa Jaberi Hafshejani": {
+      "student": "Elisa Jaberi Hafshejani",
+      "student_id": "43316",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 3,
+          "total": 8,
+          "error_rate": 37.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Money Problem",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Substitution",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Addition",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Distance",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 4,
+          "total": 4,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Flaws in Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Anagram",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Making Inferences",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Farzad Taharat": {
+      "student": "Farzad Taharat",
+      "student_id": "45427",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 7,
+          "total": 10,
+          "error_rate": 70.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 3,
+          "total": 6,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 3,
+          "total": 8,
+          "error_rate": 37.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Problem Solving",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Addition",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Average",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Distance",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Anagram",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Making Inferences",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Abstract reasoning",
+          "wrong": 2,
+          "total": 3,
+          "error_rate": 66.7
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Het chaudhari": {
+      "student": "Het chaudhari",
+      "student_id": "43082",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 8,
+          "total": 8,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Estimation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Number",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Perimeter",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Anagram",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Detecting Reasoning Errors",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Synonym",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Problem Solving",
+          "wrong": 3,
+          "total": 5,
+          "error_rate": 60.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Irving Chen": {
+      "student": "Irving Chen",
+      "student_id": "45337",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 3,
+          "total": 6,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Problem Solving",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Estimation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Fraction",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Making Inferences",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Number",
+          "wrong": 4,
+          "total": 5,
+          "error_rate": 80.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Problem Solving",
+          "wrong": 4,
+          "total": 5,
+          "error_rate": 80.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 3,
+          "total": 4,
+          "error_rate": 75.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Jadrian Maheswaran": {
+      "student": "Jadrian Maheswaran",
+      "student_id": "45008",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 4,
+          "total": 10,
+          "error_rate": 40.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Substitution",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Addition",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Estimation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Anagram",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Explanation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Making Inferences",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Joy Docherty": {
+      "student": "Joy Docherty",
+      "student_id": "43698",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 5,
+          "total": 10,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Combination",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Money Problem",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Problem Solving",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 4,
+          "total": 4,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Pattern sequence",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Identifying an Assumption",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Synonym",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Number",
+          "wrong": 4,
+          "total": 5,
+          "error_rate": 80.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Othniel Liu": {
+      "student": "Othniel Liu",
+      "student_id": "44161",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 3,
+          "total": 6,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 4,
+          "total": 10,
+          "error_rate": 40.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Estimation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Number",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Speed",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Percentage",
+          "wrong": 2,
+          "total": 4,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 1,
+          "total": 2,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Drawing conclusion",
+          "wrong": 3,
+          "total": 3,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Flaws in Reasoning",
+          "wrong": 1,
+          "total": 2,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Assessing the impact of",
+          "wrong": 1,
+          "total": 3,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Problem Solving",
+          "wrong": 1,
+          "total": 5,
+          "error_rate": 20.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Paxton Hsu": {
+      "student": "Paxton Hsu",
+      "student_id": "44502",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 3,
+          "total": 10,
+          "error_rate": 30.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 2,
+          "total": 8,
+          "error_rate": 25.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Estimation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Perimeter",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Flaws in Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Pattern sequence",
+          "wrong": 1,
+          "total": 2,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Abstract reasoning",
+          "wrong": 1,
+          "total": 3,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Drawing conclusion",
+          "wrong": 1,
+          "total": 3,
+          "error_rate": 33.3
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Rushank Ramesh": {
+      "student": "Rushank Ramesh",
+      "student_id": "45774",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 6,
+          "total": 10,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 3,
+          "total": 6,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 3,
+          "total": 8,
+          "error_rate": 37.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Passage",
+          "wrong": 2,
+          "total": 6,
+          "error_rate": 33.3
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Combination",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Problem Solving",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Average",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Graph Analysis",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Anagram",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Detecting Reasoning Errors",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Explanation",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Finding Correct Reasoning",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Making Inferences",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    },
+    "Zavian Rahman": {
+      "student": "Zavian Rahman",
+      "student_id": "43460",
+      "source": "Selective_R26",
+      "key_areas": [
+        {
+          "subject": "Reading",
+          "topic": "Poetry",
+          "wrong": 4,
+          "total": 6,
+          "error_rate": 66.7
+        },
+        {
+          "subject": "Reading",
+          "topic": "Paired Comprehension",
+          "wrong": 5,
+          "total": 8,
+          "error_rate": 62.5
+        },
+        {
+          "subject": "Reading",
+          "topic": "Cloze Exercise",
+          "wrong": 4,
+          "total": 8,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Reading",
+          "topic": "Linked Extracts",
+          "wrong": 4,
+          "total": 10,
+          "error_rate": 40.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Area",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Money Problem",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Numerical Reasoning",
+          "wrong": 2,
+          "total": 2,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Addition",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Mathematical Reasoning",
+          "topic": "Angle",
+          "wrong": 1,
+          "total": 1,
+          "error_rate": 100.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Letters",
+          "wrong": 3,
+          "total": 4,
+          "error_rate": 75.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Missing Number",
+          "wrong": 3,
+          "total": 5,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Problem Solving",
+          "wrong": 3,
+          "total": 5,
+          "error_rate": 60.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Flaws in Reasoning",
+          "wrong": 1,
+          "total": 2,
+          "error_rate": 50.0
+        },
+        {
+          "subject": "Thinking Skills",
+          "topic": "Abstract reasoning",
+          "wrong": 1,
+          "total": 3,
+          "error_rate": 33.3
+        }
+      ],
+      "sets": {
+        "10_questions_basic_review_set": {
+          "question_count": 10,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "20_questions_subject_weakness_focus_set": {
+          "question_count": 20,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        },
+        "30_questions_15_to_20_minute_mock_practice_set": {
+          "question_count": 30,
+          "student_pdf": "student_practice.pdf",
+          "teacher_pdf": "teacher_answer_key.pdf",
+          "json_file": "questions.json"
+        }
+      }
+    }
+  },
+  "question_bank_topics_available": [
+    "Advertising",
+    "Cloze Exercise",
+    "Poetry",
+    "Cloze Passage",
+    "Linked Extracts",
+    "Consecutive Numbers",
+    "Mass addition",
+    "Age Problem",
+    "Symmetry",
+    "Numeration",
+    "Square Root",
+    "Rate Problem",
+    "Equivalent value",
+    "Percentage",
+    "Fraction Addition",
+    "Mass problem",
+    "Problem Solving",
+    "Scale",
+    "Fraction",
+    "Fraction Division"
+  ],
+  "note": "Weak-area practice generated from student reports. Original sample questions; teacher review required."
+}
