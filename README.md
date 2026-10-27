@@ -82,7 +82,32 @@ python run_pipeline.py --test-type TermTest --round 3
 
 `--round`를 함께 지정하면 해당 회차만 파싱·보고서 생성합니다. 파싱 결과는 기존 `output/parsed_reports_v2.json`에 병합되고, `output/question_bank_by_type.json`은 전체 누적 데이터 기준으로 다시 생성됩니다. 매 회차마다 별도의 명령을 실행해 주세요.
 
-### 3단계: 완료 확인
+### 3단계: 학생별 맞춤 문제집 생성
+
+Progress Report 생성이 완료되면 범용 맞춤 문제집 생성기를 실행합니다.
+
+```powershell
+# OC Round 12 예시
+python tools/generate_personalized_practice_sets.py --test-type OC --round 12
+
+# Selective Round 27 예시
+python tools/generate_personalized_practice_sets.py --test-type Selective --round 27
+
+# Term Test Term 3 예시
+python tools/generate_personalized_practice_sets.py --test-type TermTest --round 3
+```
+
+생성기는 `output/parsed_reports_v2.json`과 `output/question_bank_by_type.json`을 읽어 지정된 시험 유형·회차의 학생 약점을 추출합니다. 각 학생에게 10문항 기본 복습 세트, 20문항 약점 집중 세트, 30문항 모의 연습 세트가 생성됩니다.
+
+생성 결과 위치:
+
+- OC: `output/OC_R<회차>/personalised_practice_<학생명>/`
+- Selective: `output/Selective_R<회차>/personalised_practice_<학생명>/`
+- Term Test: `output/TermTest_R<회차>/personalised_practice_<학생명>/`
+
+각 세트 폴더에는 학생용 PDF, 교사용 답안 PDF, `questions.json`이 있고, 각 회차 폴더에는 `personalised_practice_manifest_R<회차>.json`이 생성됩니다.
+
+### 4단계: 완료 확인
 
 터미널 요약에서 파싱한 PDF 수, 생성 보고서 수, 실패 수를 확인합니다. 출력은 다음 위치에 저장됩니다.
 
