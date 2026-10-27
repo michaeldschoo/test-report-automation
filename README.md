@@ -99,6 +99,11 @@ python tools/generate_personalized_practice_sets.py --test-type TermTest --round
 
 생성기는 `output/parsed_reports_v2.json`과 `output/question_bank_by_type.json`을 읽어 지정된 시험 유형·회차의 학생 약점을 추출합니다. 각 학생에게 10문항 기본 복습 세트, 20문항 약점 집중 세트, 30문항 모의 연습 세트가 생성됩니다.
 
+**주의사항**:
+- Reading 문제는 현재 Cloze Exercise만 포함됩니다 (긴 지문 문제는 품질 개선 중)
+- 중복 문제 방지 기능이 적용되어 있습니다
+- 문제 은행이 부족하면 경고 메시지가 표시됩니다
+
 생성 결과 위치:
 
 - OC: `output/OC_R<회차>/personalised_practice_<학생명>/`

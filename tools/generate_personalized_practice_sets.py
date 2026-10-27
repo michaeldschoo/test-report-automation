@@ -22,6 +22,10 @@ styles.add(ParagraphStyle(name="PQ",parent=styles["Normal"],fontSize=9.5,leading
 styles.add(ParagraphStyle(name="PS",parent=styles["Normal"],fontSize=8,leading=10.5))
 
 def load_pool():
+    """
+    문제 은행을 로드합니다.
+    Reading은 Cloze Exercise만 사용 (긴 지문 문제는 품질 이슈로 임시 제외)
+    """
     text=(BASE/"tools"/"generate_personalized_practice.py").read_text(encoding="utf-8")
     tree=ast.parse(text); pools={}
     for node in tree.body:
@@ -29,7 +33,16 @@ def load_pool():
             if node.targets[0].id in ("MATH_POOL","READING_POOL"):
                 pools[node.targets[0].id]=ast.literal_eval(node.value)
     math=[dict(q,subject="Mathematical Reasoning",verified=False) for q in pools.get("MATH_POOL",[])]
-    reading=[dict(q,subject="Reading",verified=False) for q in pools.get("READING_POOL",[])]
+    
+    # Reading: Cloze Exercise만 필터링 (다른 유형은 지문이 너무 짧아 품질 문제)
+    reading_all=pools.get("READING_POOL",[])
+    reading=[dict(q,subject="Reading",verified=False) for q in reading_all 
+             if "Cloze" in q.get("topic","")]
+    
+    print(f"[INFO] Question pool loaded: {len(math)} Math, {len(reading)} Reading (Cloze only)")
+    if len(reading)<len(reading_all):
+        print(f"       Note: {len(reading_all)-len(reading)} non-Cloze Reading questions excluded due to quality concerns.")
+    
     return math+reading
 
 def weak_areas(report):
@@ -71,19 +84,43 @@ def make_pdf(path,title,student,test_type,round_no,questions,answer_key=False):
     doc.build(story)
 
 def select_questions(areas,count,pool):
+    """
+    학생 약점 기반으로 문제를 선택합니다.
+    중복을 방지하고, pool이 부족하면 경고를 출력합니다.
+    """
     selected=[]
+    # 각 문제에 고유 ID 부여 (stem + topic 기반 해시)
+    for q in pool:
+        if "_id" not in q:
+            q["_id"]=hash(q.get("stem","")[:100]+str(q.get("topic",""))+str(q.get("subject","")))
+    used_ids=set()
+    
+    # 1단계: 학생 약점에 맞는 문제 우선 선택
     for area in sorted(areas,key=lambda x:(-x["error_rate"],-x["wrong"])):
         wanted=area["topic"].lower(); wanted_subject=area["subject"].lower()
         for q in pool:
+            if q["_id"] in used_ids:
+                continue  # 이미 사용한 문제 건너뛰기
             topic=q["topic"].lower(); subject=q["subject"].lower()
             if wanted_subject==subject and (wanted==topic or wanted in topic or topic in wanted):
-                if q not in selected:
-                    selected.append(q)
+                selected.append(q)
+                used_ids.add(q["_id"])
                 if len(selected)>=count: return selected[:count]
-    index=0
-    while len(selected)<count:
-        selected.append(dict(pool[index%len(pool)])); index+=1
-    return selected[:count]
+    
+    # 2단계: 아직 사용하지 않은 문제로 채우기
+    for q in pool:
+        if len(selected)>=count:
+            break
+        if q["_id"] not in used_ids:
+            selected.append(q)
+            used_ids.add(q["_id"])
+    
+    # 3단계: 여전히 부족하면 경고
+    if len(selected)<count:
+        print(f"[WARNING] Question pool has only {len([q for q in pool if q['_id'] not in used_ids])+len(selected)} unique questions, but {count} requested.")
+        print(f"          Generated {len(selected)} unique questions (no duplicates).")
+    
+    return selected
 
 
 def output_folder(test_type, round_no):
