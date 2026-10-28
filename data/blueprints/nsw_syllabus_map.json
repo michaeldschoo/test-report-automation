@@ -1,0 +1,18 @@
+{
+  "Math": {
+    "Algebra": {
+      "outcome": "MA5.3-7NA",
+      "logic": "linear_eq"
+    },
+    "Geometry": {
+      "outcome": "MA5.1-10MG",
+      "logic": "area_calc"
+    }
+  },
+  "Thinking": {
+    "Deduction": {
+      "outcome": "TS_Logic_01",
+      "logic": "syllogism"
+    }
+  }
+}

@@ -1,0 +1,945 @@
+[
+  {
+    "file": "STT18 TS.pdf",
+    "subject": "TS",
+    "round": "18",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT18 MATH.pdf",
+    "subject": "MATH",
+    "round": "18",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT18 ENG.pdf",
+    "subject": "ENG",
+    "round": "18",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT17 ENG.pdf",
+    "subject": "ENG",
+    "round": "17",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT17 MATH.pdf",
+    "subject": "MATH",
+    "round": "17",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT17 TS.pdf",
+    "subject": "TS",
+    "round": "17",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT16 ENG.pdf",
+    "subject": "ENG",
+    "round": "16",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT16 MATH.pdf",
+    "subject": "MATH",
+    "round": "16",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT16 TS.pdf",
+    "subject": "TS",
+    "round": "16",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT15 ENG.pdf",
+    "subject": "ENG",
+    "round": "15",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT15 MATH.pdf",
+    "subject": "MATH",
+    "round": "15",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT15 TS.pdf",
+    "subject": "TS",
+    "round": "15",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT14 ENG.pdf",
+    "subject": "ENG",
+    "round": "14",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT14 MATH.pdf",
+    "subject": "MATH",
+    "round": "14",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "TT14 TS.pdf",
+    "subject": "TS",
+    "round": "14",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT13 ENG.pdf",
+    "subject": "ENG",
+    "round": "13",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT13 MATH.pdf",
+    "subject": "MATH",
+    "round": "13",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT13 TS.pdf",
+    "subject": "TS",
+    "round": "13",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT12 ENG.pdf",
+    "subject": "ENG",
+    "round": "12",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT12 MATH.pdf",
+    "subject": "MATH",
+    "round": "12",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT12 TS.pdf",
+    "subject": "TS",
+    "round": "12",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT11 ENG.pdf",
+    "subject": "ENG",
+    "round": "11",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT11 MATH.pdf",
+    "subject": "MATH",
+    "round": "11",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT11 TS.pdf",
+    "subject": "TS",
+    "round": "11",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT10 ENG.pdf",
+    "subject": "ENG",
+    "round": "10",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT10 MATH.pdf",
+    "subject": "MATH",
+    "round": "10",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT10 TS.pdf",
+    "subject": "TS",
+    "round": "10",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT9 ENG.pdf",
+    "subject": "ENG",
+    "round": "9",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT9 MATH.pdf",
+    "subject": "MATH",
+    "round": "9",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT9 TS.pdf",
+    "subject": "TS",
+    "round": "9",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT8 ENG.pdf",
+    "subject": "ENG",
+    "round": "8",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT8 MATH.pdf",
+    "subject": "MATH",
+    "round": "8",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT8 TS.pdf",
+    "subject": "TS",
+    "round": "8",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT8 TS ASN.pdf",
+    "subject": "TS",
+    "round": "8",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT7 ENG.pdf",
+    "subject": "ENG",
+    "round": "7",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT7 MATH.pdf",
+    "subject": "MATH",
+    "round": "7",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT7 TS.pdf",
+    "subject": "TS",
+    "round": "7",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT6 ENG.pdf",
+    "subject": "ENG",
+    "round": "6",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT6 MATH.pdf",
+    "subject": "MATH",
+    "round": "6",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT6 TS.pdf",
+    "subject": "TS",
+    "round": "6",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT3 ENG.pdf",
+    "subject": "ENG",
+    "round": "3",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT3 MATH.pdf",
+    "subject": "MATH",
+    "round": "3",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT3 TS.pdf",
+    "subject": "TS",
+    "round": "3",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT5 ENG.pdf",
+    "subject": "ENG",
+    "round": "5",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT5 MATH.pdf",
+    "subject": "MATH",
+    "round": "5",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT5 TS.pdf",
+    "subject": "TS",
+    "round": "5",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT2 ENG.pdf",
+    "subject": "ENG",
+    "round": "2",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT2 MATH.pdf",
+    "subject": "MATH",
+    "round": "2",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT2 TS.pdf",
+    "subject": "TS",
+    "round": "2",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT4 ENG.pdf",
+    "subject": "ENG",
+    "round": "4",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT4 MATH.pdf",
+    "subject": "MATH",
+    "round": "4",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT4 TS.pdf",
+    "subject": "TS",
+    "round": "4",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT19 TS.pdf",
+    "subject": "TS",
+    "round": "19",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT19 ENG.pdf",
+    "subject": "ENG",
+    "round": "19",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT19 MATH.pdf",
+    "subject": "MATH",
+    "round": "19",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT20 MATH.pdf",
+    "subject": "MATH",
+    "round": "20",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT20 ENG.pdf",
+    "subject": "ENG",
+    "round": "20",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT20 TS.pdf",
+    "subject": "TS",
+    "round": "20",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT21 TS.pdf",
+    "subject": "TS",
+    "round": "21",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT21 MATH.pdf",
+    "subject": "MATH",
+    "round": "21",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT21 ENG.pdf",
+    "subject": "ENG",
+    "round": "21",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT22 TS.pdf",
+    "subject": "TS",
+    "round": "22",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT22 MATH.pdf",
+    "subject": "MATH",
+    "round": "22",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT22 ENG.pdf",
+    "subject": "ENG",
+    "round": "22",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT23 TS.pdf",
+    "subject": "TS",
+    "round": "23",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT23 MATH.pdf",
+    "subject": "MATH",
+    "round": "23",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT23 ENG.pdf",
+    "subject": "ENG",
+    "round": "23",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT24 TS.pdf",
+    "subject": "TS",
+    "round": "24",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT24 MATH.pdf",
+    "subject": "MATH",
+    "round": "24",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT24 ENG.pdf",
+    "subject": "ENG",
+    "round": "24",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT25 MATH.pdf",
+    "subject": "MATH",
+    "round": "25",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT25 TS.pdf",
+    "subject": "TS",
+    "round": "25",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT25 ENG.pdf",
+    "subject": "ENG",
+    "round": "25",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT26 TS.pdf",
+    "subject": "TS",
+    "round": "26",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT26 MATH.pdf",
+    "subject": "MATH",
+    "round": "26",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT26 ENG.pdf",
+    "subject": "ENG",
+    "round": "26",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT27 TS.pdf",
+    "subject": "TS",
+    "round": "27",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT27 ENG.pdf",
+    "subject": "ENG",
+    "round": "27",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT27 MATH.pdf",
+    "subject": "MATH",
+    "round": "27",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261027185708.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261027185708",
+    "extracts": [
+      "Extract A: 1914- 2014 \nAs of 2014, it is 100 years since the first real global conflict - World War 1. It began in 1914 \nand was concluded in 1918. Millions died on the battlefields of Europe as Germany and its \nallies fought a four-year trench warfare against the Allies led by Great Britain. Many \ncountries were aligned with Great Britain, particularly the Commonwealth countries, \nincluding Australia, New Zealand, Canada, India and South Africa. This was a great \npatriotic war and these countries were involved in the conflict early in 1914. \nAt the time of the outbreak of hostilities the British Government requested Australia's \nassistance in men and materials. Just north of Australia lay Papua New Guinea. This area \nwas then German New Guinea. In this area there were a number of radio communication \nstations. Their existence meant that German New Guinea would be in contact with the \npowerful German fleet. The British Government wanted to isolate the area, so that no \ninformation could pass from it to the German Fleet. \nOn 9 August a request was made for Australia to take on this task. The orders were simple \n- a small contingent would need to be sent to destroy the radio communication centres in \nGerman New Guinea, and another group would bolster the small force of troops on \nThursday Island, just south of the German territory. \nThe first group, the Australian Naval and Military Expeditionary Force, was made up of \n1,500 volunteers. The objective in destroying the radio communication towers was \ncompleted in September of 1914. This was the first action of Australian troops in the \nPacific region, and it effectively isolated the German colony from contact with Berlin or the \nGerman fleet. The group that was sent to Thursday Island spent much of their time \nmanaging the fort and patrolling the island. Within a few months there was not even the \nremote possibility of Australia being invaded from the north, and the troops were \nwithdrawn. Australia had played a small but significant role in protecting our shores.",
+      "Extract B: Closing In - Marines in the Seizure of lwo Jima \nSunday, 4 March 1945, marked the end of the second week of the U.S. invasion of lwo \nJima. By this point the assault elements of the 3d, 4th, and 5th Marine Divisions were \nexhausted, their combat efficiency reduced to dangerously low levels. The thrilling sight of \nthe American flag being raised by the 28th Marines on Mount Suribachi had occurred 10 \ndays earlier, a lifetime on \"Sulphur Island.\" The landing forces of the V Amphibious Corps \n(VAC) had already sustained 13,000 casualties, including 3,000 dead. The \"front lines\" .. ,- •··--... - . 'I ~ M·•~ • ! \nwere a jagged::serration across lwo's fat northern half, still in the middle of the main \nJapanese defences. Ahead the going seemed all uphill against a well-disciplined, rarely \nvisible enemy. \n© Copyright: fx Edu-Kingdom College \n- Reading Skills \n\n4. Which objective is accurately reflected in both extracts? \nA Forcing an immediate surrender through psychological warfare \nB Capturing enemy capitals to end the war \nC Isolating the enemy by seizing or disabling critical positions \nD Securing food supplies for civilians \n5. Which extract alludes to a symbolic moment intended to lift spirits? \nA ExtractA \nB Extract B \nC Both Extracts \nD Neither Extract \n6. Why did the 5th Marine Division's morning attacks lack coordination? \nA Sudden bad weather disrupted communications \nB Conflicting orders from corps headquarters \nC Collective exhaustion after a night fighting infiltrators \nD Unfamiliarity with newly issued weapons \n7. The description of the \"front lines\" as a \"jagged serration\" in Extract B suggests they \nwere? \nA A straight, continuous trench line \nB Irregular and interlocked across broken ground \nC Entirely confined to the beaches \nD Separated by a wide and chaotic no-man's-land \n8. Which of the following statements best captures the situation in Extract B? \nA Advantageous spots were lost by the Japanese, but little ground was gained. \nB The Marines were in full retreat after heavy losses \nC The battle had stabilised into a comfortable stalemate for both sides. \nD Japanese forces had made multiple attempts to regain control of Mount \nSuribachi. \n© Copyright: 'ix Edu-Kingdom College \n- Reading Skills 3"
+    ],
+    "questions": [
+      {
+        "qn": "8",
+        "text": "Extract A: 1914- 2014 \nAs of 2014, it is 100 years since the first real global conflict - World War 1. It began in 1914 \nand was concluded in 1918. Millions died on the battlefields of Europe as Germany and its \nallies fought a four-year trench warfare against the Allies led by Great Britain. Many \ncountries were aligned with Great Britain, particularly the Commonwealth countries, \nincluding Australia, New Zealand, Canada, India and South Africa. This was a great \npatriotic war and these countries were involved in the conflict early in 1914. \nAt the time of the outbreak of hostilities the British Government requested Australia's \nassistance in men and materials. Just north of Australia lay Papua New Guinea. This area \nwas then German New Guinea. In this area there were a number of radio communication \nstations. Their existence meant that German New Guinea would be in contact with the \npowerful German fleet. The British Government wanted to isolate the area, so that no \ninformation could pass from it to the German Fleet. \nOn 9 August a request was made for Australia to take on this task. The orders were simple \n- a small contingent would need to be sent to destroy the radio communication centres in \nGerman New Guinea, and another group would bolster the small force of troops on \nThursday Island, just south of the German territory. \nThe first group, the Australian Naval and Military Expeditionary Force, was made up of \n1,500 volunteers. The objective in destroying the radio communication towers was \ncompleted in September of 1914. This was the first action of Australian troops in the \nPacific region, and it effectively isolated the German colony from contact with Berlin or the \nGerman fleet. The group that was sent to Thursday Island spent much of their time \nmanaging the fort and patrolling the island. Within a few months there was not even the \nremote possibility of Australia being invaded from the north, and the troops were \nwithdrawn. Australia had played a small but significant role in protecting our shores. \nExtract B: Closing In - Marines in the Seizure of lwo Jima \nSunday, 4 March 1945, marked the end of the second week of the U.S. invasion of lwo \nJima. By this point the assault elements of the 3d, 4th, and 5th Marine Divisions were \nexhausted, their combat efficiency reduced to dangerously low levels. The thrilling sight of \nthe American flag being raised by the 28th Marines on Mount Suribachi had occurred 10 \ndays earlier, a lifetime on \"Sulphur Island.\" The landing forces of the V Amphibious Corps \n(VAC) had already sustained 13,000 casualties, including 3,000 dead. The \"front lines\" .. ,- •··--... - . 'I ~ M·•~ • ! \nwere a jagged::serration across lwo's fat northern half, still in the middle of the main \nJapanese defences. Ahead the going seemed all uphill against a well-disciplined, rarely \nvisible enemy. \n© Copyright: fx Edu-Kingdom College \n- Reading Skills"
+      },
+      {
+        "qn": "4",
+        "text": "Which objective is accurately reflected in both extracts? \nA Forcing an immediate surrender through psychological warfare \nB Capturing enemy capitals to end the war \nC Isolating the enemy by seizing or disabling critical positions \nD Securing food supplies for civilians"
+      },
+      {
+        "qn": "5",
+        "text": "Which extract alludes to a symbolic moment intended to lift spirits? \nA ExtractA \nB Extract B \nC Both Extracts \nD Neither Extract"
+      },
+      {
+        "qn": "6",
+        "text": "Why did the 5th Marine Division's morning attacks lack coordination? \nA Sudden bad weather disrupted communications \nB Conflicting orders from corps headquarters \nC Collective exhaustion after a night fighting infiltrators \nD Unfamiliarity with newly issued weapons"
+      },
+      {
+        "qn": "7",
+        "text": "The description of the \"front lines\" as a \"jagged serration\" in Extract B suggests they \nwere? \nA A straight, continuous trench line \nB Irregular and interlocked across broken ground \nC Entirely confined to the beaches \nD Separated by a wide and chaotic no-man's-land"
+      },
+      {
+        "qn": "8",
+        "text": "Which of the following statements best captures the situation in Extract B? \nA Advantageous spots were lost by the Japanese, but little ground was gained. \nB The Marines were in full retreat after heavy losses \nC The battle had stabilised into a comfortable stalemate for both sides. \nD Japanese forces had made multiple attempts to regain control of Mount \nSuribachi. \n© Copyright: 'ix Edu-Kingdom College \n- Reading Skills 3 \n\nQuestions 17 to 22. \nThe following is the opening excerpt from the poem 'The Pied Piper of Hamelin' \nBy Robert Browning \nHamelin Town's in Brunswick, \nBy famous Hanover city; \n- T • ., ._ . _ , ,. .• ••- -• ,. ,·- - • ••-~ • • ,__ •·•- - -1 \n\\f.he r.iver·Weser, deep arid-w ide,, \nVJashes·;~Jts ,waiTon ·t11·e·•southern slde:: \nA pleasanter spot you never spied; \nBut, when begins my ditty, \nAlmost five hundred years ago, \nTo see the townsfolk suffer so \nFrom vermin, was a pity. \nRats! \nThey foughf fhe dog-s and Rilled .the cat~. \nAnd bit the babies in the cradles, \nAnd ate cheeses out of the vats, \nAnd licked the soup from the cooks' own ladles, \nSplit open the keys of salted sprats, \nMade nests inside men's Sunday hats, \nAnd even spoiled the women's chats \nBy drowning their speaking \nWith shrieking and squeaking \nin Jifty'.'cliffe\"i:ent ~harps aMd::flats:I \n© Copyright: f.x Edu-Kingdom College \n- Reading Skills 5 \n\nQuestions 23 to 28. \nThe Shopping Trolley \nIt might be the humblest proof of how far everyday technology has come: the shopping \ntrolley. Simple, sturdy and so ordinary we barely notice it, yet in 1937 it was a revelation. In \nOklahoma City, supermarket owner Sylvan N. Goldman looked at a folding chair in his \noffice and wondered what would happen if he put wheels on it and added baskets. With \nmechanic Fred Young, he built a metal frame that held wire baskets and rolled it into his \nHumpty Dumpty stores. For a moment, it looked as if retail history would yawn and walk \npast. \n23 . Goldman tried newspaper ads that promised a new, easier way to shop, but \nthe idea still stalled. So he hired men and women to stroll the aisles with trolleys and to \nshow how natural it felt to use one. The tactic worked, confidence grew, and the wheeled \nbasket moved from curiosity to convenience. Goldman's spark did not appear out of thin \nair. Self-service shopping had been spreading since 1916, when Clarence Saunders \nopened Piggly Wiggly in Memphis and invited customers to help themselves from open \nshelves. 24 . The trolley solved a practical problem created by self-service: it let \npeople gather more goods without running out of arms or patience. \nGoldman moved quickly to protect and refine the concept. He filed for patents on a \ncollapsible, wheeled carrier that could hold stacked baskets and be folded for storage. A \nkey patent was granted in April 1940 for what he called a folding basket carriage for self- \nservice stores. 25 . Another inventor, Orla Watson of Kansas City, supplied the \nbreakthrough that made trolleys practical for store layouts. In 1946 he designed a single, \nfull basket trolley with a swinging rear gate that allowed one cart to nest inside another. \nAfter a patent dispute, Goldman relinquished his competing claim and Watson received the \ncrucial patent in 1949. That nesting line you see by the doors is a direct descendant of \nWatson's design. \nFrom there, the trolley became a day to day part of modern consumer life. 26 _ \nHistories of supermarkets often point to the mid twentieth century as the era when the self­ \nserve model, the family car and the trolley reinforced one another, turning the big weekly \nshop into a routine that shaped suburban life. The evolution had not stopped at wire and \nwheels. From the late twentieth century onward, the trolley began to shape how we shop \nas much as it served us. Researchers tested how cart size and layout influenced \nbehaviour. 27 . Other trials show that dividing a cart into sections can nudge \npeople to load more fruit and vegetables, lifting healthy purchases substantially. \nBehind the scenes, the humble frame keeps evolving for safety and control. European \nmakers such as Wanzl helped standardise features like coin-deposit locks, while third \nparties introduce safety specifications such as ASTM F2372 to set performance \nrequirements for child seating and restraint systems. 28 . Today, manufacturers \ntalk about scan-as-you-shop setups, app integrations and smarter gates at exits, all aimed \nat saving minutes and smoothing the path from shelf to boot. \nSo yes, it is just a trolley. Yet tucked inside its quiet clatter are ideas about convenience, \npersuasion and scale. It began as a folding chair on castors, mocked by some and ignored \nby many. It became a cultural fixture not by shock value, but through patient design, canny \nmarketing and a knack for timing. A metal basket on wheels, nudging the twentieth century, \nand the rest of us, a few steps further down the aisle. \n© Copyright: fx. Edu-Kingdom College \n- Reading Skills 7 \n\nQuestions 29 to 38. \nRead the four extracts below on the theme of Reefs. \nFor questions 29 - 38, Choose the option (A, B, C or D) which you think best answers the \nquestion. \nWhich extract ... \ndiscusses potential reasons why coral reefs do not exist in some areas? 29. - - \nstates that there is a strong opposition to a project involving a reef? 30. - - \nexplains how a type of animal is essential to forming the structure of 31. - - \nreefs? \nmentions a key nutrient which can assist in the formation of a new reef? 32. - - \ndetails some processes to prepare an object for conversion into a reef? 33. - - \ndescribes the ideal conditions that would be beneficial to the formation of 34. - - \nreefs? \nwould be part of a detailed study of reefs? 35. - - \nimplies that reefs are home to various marine organisms? 36. - - \ntalks about a past event in a different area which has led to concerns to 37. - - \na similar event occurring in a reef? \nmentions that reefs don't necessarily form with the presence of coral? 38. - - \nExtract A \nThe Great Barrier Reef stretches for 2000 kilometres along the Queensland coast. It is not \nonly the largest coral reef complex in the world, but it is the biggest construction of any \nkind made by living animals; nothing made by humans comes close to being as large and \nextensive. Approximately 2500 separate reefs make up the Great Barrier Reef; combined \nthey would cover an area twice the size of England. \nThe structures of the Great Barrier Reef have been built by countless millions of minute \nanimals called 'polyps'. Each of these minute, soft-bodied animals builds an exceedingly \nsmall, cup-like home of corallite (lime) to live in and to give it support and protection. These \nlimestone apartments are joined together in huge clusters like blocks of flats - sometimes \ntall and pointed, and sometimes low and spreading. \nTo thrive, coral polyps need a constant environment of warm water that is clear and \nshallow with enough movement to carry plankton, the even-smaller floating animal food, to \nthe non-moving polyps. The shallow continental shelf off the Queensland coast, \nparticularly along the outer edge, provides ideal conditions for the tiny coral animals. \n© Copyright: ff Edu-Kingdom College \n- Reading Skills 9"
+      }
+    ]
+  },
+  {
+    "file": "STT18 Writing.pdf",
+    "subject": "UNKNOWN",
+    "round": "18",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "Performance Report (5).pdf",
+    "subject": "UNKNOWN",
+    "round": "5",
+    "extracts": [],
+    "questions": [
+      {
+        "qn": "2024",
+        "text": "This report provides an overview of your child's performance. The 3 components of the test are:\nReading Mathematical Reasoning Thinking Skills\nThis test assesses the student's reading \nability including understanding of the main \nideas, audience and purpose of a text and \nability to draw inferences from a text.\nThis test assesses the student’s ability to apply \nmathematical understanding and knowledge \nto problems, with questions drawn from a \nrange of mathematical content areas.\nThis test assesses the student’s \nability in critical thinking and \nproblem solving.\nThere are approximately 99,000 students in Year 4 in NSW in 2023. This year 13,300 students sat the Opportunity Class \nPlacement Test. This represents approximately 13% of Year 4 students in NSW.\nThis report shows the level at which your child performed compared to the 13,300 students who sat the Opportunity Class \nPlacement Test in 2023. These are challenging tests designed for high potential and gifted students and are not a \ncomparative measure across all students in your child’s year or cohort.\nLowest 50% of students who sat the test\nNext 25% of \nstudents who \nsat the test\nNext 15% of \nstudents who \nsat the test\nTop 10% of \nstudents \nwho sat the \ntest\nStudents who performed within \nthe lowest 50% of students \ntested. Half of all students who \nsat the tests performed in this \nrange.\nStudents who \nperformed \nbetter than 50% \nof students \ntested.\nStudents who \nperformed as \nwell as, or better \nthan, 75% of \nstudents tested.\nStudents who \nperformed as \nwell as, or better \nthan, 90% of \nstudents tested.\nPlease note: The band refers to the percentage of students in each level of performance, not the percentage of correct \nanswers (for example, a student who scored as well as, or better than, 90% of the tested students did not necessarily score \n90% on the test).\nGrace Eunhye's test performance is shown on page 2.\nThere is a full explanation and a video about the performance report on our web page at: \nhttps://education.nsw.gov.au/public-schools/selective-high-schools-and-opportunity-classes/year-5/placement-outcome-\ninformation#Performance4\nFor more information about the opportunity class placement process visit: https://education.nsw.gov.au/public-\nschools/selective-high-schools-and-opportunity-classes/year-5\nApplication Number: C23004888\nTest \nType\n \nPerformance Report\nGrace Eunhye Choo\nThis performance report shows how your child performed compared to all students who completed \nthe Opportunity Class Placement Test conducted by the NSW Department of Education in July 2023.\n \nLowest 50% of students who sat the test\n Next 25% of \nstudents who \nsat the test\nNext 15% of \nstudents who \nsat the test\nTop 10% of \nstudents \nwho sat the \ntest\nIn the Reading test Grace Eunhye performed better than 50% of students who sat the test.\nLowest 50% of students who sat the test\nNext 25% of \nstudents who \nsat the test\nNext 15% of \nstudents who \nsat the test\nTop 10% of \nstudents \nwho sat the \ntest\nIn the Mathematical Reasoning test Grace Eunhye performed in the top 10% of students who sat the test.\nLowest 50% of students who sat the test\nNext 25% of \nstudents who \nsat the test\nNext 15% of \nstudents who \nsat the test\nTop 10% of \nstudents \nwho sat the \ntest\nIn the Thinking Skills test Grace Eunhye performed in the top 10% of students who sat the test.\nStudent’s performance\nApplication Number: C23004888\nReading\nMathematical\nReasoning\nThinking\nSkills\nLowest performance Highest performance"
+      }
+    ]
+  },
+  {
+    "file": "20260818121905.pdf",
+    "subject": "UNKNOWN",
+    "round": "20260818121905",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT13 Writing.pdf",
+    "subject": "UNKNOWN",
+    "round": "13",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20260707153103.pdf",
+    "subject": "UNKNOWN",
+    "round": "20260707153103",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT9 Writing.pdf",
+    "subject": "UNKNOWN",
+    "round": "9",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "Writing 5.pdf",
+    "subject": "UNKNOWN",
+    "round": "5",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "Writing 2.pdf",
+    "subject": "UNKNOWN",
+    "round": "2",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT24 WRITING.pdf",
+    "subject": "UNKNOWN",
+    "round": "24",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "STT25.pdf",
+    "subject": "UNKNOWN",
+    "round": "25",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC03 TS.pdf",
+    "subject": "TS",
+    "round": "03",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC03 MATH.pdf",
+    "subject": "MATH",
+    "round": "03",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC03 ENG.pdf",
+    "subject": "ENG",
+    "round": "03",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC02 TS.pdf",
+    "subject": "TS",
+    "round": "02",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC02 MATH.pdf",
+    "subject": "MATH",
+    "round": "02",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC02 ENG.pdf",
+    "subject": "ENG",
+    "round": "02",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC1 TS.pdf",
+    "subject": "TS",
+    "round": "1",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC1 ENG.pdf",
+    "subject": "ENG",
+    "round": "1",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC1 MATH.pdf",
+    "subject": "MATH",
+    "round": "1",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC04 TS.pdf",
+    "subject": "TS",
+    "round": "04",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC04 MATH.pdf",
+    "subject": "MATH",
+    "round": "04",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC04 ENG.pdf",
+    "subject": "ENG",
+    "round": "04",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC05 MATH.pdf",
+    "subject": "MATH",
+    "round": "05",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC05 ENG.pdf",
+    "subject": "ENG",
+    "round": "05",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC05 TS.pdf",
+    "subject": "TS",
+    "round": "05",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC06 MATH.pdf",
+    "subject": "MATH",
+    "round": "06",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC06 TS.pdf",
+    "subject": "TS",
+    "round": "06",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC06 ENG.pdf",
+    "subject": "ENG",
+    "round": "06",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC07 ENG.pdf",
+    "subject": "ENG",
+    "round": "07",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC07 MATH.pdf",
+    "subject": "MATH",
+    "round": "07",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC07 TS.pdf",
+    "subject": "TS",
+    "round": "07",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC08 MATH.pdf",
+    "subject": "MATH",
+    "round": "08",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC08 TS.pdf",
+    "subject": "TS",
+    "round": "08",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC08 ENG.pdf",
+    "subject": "ENG",
+    "round": "08",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC09 ENG.pdf",
+    "subject": "ENG",
+    "round": "09",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC09 TS.pdf",
+    "subject": "TS",
+    "round": "09",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC09 MATH.pdf",
+    "subject": "MATH",
+    "round": "09",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC10 TS.pdf",
+    "subject": "TS",
+    "round": "10",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC10 MATH.pdf",
+    "subject": "MATH",
+    "round": "10",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC10 ENG.pdf",
+    "subject": "ENG",
+    "round": "10",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261020094004.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261020094004",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261020093945.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261020093945",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261020094039.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261020094039",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261020093927.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261020093927",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261020094107.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261020094107",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261020094021.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261020094021",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "20261020094321.pdf",
+    "subject": "UNKNOWN",
+    "round": "20261020094321",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC12 MATH.pdf",
+    "subject": "MATH",
+    "round": "12",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC12 TS.pdf",
+    "subject": "TS",
+    "round": "12",
+    "extracts": [],
+    "questions": []
+  },
+  {
+    "file": "OC12 ENG.pdf",
+    "subject": "ENG",
+    "round": "12",
+    "extracts": [],
+    "questions": []
+  }
+]

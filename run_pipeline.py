@@ -138,35 +138,42 @@ def parse_question_line(line):
 
 def parse_page(page):
     """한 페이지의 텍스트를 파싱하여 과목 데이터 추출"""
-    text = page.extract_text()
+    # page가 pypdf의 PageObject인지 아니면 OCR 텍스트 문자열인지 확인
+    if hasattr(page, 'extract_text'):
+        text = page.extract_text()
+    else:
+        text = str(page)
+        
     if not text:
         return None
     
-    lines = text.split('\n')
+    # OCR 텍스트의 유연한 파싱을 위해 텍스트 정규화
+    normalized_text = re.sub(r'\s+', ' ', text)
+    
     subject = {}
     questions = []
-    in_questions = False
     
-    for line in lines:
-        s = line.strip()
-        if s.startswith('Subject:'):
-            subject['name_raw'] = s.replace('Subject:', '').strip()
-            in_questions = False
-        elif s.startswith('Percentage Scores:'):
-            try:
-                subject['score'] = float(s.replace('Percentage Scores:', '').replace('%', '').strip())
-            except ValueError:
-                pass
-        elif s.startswith('Rank:'):
-            m = re.search(r'top\s+(\d+\.?\d*)%', s)
-            subject['rank_pct'] = float(m.group(1)) if m else None
-        elif s.startswith('Qn'):
-            in_questions = True
-            continue
-        elif in_questions and s:
-            q = parse_question_line(s)
-            if q:
-                questions.append(q)
+    # 1. Subject 탐색
+    sub_m = re.search(r'Subject:\s*([\w\s]+?)(?=\s+Percentage|\s+Qn|$)', normalized_text, re.IGNORECASE)
+    if sub_m:
+        subject['name_raw'] = sub_m.group(1).strip()
+    
+    # 2. 문제 탐색 (Qn 패턴)
+    # 1 D O D 62.6% Narrative 형태 찾기
+    # OCR 결과를 고려하여 보다 유연한 패턴 사용
+    # 숫자(Qn) [답] [O/X] [정답] ...
+    q_matches = re.findall(r'(\d+)\s+([A-D])\s+([OX])\s+([A-D])\s+([\d\.]+%)\s+(.+?)(?=\s+\d+\s+[A-D]|$)', normalized_text)
+    
+    for qn, resp, sym, ans, pct, topic in q_matches:
+        questions.append({
+            'qn': int(qn),
+            'resp': resp,
+            'symbol': sym,
+            'ans': ans,
+            'pct': float(pct.replace('%', '')),
+            'topic': topic.strip(),
+            'correct': (sym == 'O')
+        })
     
     if not questions:
         return None
@@ -181,27 +188,24 @@ def parse_page(page):
 def parse_pdf(pdf_path):
     """하나의 결과지 PDF를 파싱하여 구조화된 데이터로 반환"""
     from pypdf import PdfReader
+    from tools.ocr_engine import ocr_pdf_to_text
     
     fname = os.path.basename(pdf_path)
     test_type, test_round = detect_test_type_and_round(fname)
     student_name = detect_student_name(fname)
     
-    # 파서에서 읽은 학생명을 우선 사용 (파일명보다 신뢰도 높음)
     reader = PdfReader(pdf_path)
     first_text = reader.pages[0].extract_text() if reader.pages else ''
-    parsed_name = None
-    m = re.search(r'Student Name:\s*(.+?)\s+Student ID:', first_text)
-    if m:
-        parsed_name = m.group(1).strip()
+    
+    # Student Name이 없어도 진행
+    m = re.search(r'Student Name:\s*[-~\s]*', first_text, re.IGNORECASE)
+    final_student_name = "Anonymous" # 공란인 경우 Anonymous로 처리
     
     student_id = None
-    m_id = re.search(r'Student ID:\s*([A-Za-z0-9-]+)', first_text)
-    if m_id:
-        student_id = m_id.group(1).strip()
-    
-    final_student_name = parsed_name or student_name
+    # ID도 공란일 가능성 높음
     
     subjects = []
+    # 페이지별 파싱
     for page in reader.pages:
         s = parse_page(page)
         if s:

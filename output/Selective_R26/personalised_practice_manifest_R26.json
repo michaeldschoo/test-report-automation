@@ -81,13 +81,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -206,13 +206,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -338,13 +338,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -470,13 +470,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -602,13 +602,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -734,13 +734,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -866,13 +866,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -998,13 +998,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -1130,13 +1130,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -1255,13 +1255,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -1387,13 +1387,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -1512,13 +1512,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -1644,13 +1644,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -1776,13 +1776,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -1901,13 +1901,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -2033,13 +2033,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
@@ -2158,13 +2158,13 @@
       ],
       "sets": {
         "10_questions_basic_review_set": {
-          "question_count": 10,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"
         },
         "20_questions_subject_weakness_focus_set": {
-          "question_count": 20,
+          "question_count": 30,
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
           "json_file": "questions.json"

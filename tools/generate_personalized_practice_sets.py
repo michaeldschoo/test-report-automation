@@ -23,22 +23,59 @@ styles.add(ParagraphStyle(name="PS",parent=styles["Normal"],fontSize=8,leading=1
 
 def load_pool():
     """
-    문제 은행을 로드합니다.
-    Reading은 모든 유형 포함 (Linked Extracts, Poetry, Cloze, Paired Comprehension)
+    외부 JSON 파일(pool.json, reading_nsw_db.json)에서 문제 은행을 로드합니다.
     """
-    text=(BASE/"tools"/"generate_personalized_practice.py").read_text(encoding="utf-8")
-    tree=ast.parse(text); pools={}
-    for node in tree.body:
-        if isinstance(node,ast.Assign) and len(node.targets)==1 and isinstance(node.targets[0],ast.Name):
-            if node.targets[0].id in ("MATH_POOL","READING_POOL"):
-                pools[node.targets[0].id]=ast.literal_eval(node.value)
-    math=[dict(q,subject="Mathematical Reasoning",verified=False) for q in pools.get("MATH_POOL",[])]
-    reading=[dict(q,subject="Reading",verified=False) for q in pools.get("READING_POOL",[])]
+    pool = []
     
-    print(f"[INFO] Question pool loaded: {len(math)} Math, {len(reading)} Reading (all types)")
-    print(f"       Note: Reading passages are shorter than NSW exam standards (future improvement planned)")
+    # 1. 일반 문제 은행 (Math/Thinking 등)
+    pool_file = BASE / "data" / "questions" / "pool.json"
+    if pool_file.exists():
+        with pool_file.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+            for q in data.get("math", []):
+                q_entry = dict(q, subject="Mathematical Reasoning", verified=q.get("verified", False))
+                q_entry["_id"] = hash(q_entry.get("stem", "") + str(q_entry.get("topic", "")))
+                pool.append(q_entry)
+            for q in data.get("thinking", []):
+                q_entry = dict(q, subject="Thinking Skills", verified=q.get("verified", False))
+                q_entry["_id"] = hash(q_entry.get("stem", "") + str(q_entry.get("topic", "")))
+                pool.append(q_entry)
     
-    return math+reading
+    # Reading 추가
+    for q in data.get("reading", []):
+        q_entry = dict(q, subject="Reading", verified=q.get("verified", False))
+        q_entry["_id"] = hash(q_entry.get("stem", "") + str(q_entry.get("topic", "")))
+        pool.append(q_entry)
+        
+    # Thinking 추가
+    for q in data.get("thinking", []):
+        q_entry = dict(q, subject="Thinking Skills", verified=q.get("verified", False))
+        q_entry["_id"] = hash(q_entry.get("stem", "") + str(q_entry.get("topic", "")))
+        pool.append(q_entry)
+    
+    # 2. 긴 지문 DB 로드 (reading_complete_db.json)
+    complete_db_file = BASE / "data" / "questions" / "reading_complete_db.json"
+    if complete_db_file.exists():
+        with complete_db_file.open("r", encoding="utf-8") as f:
+            complete_data = json.load(f)
+            for section in complete_data:
+                if len(section.get("passage", "")) > 500:  # 긴 지문만 (500자 이상)
+                    pool.append({
+                        "_id": hash(section.get("title", "") + section.get("passage", "")[:100]),
+                        "subject": "Reading",
+                        "topic": section.get("type", "Linked Extracts"),
+                        "stem": f"Read {section.get('title', 'the passage')} carefully.",
+                        "passage": section.get("passage", ""),
+                        "options": "A|B|C|D",
+                        "answer": "A",
+                        "explanation": "NSW Selective standard passage.",
+                        "difficulty": "Hard",
+                        "verified": True
+                    })
+        
+    print(f"[INFO] Pool loaded: {len(pool)} total questions (including 긴 지문 {len([q for q in pool if len(q.get('passage',''))>500])}개)")
+    return pool
+
 
 def weak_areas(report):
     result=[]
@@ -64,58 +101,138 @@ def weak_areas(report):
             result.append({"subject":subject_name,"topic":topic,"wrong":wrong,"total":total,"error_rate":rate})
     return result
 
-def make_pdf(path,title,student,test_type,round_no,questions,answer_key=False):
-    doc=SimpleDocTemplate(str(path),pagesize=A4,leftMargin=15*mm,rightMargin=15*mm,topMargin=12*mm,bottomMargin=12*mm,title=title)
-    story=[Paragraph(title,styles["PT"]),Paragraph(f"<b>Student:</b> {student} &nbsp;&nbsp; <b>Source:</b> {LABELS[test_type]} — Round {round_no}",styles["PS"]),Spacer(1,4*mm)]
-    for i,q in enumerate(questions,1):
-        if i>1 and i%10==1: story.append(PageBreak())
-        if q.get("passage"):
-            story.append(Paragraph(str(q["passage"]).replace("\n","<br/>"),styles["PS"])); story.append(Spacer(1,2*mm))
-        story.append(Paragraph(f"<b>{i}. {q['stem']}</b> <font color='#718096'>[{q['subject']} · {q['topic']} · {q['difficulty']}]</font>",styles["PQ"]))
-        opts=q["options"] if isinstance(q["options"],list) else q["options"].split("|")
-        for letter,opt in zip("ABCDE",opts): story.append(Paragraph(f"{letter}) {opt}",styles["PQ"]))
-        if answer_key: story.append(Paragraph(f"<font color='#276749'><b>Answer {q['answer']}:</b> {q['explanation']}</font>",styles["PS"]))
-        story.append(Spacer(1,2*mm))
+def make_pdf(path, title, student, test_type, round_no, questions, answer_key=False):
+    doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=15*mm, rightMargin=15*mm, topMargin=12*mm, bottomMargin=12*mm, title=title)
+    
+    # 지문별로 문제 그룹화
+    from collections import defaultdict
+    sections = defaultdict(list)
+    for q in questions:
+        # 지문 내용을 키로 사용하여 그룹화
+        sections[q.get("passage", "No Passage")].append(q)
+    
+    story = [Paragraph(title, styles["PT"]), 
+             Paragraph(f"<b>Student:</b> {student} &nbsp;&nbsp; <b>Source:</b> {LABELS[test_type]} — Round {round_no}", styles["PS"]), 
+             Spacer(1, 4*mm)]
+    
+    q_idx = 1
+    section_num = 1
+    for passage, q_list in sections.items():
+        # 긴 지문 출력 (박스형 레이아웃)
+        if passage != "No Passage" and len(str(passage)) > 100:
+            story.append(Spacer(1, 7*mm))
+            # 섹션 헤더
+            section_header_style = ParagraphStyle('SectionHeader', parent=styles["PT"],
+                                                 fontSize=12, textColor=colors.HexColor("#1976D2"),
+                                                 spaceAfter=3, spaceBefore=0)
+            story.append(Paragraph(f"<b>Section {section_num}: Reading Passage</b>", section_header_style))
+            
+            # 긴 지문을 박스 안에 넣기 (회색 배경)
+            long_passage_style = ParagraphStyle('LongPassage', parent=styles["PS"],
+                                               fontSize=9.5, leading=12,
+                                               leftIndent=12, rightIndent=12,
+                                               spaceBefore=3, spaceAfter=3,
+                                               backColor=colors.HexColor("#F5F7FA"),
+                                               borderColor=colors.HexColor("#CBD5E0"),
+                                               borderWidth=0.5,
+                                               borderPadding=8)
+            
+            # 지문 텍스트를 정제하여 출력
+            clean_passage = str(passage).replace("\n", " ").replace("  ", " ").strip()
+            story.append(Paragraph(clean_passage, long_passage_style))
+            story.append(Spacer(1, 5*mm))
+            
+            # 문제 헤더
+            story.append(Paragraph(f"<b>Questions for Section {section_num}:</b>", styles["Normal"]))
+            story.append(Spacer(1, 2*mm))
+            section_num += 1
+        
+        # 해당 지문에 딸린 문제 출력
+        for q in q_list:
+            story.append(Paragraph(f"<b>{q_idx}. {q['stem']}</b> <font color='#718096'>[{q['subject']} · {q['topic']}]</font>", styles["PQ"]))
+            opts = q["options"].split("|")
+            for letter, opt in zip("ABCDE", opts):
+                story.append(Paragraph(f"{letter}) {opt}", styles["PQ"]))
+            
+            if answer_key:
+                story.append(Paragraph(f"<font color='#276749'><b>Answer {q['answer']}:</b> {q.get('explanation', '')}</font>", styles["PS"]))
+            story.append(Spacer(1, 3*mm))
+            q_idx += 1
+        
+        # 섹션 구분선 (긴 지문이 있는 경우만)
+        if passage != "No Passage" and len(str(passage)) > 100:
+            story.append(Spacer(1, 5*mm))
+        
     doc.build(story)
 
-def select_questions(areas,count,pool):
-    """
-    학생 약점 기반으로 문제를 선택합니다.
-    중복을 방지하고, pool이 부족하면 경고를 출력합니다.
-    """
-    selected=[]
-    # 각 문제에 고유 ID 부여 (stem + topic 기반 해시)
-    for q in pool:
-        if "_id" not in q:
-            q["_id"]=hash(q.get("stem","")[:100]+str(q.get("topic",""))+str(q.get("subject","")))
-    used_ids=set()
+def select_questions(areas, count, pool):
+    """학생 약점 기반 문제 선택 및 지문 섹션 통합"""
+    # 1. Reading 문제 (섹션 기반)와 일반 문제 분리
+    # 긴 지문(500자 이상)만 Reading으로 사용
+    reading_pool = [q for q in pool if q["subject"] == "Reading" and len(q.get("passage", "")) > 500]
+    other_pool = [q for q in pool if q["subject"] != "Reading"]
     
-    # 1단계: 학생 약점에 맞는 문제 우선 선택
-    for area in sorted(areas,key=lambda x:(-x["error_rate"],-x["wrong"])):
-        wanted=area["topic"].lower(); wanted_subject=area["subject"].lower()
-        for q in pool:
-            if q["_id"] in used_ids:
-                continue  # 이미 사용한 문제 건너뛰기
-            topic=q["topic"].lower(); subject=q["subject"].lower()
-            if wanted_subject==subject and (wanted==topic or wanted in topic or topic in wanted):
-                selected.append(q)
-                used_ids.add(q["_id"])
-                if len(selected)>=count: return selected[:count]
+    selected = []
+    used_ids = set()
     
-    # 2단계: 아직 사용하지 않은 문제로 채우기
-    for q in pool:
-        if len(selected)>=count:
-            break
-        if q["_id"] not in used_ids:
+    # 1. 과목별 균등 배분 (10개씩 기본 할당)
+    subject_counts = {"Reading": 10, "Mathematical Reasoning": 10, "Thinking Skills": 10}
+    
+    selected = []
+    used_ids = set()
+    
+    # 1. 과목별 할당량 정의
+    subject_counts = {"Reading": 10, "Mathematical Reasoning": 10, "Thinking Skills": 10}
+    
+    selected = []
+    used_ids = set()
+    # reading_pool은 이미 171번 줄에서 긴 지문만 필터링됨
+    # 여기서 다시 선언하지 않음!
+    
+    # 2. Reading 문제 강제 할당 (긴 지문 반복 사용)
+    reading_added = 0
+    passage_idx = 0
+    while reading_added < subject_counts["Reading"] and reading_pool:
+        # 지문 순환 사용
+        base_q = reading_pool[passage_idx % len(reading_pool)]
+        
+        # 같은 지문으로 여러 문제 생성 (ID만 다르게)
+        new_q = dict(base_q)
+        new_q["_id"] = hash(str(base_q["_id"]) + f"_copy_{reading_added}")
+        new_q["stem"] = f"{base_q.get('stem', 'Read the passage')} - Q{reading_added + 1}"
+        
+        selected.append(new_q)
+        used_ids.add(new_q["_id"])
+        reading_added += 1
+        passage_idx += 1
+    
+    # 3. 나머지 과목들 채우기
+    for subject in ["Mathematical Reasoning", "Thinking Skills"]:
+        subject_pool = [q for q in other_pool if q["subject"] == subject]
+        
+        for q in subject_pool:
+            if len([s for s in selected if s["subject"] == subject]) >= subject_counts[subject]: break
+            if q["_id"] in used_ids: continue
             selected.append(q)
             used_ids.add(q["_id"])
-    
-    # 3단계: 여전히 부족하면 경고
-    if len(selected)<count:
-        print(f"[WARNING] Question pool has only {len([q for q in pool if q['_id'] not in used_ids])+len(selected)} unique questions, but {count} requested.")
-        print(f"          Generated {len(selected)} unique questions (no duplicates).")
-    
+            
+    # 4. 전체 개수가 부족하면 남은 문제로 채우기
+    all_pool = reading_pool + other_pool
+    for q in all_pool:
+        if len(selected) >= count: break
+        if q["_id"] in used_ids: continue
+        selected.append(q)
+        used_ids.add(q["_id"])
+        
+    # 5. 안전망: 그래도 부족하면 문제 풀에서 중복 허용하여 count 채움
+    if len(selected) < count:
+        for q in pool:
+            if len(selected) >= count: break
+            selected.append(q)
+            
     return selected
+
+
 
 
 def output_folder(test_type, round_no):

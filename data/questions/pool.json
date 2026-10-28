@@ -1,0 +1,620 @@
+{
+  "math": [
+    {
+      "topic": "Mass",
+      "difficulty": "Medium",
+      "stem": "A box has mass 2.4 kg. After 650 g is removed, what mass remains?",
+      "options": "1.75 kg|1.85 kg|1.95 kg|2.25 kg|2.15 kg",
+      "answer": "A",
+      "explanation": "650 g = 0.650 kg; 2.4 − 0.650 = 1.75 kg.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Mass",
+      "difficulty": "Medium",
+      "stem": "Three bags weigh 850 g, 1.2 kg and 950 g. What is their total mass in kilograms?",
+      "options": "2.0 kg|2.8 kg|3.0 kg|3.2 kg|3.5 kg",
+      "answer": "C",
+      "explanation": "850 g + 950 g = 1.8 kg; plus 1.2 kg = 3.0 kg.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Addition",
+      "difficulty": "Medium",
+      "stem": "Mia has 1,287 points. She gains 946, then 385 more. How many points does she have now?",
+      "options": "2,618|2,628|2,508|2,718|2,808",
+      "answer": "A",
+      "explanation": "1287 + 946 = 2233; 2233 + 385 = 2618.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Addition",
+      "difficulty": "Hard",
+      "stem": "Find the next number: 12, 24, 48, 96, ____.",
+      "options": "144|192|182|204|168",
+      "answer": "B",
+      "explanation": "Each number doubles; 96 × 2 = 192.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Speed and Time",
+      "difficulty": "Medium",
+      "stem": "A bus travels 180 km at 60 km/h, plus a 15-minute stop. How long is the whole trip?",
+      "options": "3 h 15 min|3 h 30 min|3 h 45 min|4 h|2 h 45 min",
+      "answer": "A",
+      "explanation": "180 ÷ 60 = 3 hours; plus 15 minutes.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Speed and Time",
+      "difficulty": "Hard",
+      "stem": "Leo begins at 08:35 and travels for 55 minutes. What time does he arrive?",
+      "options": "09:20|09:25|09:30|09:35|09:40",
+      "answer": "C",
+      "explanation": "08:35 + 55 minutes = 09:30.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Combination",
+      "difficulty": "Medium",
+      "stem": "A café offers 3 sandwiches and 4 drinks. How many different pairs are possible?",
+      "options": "7|8|12|14|16",
+      "answer": "C",
+      "explanation": "The multiplication principle gives 3 × 4 = 12.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Combination",
+      "difficulty": "Medium",
+      "stem": "A three-digit code uses 1, 2 or 3 once each. How many codes are possible?",
+      "options": "3|6|9|12|27",
+      "answer": "B",
+      "explanation": "3 × 2 × 1 = 6.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Combination",
+      "difficulty": "Hard",
+      "stem": "Four students form a team of two. How many different teams are possible?",
+      "options": "4|6|8|12|16",
+      "answer": "B",
+      "explanation": "AB, AC, AD, BC, BD, CD = 6 teams.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Mass",
+      "difficulty": "Hard",
+      "stem": "How many whole 750 g flour packets are needed for 3.2 kg?",
+      "options": "4|5|6|7|8",
+      "answer": "B",
+      "explanation": "3200 ÷ 750 leaves remainder 200 g, so 5 packets are needed.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Speed and Time",
+      "difficulty": "Medium",
+      "stem": "A train averages 75 km/h for 2 hours 20 minutes. How far does it travel?",
+      "options": "145 km|150 km|175 km|180 km|195 km",
+      "answer": "C",
+      "explanation": "2⅓ hours × 75 = 175 km.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Addition",
+      "difficulty": "Medium",
+      "stem": "A library borrowed 5,640 books this month and 4,275 last month. How many more were borrowed this month?",
+      "options": "1,365|1,375|1,465|1,475|1,355",
+      "answer": "A",
+      "explanation": "5640 − 4275 = 1365.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Combination",
+      "difficulty": "Hard",
+      "stem": "Five books are placed in a row. In how many orders could they be arranged?",
+      "options": "10|25|60|120|125",
+      "answer": "D",
+      "explanation": "5 × 4 × 3 × 2 × 1 = 120.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Mass",
+      "difficulty": "Medium",
+      "stem": "A recipe needs 375 g rice, 125 g peas and 50 g herbs. What is the total mass?",
+      "options": "450 g|500 g|550 g|600 g|625 g",
+      "answer": "C",
+      "explanation": "375 + 125 + 50 = 550 g.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Speed and Time",
+      "difficulty": "Hard",
+      "stem": "A cyclist rides 36 km in 1 hour 30 minutes. What is the average speed?",
+      "options": "18 km/h|24 km/h|27 km/h|30 km/h|36 km/h",
+      "answer": "B",
+      "explanation": "36 ÷ 1.5 = 24 km/h.",
+      "subject": "Mathematical Reasoning",
+      "source": "original sample — no reused exam item",
+      "verified": false,
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Geometry",
+      "difficulty": "Hard",
+      "stem": "A rectangle has a length of 12cm and width of 8cm. If the length is increased by 25% and width decreased by 25%, what is the new area?",
+      "options": "90|96|72|100|84",
+      "answer": "A",
+      "explanation": "New length = 15cm, new width = 6cm. Area = 90cm2.",
+      "outcome": "MA5.1-10MG"
+    },
+    {
+      "topic": "Data Interpretation",
+      "difficulty": "Medium",
+      "stem": "A pie chart shows 50% spend on Rent, 20% Food, 10% Transport, 20% Savings. If Rent is $1000, what is the Transport cost?",
+      "options": "$100|$200|$300|$400|$500",
+      "answer": "B",
+      "explanation": "50% = $1000, so 10% = $200.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Algebra",
+      "difficulty": "Hard",
+      "stem": "If 3x + 5 = 20, what is the value of 2x - 1?",
+      "options": "7|8|9|10|11",
+      "answer": "C",
+      "explanation": "3x = 15 -> x=5. 2(5)-1 = 9.",
+      "outcome": "MA5.3-7NA"
+    },
+    {
+      "topic": "Fractions",
+      "difficulty": "Medium",
+      "stem": "What is 3/4 of 1/2 of 80?",
+      "options": "20|30|40|60|10",
+      "answer": "B",
+      "explanation": "1/2 of 80 = 40. 3/4 of 40 = 30.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Probability",
+      "difficulty": "Medium",
+      "stem": "A bag contains 3 red, 2 blue, and 5 green marbles. What is the probability of picking a red marble?",
+      "options": "1/5|3/10|1/2|2/5|3/5",
+      "answer": "B",
+      "explanation": "Total = 10 marbles. Red = 3. 3/10.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Patterns",
+      "difficulty": "Hard",
+      "stem": "Find the next number: 1, 4, 9, 16, 25, __?",
+      "options": "30|36|40|49|64",
+      "answer": "B",
+      "explanation": "These are squares: 1^2, 2^2, 3^2, 4^2, 5^2, 6^2=36.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Geometry",
+      "difficulty": "Medium",
+      "stem": "What is the sum of angles in a hexagon?",
+      "options": "360|540|720|900|1080",
+      "answer": "C",
+      "explanation": "(6-2) * 180 = 720 degrees.",
+      "outcome": "MA5.1-10MG"
+    },
+    {
+      "topic": "Ratios",
+      "difficulty": "Medium",
+      "stem": "The ratio of boys to girls in a class is 3:2. If there are 30 students, how many girls are there?",
+      "options": "10|12|15|18|20",
+      "answer": "B",
+      "explanation": "3+2=5 parts. 30/5=6 per part. Girls = 2 parts = 12.",
+      "outcome": "MA5.2-12NA"
+    },
+    {
+      "topic": "Speed",
+      "difficulty": "Hard",
+      "stem": "A car travels 300 km in 4 hours. What is its speed in km/h?",
+      "options": "65|70|75|80|85",
+      "answer": "C",
+      "explanation": "300 / 4 = 75 km/h.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Percentage",
+      "difficulty": "Medium",
+      "stem": "A shirt costs $50 but has a 20% discount. What is the new price?",
+      "options": "$30|$35|$40|$45|$55",
+      "answer": "C",
+      "explanation": "20% of 50 = 10. 50 - 10 = 40.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Logic Puzzle",
+      "difficulty": "Hard",
+      "stem": "If Monday is 1, Tuesday is 2, and so on, what day is 30? (Assume 7-day cycle)",
+      "options": "Monday|Tuesday|Wednesday|Thursday|Friday",
+      "answer": "B",
+      "explanation": "30 % 7 = 2 (Tuesday).",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Equations",
+      "difficulty": "Medium",
+      "stem": "If a + b = 10 and a - b = 2, what is a?",
+      "options": "4|5|6|7|8",
+      "answer": "C",
+      "explanation": "2a = 12 -> a = 6.",
+      "outcome": "MA5.3-7NA"
+    },
+    {
+      "topic": "Time",
+      "difficulty": "Medium",
+      "stem": "How many minutes are in 3.5 hours?",
+      "options": "180|200|210|220|240",
+      "answer": "C",
+      "explanation": "3 * 60 + 30 = 210.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Area",
+      "difficulty": "Hard",
+      "stem": "A circle has a radius of 7 cm. What is the area? (Use pi=22/7)",
+      "options": "44|88|154|308|616",
+      "answer": "C",
+      "explanation": "Area = pi * r^2 = 22/7 * 49 = 154.",
+      "outcome": "GENERIC"
+    },
+    {
+      "topic": "Average",
+      "difficulty": "Medium",
+      "stem": "The average of 3 numbers is 10. If two are 8 and 12, what is the third?",
+      "options": "8|9|10|11|12",
+      "answer": "C",
+      "explanation": "Total sum = 30. 8+12+x=30 -> x=10.",
+      "outcome": "GENERIC"
+    }
+  ],
+  "reading": [
+    {
+      "topic": "Paired Comprehension",
+      "difficulty": "Medium",
+      "passage": "Text A: A community garden opened beside the library, where residents borrow tools and grow herbs. Text B: The garden changed the courtyard, but some visitors complain that watering creates muddy paths.",
+      "stem": "Which statement combines both texts?",
+      "options": "The garden has no benefits.|Residents gain shared gardening space, although the paths may become muddy.|The library only lends books.|Mud makes all visitors leave.|No tools are available.",
+      "answer": "B",
+      "explanation": "Text A gives the benefit; Text B adds a possible disadvantage.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Cloze Passage",
+      "difficulty": "Medium",
+      "passage": "The astronomer checked the telescope twice. Clouds had ______ the stars, but one bright planet appeared near the horizon.",
+      "stem": "Choose the best word for the blank.",
+      "options": "revealed|hidden|measured|followed|counted",
+      "answer": "B",
+      "explanation": "Clouds cover or hide stars.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Linked Extracts",
+      "difficulty": "Hard",
+      "passage": "First extract: The guide warned the hikers that the bridge was closed. Second extract: By noon, the group had reached the river and was debating whether to turn back.",
+      "stem": "Which conclusion is best supported?",
+      "options": "The hikers ignored all warnings.|The group was aware of a crossing problem.|It began raining at noon.|The bridge had reopened.|The guide joined the hike.",
+      "answer": "B",
+      "explanation": "The warning and later debate are linked by the closed bridge.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Paired Comprehension",
+      "difficulty": "Hard",
+      "passage": "Museum report: Attendance rose 12% after late-night opening. Survey: Many visitors said evening hours fitted difficult daytime schedules.",
+      "stem": "Why might attendance have risen?",
+      "options": "The museum moved.|Tickets became cheaper.|Evening opening suited more visitors.|School groups stopped visiting.|The museum closed earlier.",
+      "answer": "C",
+      "explanation": "Evening availability is the reason suggested by the survey.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Poetry",
+      "difficulty": "Medium",
+      "passage": "Soft rain taps the sleeping roof,\nA silver rhythm, note by note;\nThe garden drinks beneath the stars,\nWhile moonlight guides the night bird's flight.",
+      "stem": "What mood does the poem mainly create?",
+      "options": "Angry and noisy|Quiet and peaceful|Dangerous and fearful|Busy and excited|Cold and lonely",
+      "answer": "B",
+      "explanation": "Soft rain, silver rhythm and moonlight create a peaceful mood.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Cloze Exercise",
+      "difficulty": "Medium",
+      "passage": "Nora practiced violin every evening. At the concert, her careful preparation helped her perform with ______.",
+      "stem": "Choose the most suitable word.",
+      "options": "confusion|confidence|delay|nervousness|carelessness",
+      "answer": "B",
+      "explanation": "Regular practice would naturally lead to confidence.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Linked Extracts",
+      "difficulty": "Medium",
+      "passage": "Extract one describes a growing queue outside the science centre. Extract two says staff admitted that an interactive display was unexpectedly popular.",
+      "stem": "Which explanation is supported by both extracts?",
+      "options": "The queue was outside a café.|Interest in the display caused the queue.|Staff cancelled the display.|No visitors arrived.|The centre had closed.",
+      "answer": "B",
+      "explanation": "The display's popularity directly explains the growing queue.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Poetry",
+      "difficulty": "Hard",
+      "passage": "We chase the sun across the hill,\nIt races us, but never runs;\nThen slips behind the blue-grey dusk—\nA lamp extinguished, one by one.",
+      "stem": "Which technique is clearly used in the final line?",
+      "options": "Dialogue|Imagery and metaphor|Alliteration only|Statistics|Rhyme reversal",
+      "answer": "B",
+      "explanation": "The sunset becomes a lamp, using visual imagery and metaphor.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Cloze Passage",
+      "difficulty": "Hard",
+      "passage": "Although the instructions were lengthy, Leila read them ______ and avoided making an expensive mistake.",
+      "stem": "Choose the word that best fits.",
+      "options": "carelessly|slowly|carefully|briefly|angrily",
+      "answer": "C",
+      "explanation": "Avoiding a mistake suggests careful reading.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Paired Comprehension",
+      "difficulty": "Medium",
+      "passage": "Text one: Digital maps can update road closures immediately. Text two: Paper maps work without batteries but cannot display sudden changes.",
+      "stem": "What advantage do paper maps retain?",
+      "options": "Battery updates|No need for electricity|Faster road changes|Automatic routes|Live traffic",
+      "answer": "B",
+      "explanation": "Paper maps do not require batteries or an electronic device.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Cloze Exercise",
+      "difficulty": "Hard",
+      "passage": "The detective noticed a footprint beneath the window, a clue that the missing necklace had not been lost but ______.",
+      "stem": "Choose the best ending word.",
+      "options": "returned|misplaced|stolen|donated|displayed",
+      "answer": "C",
+      "explanation": "A footprint beside the missing necklace suggests theft.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Linked Extracts",
+      "difficulty": "Hard",
+      "passage": "Extract A states that shop sales fell during heavy rain. Extract B reports that online orders rose on the same dates.",
+      "stem": "Which conclusion is best supported?",
+      "options": "Online shoppers disliked weather.|Weather affected one sales channel more than the other.|All shops closed permanently.|The rain happened in summer.|No customers used phones.",
+      "answer": "B",
+      "explanation": "The contrasting results suggest different effects on shop and online sales.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Poetry",
+      "difficulty": "Medium",
+      "passage": "Under bridges, beneath old stone,\nA river carries seeds downstream;\nEach twist and turn carries life onward—\nA moving road for dreams unseen.",
+      "stem": "The river is mainly symbolising what?",
+      "options": "Movement and progress|Danger and fear|Division and conflict|Stillness and silence|Construction",
+      "answer": "A",
+      "explanation": "The river carries seeds and life onward, symbolising progress.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Cloze Passage",
+      "difficulty": "Medium",
+      "passage": "The coach substituted two players after repeated mistakes. Under new positions, the team immediately looked more ______.",
+      "stem": "Choose the best word.",
+      "options": "organised|distant|careless|silent|exhausted",
+      "answer": "A",
+      "explanation": "Changing positions should improve organisation and reduce errors.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    },
+    {
+      "topic": "Paired Comprehension",
+      "difficulty": "Hard",
+      "passage": "Passage one says lockers reduce backpacks being carried between rooms. Passage two says students leave belongings behind because lockers are outdoors.",
+      "stem": "What issue is introduced by the second passage?",
+      "options": "The lockers are too heavy.|Outdoor placement may cause students to forget belongings.|Backpacks are banned.|Students dislike every feature.|The lockers are indoors.",
+      "answer": "B",
+      "explanation": "The outdoor location creates a risk of forgetting belongings.",
+      "subject": "Reading",
+      "source": "original sample — no reused exam item",
+      "verified": false
+    }
+  ],
+  "thinking": [
+    {
+      "subject": "Thinking Skills",
+      "topic": "Coding",
+      "difficulty": "Medium",
+      "stem": "If APPLE is coded by changing each letter to the next letter, what is the code for APPLE?",
+      "options": "BQQMF|BOQKF|BQPLF|BQQLE|BQQME",
+      "answer": "A",
+      "explanation": "Each letter advances one position."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Missing number",
+      "difficulty": "Medium",
+      "stem": "What number comes next: 3, 6, 12, 24, __?",
+      "options": "36|48|42|54|30",
+      "answer": "B",
+      "explanation": "Each number doubles, so 24 × 2 = 48."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Drawing Conclusion",
+      "difficulty": "Medium",
+      "stem": "All blue shapes are circles. This shape is blue. Which conclusion must follow?",
+      "options": "It is red.|It is a square.|It is a circle.|It is large.|It has four sides.",
+      "answer": "C",
+      "explanation": "The stated rule means a blue shape is a circle."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Logical Reasoning",
+      "difficulty": "Hard",
+      "stem": "If all A are B, and some B are C, which is definitely true?",
+      "options": "All A are C|Some A are C|Some A are not C|Cannot be determined",
+      "answer": "D",
+      "explanation": "A might not overlap with C at all."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Sequence",
+      "difficulty": "Medium",
+      "stem": "What follows: A, C, F, J, __?",
+      "options": "M|N|O|P|Q",
+      "answer": "C",
+      "explanation": "+2, +3, +4, +5 (J+5 = O)."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Deduction",
+      "difficulty": "Hard",
+      "stem": "Only one of three suspects is lying. Suspect 1: 'I'm innocent.' Suspect 2: 'Suspect 1 is lying.' Suspect 3: 'I'm innocent.' Who is the liar?",
+      "options": "Suspect 1|Suspect 2|Suspect 3|Cannot determine",
+      "answer": "A",
+      "explanation": "If 1 is lying, 2 is truthful, 3 is truthful. All consistent."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Arrangement",
+      "difficulty": "Hard",
+      "stem": "Five people sit in a row. A is next to B. C is not next to D. E is at the end. Who is next to A?",
+      "options": "B|C|D|E|Cannot determine",
+      "answer": "D",
+      "explanation": "Constraint analysis needed."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Word Logic",
+      "difficulty": "Medium",
+      "stem": "If 'cat' is 'dog', and 'dog' is 'bird', what is 'cat'?",
+      "options": "cat|dog|bird|fish",
+      "answer": "C",
+      "explanation": "Direct mapping."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Pattern",
+      "difficulty": "Medium",
+      "stem": "What is the missing number in the sequence: 2, 4, 8, 16, __?",
+      "options": "24|28|32|36|40",
+      "answer": "C",
+      "explanation": "Powers of 2."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Deduction",
+      "difficulty": "Hard",
+      "stem": "All doctors are smart. Some smart people are musicians. Are all musicians smart?",
+      "options": "Yes|No|Sometimes|Cannot be determined",
+      "answer": "B",
+      "explanation": "Logical fallacy."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Coding",
+      "difficulty": "Hard",
+      "stem": "If 'PLAN' is 'QMBO', what is 'WORK'?",
+      "options": "XPSL|YPSL|XPLK|WORK",
+      "answer": "A",
+      "explanation": "Each letter +1."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Conclusion",
+      "difficulty": "Medium",
+      "stem": "Traffic is bad because of roadworks. People are late. What is the best conclusion?",
+      "options": "Roadworks cause lateness|Traffic is always bad|People should walk|None",
+      "answer": "A",
+      "explanation": "Causal link in text."
+    },
+    {
+      "subject": "Thinking Skills",
+      "topic": "Sequence",
+      "difficulty": "Medium",
+      "stem": "Day, Week, Month, __?",
+      "options": "Year|Century|Hour|Decade",
+      "answer": "A",
+      "explanation": "Chronological order of time periods."
+    }
+  ]
+}
