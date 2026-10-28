@@ -5,7 +5,9 @@ import os
 from pathlib import Path
 from collections import defaultdict
 
-BASE = Path(r"D:\EKCRPA\test-report-automation\output")
+DEFAULT_WINDOWS_BASE = Path(r"D:\EKCRPA\test-report-automation\output")
+SCRIPT_DIR = Path(__file__).resolve().parent.parent / "output"
+BASE = DEFAULT_WINDOWS_BASE if DEFAULT_WINDOWS_BASE.exists() else SCRIPT_DIR
 cases = [
     ('OC_R11', 'personalised_practice_manifest_R11.json'),
     ('Selective_R26', 'personalised_practice_manifest_R26.json')
