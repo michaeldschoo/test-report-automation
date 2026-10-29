@@ -55,5 +55,119 @@
         "difficulty": "Medium"
       }
     ]
+  },
+  {
+    "type": "Passage",
+    "title": "Original: The Sound of the Warning",
+    "source": "original:authored-in-house",
+    "original": true,
+    "passage": "The Sound of the Warning\n\nTessa had worked in her family's boat shed for three summers, long enough to know that the harbour had its own vocabulary. A certain slap of rope against a mast meant nothing. A particular creak of the tin roof meant rain by evening. But the low, flat note of the warning buoy beyond the breakwater, sounding twice and then stopping, meant that the weather had changed its mind about being reasonable.\n\nThat afternoon the buoy spoke twice, and Tessa stopped sanding.\n\nHer father was inland, collecting a trailer of timber, and would not be back until dark. The shed radio muttered about a front moving up the coast faster than forecast. Tessa walked to the end of the jetty and counted the boats still in the water. Eleven. Most were owned by people who checked forecasts the way other people checked football scores, but one belonged to old Mr Kowalski, who had rowed out at dawn and had not come back.\n\nShe found him at the far end of the moorings, wrestling with a tarpaulin that the wind kept taking from him like a joke it had not tired of. He was seventy-eight, and his hands worked faster than his shoulders could follow. Tessa did not ask whether he wanted help. She simply took the far corner of the tarpaulin and held it, and after a moment he stopped arguing with the sky and started tying knots with her.\n\nThey worked without much conversation. When the boat was covered, he stood with his back to the wind and looked at the water for a while. \"I heard it too,\" he said at last. \"I told myself I had time.\"\n\n\"Everyone tells themselves that,\" Tessa said, and then wondered whether it had sounded rude. He laughed, which she had not expected, and said that her grandmother had once said exactly the same thing in exactly the same tone.\n\nBy the time the front arrived, the last of the eleven boats was tied down and the jetty lamps were swaying. Tessa went back to the shed, hung her wet jacket on the same hook her father used, and wrote two words on the whiteboard where the day's jobs were listed: BUOY TWICE.\n\nHer father read it when he came home and did not ask what it meant. He only nodded, and added it to the list of things the shed would now watch for, the way the family had been watching the same stretch of water for three generations.",
+    "questions": [
+      {
+        "stem": "Why does Tessa stop sanding when she hears the buoy?",
+        "options": "She recognises the two-note signal as a sign of worsening weather|She is waiting for her father to return with the timber|She has finished all of the jobs on the whiteboard|She wants to count how many boats are left in the water",
+        "answer": "A",
+        "explanation": "The opening paragraph explains that the buoy sounding twice means the weather has changed.",
+        "topic": "Detail",
+        "difficulty": "Easy"
+      },
+      {
+        "stem": "The phrase 'the harbour had its own vocabulary' suggests that Tessa:",
+        "options": "Has been taught to read the sounds and signs of the harbour|Finds the noise of the harbour confusing and irritating|Believes the fishermen talk too much on the jetty|Has learned a foreign language at the boat shed",
+        "answer": "A",
+        "explanation": "The metaphor presents harbour sounds as a language she has learned to interpret.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Why does Tessa take the corner of the tarpaulin without asking?",
+        "options": "She wants to show that Mr Kowalski is too old to work alone|She knows he needs help and does not want to make him ask for it|She is worried that he will damage the shed's equipment|Her father has ordered her to keep an eye on him",
+        "answer": "B",
+        "explanation": "She acts directly rather than questioning him, showing tact as well as concern.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Mr Kowalski's remark 'I told myself I had time' reveals that he:",
+        "options": "Had planned the trip carefully in advance|Knew the storm was coming but delayed acting|Was unaware that a storm had been forecast|Believed Tessa had come to take his boat",
+        "answer": "B",
+        "explanation": "The line implies he heard the warning but assumed he had enough time.",
+        "topic": "Inference",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "The detail that Mr Kowalski laughs at Tessa's comment is important because it:",
+        "options": "Shows he is mocking her inexperience|Suggests the two characters share a connection across generations|Proves that the storm has passed safely|Indicates that he has forgotten the danger",
+        "answer": "B",
+        "explanation": "He says her grandmother used the same words in the same tone, linking the past and present.",
+        "topic": "Author's Purpose",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What do her father's final actions show about the family's attitude?",
+        "options": "They distrust Tessa's judgement and check her work|They value knowledge that is passed on and learnt from experience|They believe written instructions are more reliable than observation|They treat the danger of storms as an unavoidable part of work",
+        "answer": "B",
+        "explanation": "He simply nods and adds it to the family's ongoing record of what to watch for.",
+        "topic": "Tone",
+        "difficulty": "Hard"
+      }
+    ]
+  },
+  {
+    "type": "Linked Extracts",
+    "title": "Original: Extract A & B — Phones at School",
+    "source": "original:authored-in-house",
+    "original": true,
+    "passage": "Extract A: The Case for the Locked Cupboard\n\nWhen our local high school banned phones during class hours, the complaints arrived faster than the results. Parents worried about emergencies; students worried about boredom. Two terms later, the change is the most popular thing the school has done in years, and it is not because the students have suddenly fallen in love with silence.\n\nBefore the ban, a typical lesson was interrupted by an average of nine notifications per student, most of them trivial. Teachers reported that the hardest part of their job was not explaining algebra but competing with a screen for attention. The school's decision to require phones to be locked in a cupboard until the final bell was not an act of fear. It was an admission that willpower is a poor defence against a device engineered by thousands of highly paid adults to be irresistible.\n\nCritics say students must learn to manage distractions, since the adult world is full of them. That argument is attractive until you notice that the adult world also has the right to leave the room, close a tab, or set a boundary. A classroom is not a workplace. It is a place where attention is the raw material of learning. Asking a thirteen-year-old to defend that attention alone is not toughness; it is negligence dressed up as character building.\n\nExtract B: A Teacher's Reluctant Reversal\n\nI argued against a phone ban for six years, and I was wrong, though not for the reasons the ban's supporters give. My objection was practical: the devices are the cheapest research library a school will ever own. In my geography class, students photograph fieldwork sites, check rainfall records in real time, and compare news reports from three countries before the first bell.\n\nWhat changed my mind was not the distraction statistics but the pattern of who was affected. The students who lost the most when phones were permitted were not the ones scrolling openly. They were the quiet, conscientious students who felt obliged to answer every message so that nobody would think they were ignoring them. A rule removes the need for that decision, and for the social cost of making it.\n\nI still resist the language of purity that surrounds this debate. Phones are not cigarettes and screens are not poison. When a class needs a live weather radar, we should be allowed to use one. But a rule that is clear, consistent and reviewed each year is not an attack on technology. It is an acknowledgement that the classroom is the only place where a student should be able to expect that attention is protected.",
+    "questions": [
+      {
+        "stem": "What do both extracts agree about?",
+        "options": "Phones should be banned permanently in every school|Students' attention in class is worth protecting|Teachers should confiscate phones without any rules|Technology has no place in a geography classroom",
+        "answer": "B",
+        "explanation": "Extract A calls attention 'the raw material of learning'; Extract B wants students to expect their attention to be protected.",
+        "topic": "Comparison",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Extract A describes the ban as 'an admission' because the school accepted that:",
+        "options": "Parents had been complaining for several terms|Willpower alone is not a fair defence against deliberately engaging devices|Teachers were unable to plan lessons effectively|Students preferred cupboards to classrooms",
+        "answer": "B",
+        "explanation": "The writer argues devices are engineered to be irresistible, so relying on willpower is unrealistic.",
+        "topic": "Inference",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "In Extract A, the phrase 'negligence dressed up as character building' is used to criticise:",
+        "options": "Teachers who refuse to use technology in lessons|The claim that students should handle distraction unaided|Parents who buy their children expensive phones|Schools that review their rules every year",
+        "answer": "B",
+        "explanation": "The writer rejects the argument that managing distraction alone proves toughness.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "Why was the writer of Extract B originally opposed to a ban?",
+        "options": "Because phones provide cheap and immediate access to research tools|Because the school could not afford cupboards for the devices|Because the distraction statistics had not yet been published|Because students threatened to protest against the rule",
+        "answer": "A",
+        "explanation": "Extract B calls phones 'the cheapest research library a school will ever own'.",
+        "topic": "Detail",
+        "difficulty": "Easy"
+      },
+      {
+        "stem": "What surprised the writer of Extract B about the effects of allowing phones?",
+        "options": "That the loudest students were the least affected|That quiet, conscientious students carried the greatest social cost|That geography results improved sharply|That teachers used phones more than students did",
+        "answer": "B",
+        "explanation": "The writer notes the quiet students felt obliged to answer every message to avoid seeming rude.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Which statement best captures the difference in tone between the two extracts?",
+        "options": "Extract A is firm and argumentative; Extract B is reflective and self-critical|Extract A is humorous; Extract B is sarcastic|Both extracts are neutral reports of research findings|Extract A is uncertain; Extract B is aggressive",
+        "answer": "A",
+        "explanation": "Extract A argues strongly against critics, while Extract B admits 'I was wrong' and reflects on why.",
+        "topic": "Tone",
+        "difficulty": "Medium"
+      }
+    ]
   }
 ]

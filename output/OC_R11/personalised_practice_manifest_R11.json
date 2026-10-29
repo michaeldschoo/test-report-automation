@@ -1,7 +1,7 @@
 {
   "test_type": "OC",
   "round": 11,
-  "generated_at": "2026-10-29 17:05:02",
+  "generated_at": "2026-10-29 17:48:55",
   "students": {
     "Diya Muttena": {
       "student": "Diya Muttena",
@@ -133,9 +133,9 @@
         "30_questions_15_to_20_minute_mock_practice_set": {
           "question_count": 30,
           "subject_counts": {
-            "Reading": 6,
-            "Mathematical Reasoning": 13,
-            "Thinking": 11
+            "Reading": 9,
+            "Mathematical Reasoning": 11,
+            "Thinking": 10
           },
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
@@ -269,8 +269,8 @@
         "20_questions_subject_weakness_focus_set": {
           "question_count": 20,
           "subject_counts": {
-            "Reading": 6,
-            "Mathematical Reasoning": 7,
+            "Reading": 7,
+            "Mathematical Reasoning": 6,
             "Thinking": 7
           },
           "student_pdf": "student_practice.pdf",
@@ -280,9 +280,9 @@
         "30_questions_15_to_20_minute_mock_practice_set": {
           "question_count": 30,
           "subject_counts": {
-            "Reading": 6,
-            "Mathematical Reasoning": 11,
-            "Thinking": 13
+            "Reading": 10,
+            "Mathematical Reasoning": 9,
+            "Thinking": 11
           },
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
@@ -416,9 +416,9 @@
         "20_questions_subject_weakness_focus_set": {
           "question_count": 20,
           "subject_counts": {
-            "Reading": 6,
+            "Reading": 7,
             "Mathematical Reasoning": 7,
-            "Thinking": 7
+            "Thinking": 6
           },
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
@@ -427,9 +427,9 @@
         "30_questions_15_to_20_minute_mock_practice_set": {
           "question_count": 30,
           "subject_counts": {
-            "Reading": 6,
-            "Mathematical Reasoning": 13,
-            "Thinking": 11
+            "Reading": 11,
+            "Mathematical Reasoning": 10,
+            "Thinking": 9
           },
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
@@ -563,8 +563,8 @@
         "20_questions_subject_weakness_focus_set": {
           "question_count": 20,
           "subject_counts": {
-            "Reading": 6,
-            "Mathematical Reasoning": 7,
+            "Reading": 7,
+            "Mathematical Reasoning": 6,
             "Thinking": 7
           },
           "student_pdf": "student_practice.pdf",
@@ -574,9 +574,9 @@
         "30_questions_15_to_20_minute_mock_practice_set": {
           "question_count": 30,
           "subject_counts": {
-            "Reading": 6,
-            "Mathematical Reasoning": 12,
-            "Thinking": 12
+            "Reading": 10,
+            "Mathematical Reasoning": 10,
+            "Thinking": 10
           },
           "student_pdf": "student_practice.pdf",
           "teacher_pdf": "teacher_answer_key.pdf",
