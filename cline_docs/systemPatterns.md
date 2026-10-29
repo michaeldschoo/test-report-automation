@@ -100,6 +100,14 @@
   생성기는 둘 중 하나만 true 여도 사용한다(현재 정책).
 - 경로 override: `PRACTICE_GENERATED_DB` 환경변수 (테스트·A/B 실험용)
 
+### D9. 대량 OCR 배치는 "병렬 + 이어붙이기 + 연도 ID" 로 처리
+- 시험지 1편당 약 30~40초(10페이지 300dpi × 2회 렌더) → 순차 처리 시 314편은 3시간+
+- `--workers N` (ProcessPoolExecutor) 로 4~8배 단축. 실측 4편 33초(workers=4)
+- `--append --skip-existing` 로 **중단·재개 가능**: 이미 처리한 `paper_id` 는 건너뛴다
+- `paper_id = "<연도>|<파일명>"` (예: `OC2023|OC01 ENG`)
+  - 이유: OC/STT 는 연도별로 파일명이 동일(`OC01 ENG.pdf`)하므로 파일명만 쓰면 **다른 연도 시험지가 중복 제거**된다
+- 수집 단계 필터: `ANS`(정답지), `WRITING`, `RESULTS` 폴더, `(2)` 사본, 대소문자만 다른 중복 루트
+
 ---
 
 ## 4. 데이터 스키마

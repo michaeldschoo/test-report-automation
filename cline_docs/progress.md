@@ -20,6 +20,11 @@
 | LLM 생성 파이프라인 | `--dry-run` / `--mock` | ✅ 프롬프트·검증·저장·연동 동작 확인 |
 | LLM 실제 생성 (Gemini 3.5-flash) | 10개 지문 × 5문항 | ✅ **9섹션 / 45문항, 탈락 0건** |
 | 생성 문항 문제집 반영 | PDF 텍스트 검사 | ✅ 샘플 세트 Reading 12문항 중 6문항이 LLM 생성분 |
+| 대량 배치 추출 (병렬) | `--workers 8 --append --skip-existing` | ✅ 동작 (4편 33초 ≈ 순차 대비 4배) |
+| 연도별 아카이브 인식 | OC/STT 2022~2025 | ✅ ENG 314편 식별, 연도 컨텍스트 ID(`OC2023\|OC01 ENG`)로 충돌 방지 |
+| **전체 기출 추출 실행** | ENG 333편, workers=8 | ✅ **5,793문항 / 정답 3,593(62.0%) / 긴 지문 정답 3,465** (총 50분) |
+| **DB 병합** | `--min-questions 2` | ✅ 329섹션 / **1,017문항** (10섹션/42문항에서 확장) |
+| **문제집 재생성** | 21명 × 3세트 | ✅ 1,260문항, 중복 0, 30문항 세트 Reading 12문항 = 긴 지문 3개 |
 
 ---
 
@@ -83,7 +88,26 @@ final_student_name = parsed_name or student_name or "Anonymous"
 
 ---
 
-## 4. 검증 체크리스트 (커밋 전 실행)
+## 5. 진행 중인 작업 (2026-10-29 세션 말)
+
+- **연도별 아카이브 대량 추출 ✅ 완료** (OC/STT 2022~2025, ENG 333편)
+  - 결과: 5,793문항 / 정답 3,593(62.0%) / 긴 지문 정답 3,465
+  - `data/questions/exam_papers_raw.json` (append 방식, `--skip-existing` 로 재개 가능)
+- 이후 파이프라인 ✅ 완료:
+  ```powershell
+  python tools/build_reading_db_from_papers.py --min-questions 2   # 329섹션/1,017문항
+  python tools/generate_personalized_practice_sets.py --test-type Selective --round 26
+  python tools/generate_personalized_practice_sets.py --test-type OC --round 11
+  python tools/check_duplicates.py     # 중복 0
+  ```
+- 남은 후보 작업:
+  - MATH / TS 과목 추출 (`--subjects ENG MATH TS`)
+  - `exam_papers_review.json` 1,558건 정답 미판정분 검수
+  - `--mode new` 로 새 지문 생성 확대
+
+---
+
+## 6. 검증 체크리스트 (커밋 전 실행)
 
 ```powershell
 # 1) 문제은행 로드 상태

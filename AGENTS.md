@@ -44,9 +44,10 @@ python tools/generate_personalized_practice_sets.py --test-type Selective --roun
 | 파일 | 내용 | 상태 |
 |---|---|---|
 | `data/questions/pool.json` | math 30 / reading 23(유효 22) / thinking 13 | ✅ 사용 중 (수작업 작성 문항) |
-| `data/questions/reading_complete_db.json` | **10개 섹션 / 42문항** (Lasseter 수작업 8 + 시험지 OCR 추출 34) | ✅ 사용 중 |
-| `data/questions/exam_papers_raw.json` | OCR 추출 원본 (ENG 7편) — 배치 확장 대상 | ✅ 추출 완료 |
-| `data/questions/exam_papers_review.json` | 정답 미판정 문항 (사람 검수용) | ⚠️ 검수 필요 |
+| `data/questions/reading_complete_db.json` | **329개 섹션 / 1,017문항** (Lasseter 8 + 기출 OCR 추출분) | ✅ 사용 중 |
+| `data/questions/generated_db.json` | LLM 생성 9섹션 / 45문항 (`structure_ok`) | ✅ 사용 중 |
+| `data/questions/exam_papers_raw.json` | OCR 추출 원본 (ENG **333편**) | ✅ 추출 완료 |
+| `data/questions/exam_papers_review.json` | 정답 미판정 문항 (사람 검수용, 1,558건) | ⚠️ 검수 필요 |
 | `data/questions/full_nsw_db.json` | 130편 파싱 결과 → **문항 있는 편 2개, 총 7문항** | ❌ 사실상 실패 (미사용) |
 | `data/questions/reading_nsw_db.json` | 1 section, **문항 0** (지문만) | ❌ 미사용 |
 | `data/questions/reading_nsw.json` | 2 section, questions 키 없음 (지문만) | ❌ 미사용 |
@@ -67,6 +68,21 @@ python tools/build_reading_db_from_papers.py                # DB 병합 (기존 
 - 정답은 `... ANS.pdf` 의 **굵은 글씨**를 잉크 밀도 비율로 판정 (판정된 정답 오류 0건 실측)
 - 채택 조건: 긴 지문(≥300자) + 정답 있는 문항 3개 이상 + stem 미절단
 
+### 대량 배치 처리 (2026-10-29 추가)
+```powershell
+# 2022~2025 아카이브까지 한 번에 (--archive)
+python tools/extract_exam_papers.py --archive --workers 8 --append --skip-existing `
+  --out data/questions/exam_papers_raw.json
+
+# 특정 폴더만
+python tools/extract_exam_papers.py --roots "<폴더1>" "<폴더2>" --workers 8 --append --skip-existing
+```
+- `--workers N` : 병렬 프로세스 (실측 6~8 권장, 4편 33초 ≈ 순차의 4배)
+- `--append` : 기존 결과에 이어붙이기 / `--skip-existing` : 이미 처리한 paper_id 건너뛰기
+- `--archive` : 2022~2025 연도별 아카이브 루트 자동 포함
+- `paper_id` 는 **연도 컨텍스트 포함** (`OC2023|OC01 ENG`) → 연도별 동일 파일명 충돌 방지
+- 결과지(`RESULTS`) 폴더와 `(2)` 사본은 자동 제외
+
 ### LLM 문제 생성 파이프라인 (2026-10-29 신규)
 ```powershell
 python tools/generate_questions_llm.py --dry-run --limit 1        # 프롬프트만 확인
@@ -83,6 +99,18 @@ python tools/generate_questions_llm.py --mode new --provider openai --limit 3   
 ### J: 드라이브 시험지 (학습 데이터 원본)
 - `J:\My Drive\EKC  OFFICE\STT - NEW\STT2027\TEST\` → PDF **167개** (ENG 52개, `STT<회차>\STT<회차> ENG.pdf` + `... ENG ANS.pdf` 쌍)
 - `J:\My Drive\EKC  OFFICE\OC - NEW\OC 2027\TEST\` → 동일 구조
+- **연도별 아카이브 (2022~2025)** — 사용자 제공, 2026-10-29 확인
+  | 위치 | ENG 문제 수 |
+  |---|---|
+  | `OC - NEW\OC 2022\OC Test` | 33 |
+  | `OC - NEW\OC 2023\OC Test` | 41 |
+  | `OC - NEW\OC 2024\Test` | 38 |
+  | `OC - NEW\OC 2025\TEST` | 36 |
+  | `STT - NEW\STT2023\STT test` | 58 |
+  | `STT - NEW\STT2024\TEST` | 55 |
+  | `STT - NEW\STT2025\TEST` | 53 |
+  | (참고) `STT2022\STT test` | 0 — 시험지 없음(리포트만) |
+  - 총 ENG **314편**, 전체 PDF 2,824개
 - 정답지는 `ANS` 접미사 파일에 존재 → 문항 DB화 시 **정답 키 소스**로 사용할 것.
 
 ---

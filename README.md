@@ -102,8 +102,9 @@ python tools/generate_personalized_practice_sets.py --test-type TermTest --round
 **주의사항**:
 - 중복 문제 방지 기능이 적용되어 있습니다 (각 세트 내 모든 문제는 고유함)
 - 문제 은행이 부족하면 경고 메시지가 표시됩니다
-- Reading 문제는 다양한 유형을 포함하지만, NSW 실제 시험보다 지문이 짧습니다 (향후 개선 예정)
-- 현재 문제 은행: Math 15개, Reading 10개, Thinking Skills 3개
+- Reading 은 **긴 지문(300자 이상) + 다문항** 세트로만 출제됩니다
+- 문항 수는 학생의 과목별 성취도에 따라 **유동 배분**됩니다 (최소 2문항/과목 보장)
+- 현재 문제 은행: Math 30 / Reading 101(기출·LLM 생성 포함) / Thinking 13 — `python tools/generate_personalized_practice_sets.py` 실행 시 실시간 출력
 
 생성 결과 위치:
 

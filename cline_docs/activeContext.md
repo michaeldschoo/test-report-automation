@@ -25,6 +25,8 @@ Reading 문제 생성 문제를 **해결 완료**했고, 기출 시험지 OCR �
 | 8 | 지식 베이스 도입 | `AGENTS.md`, `docs/PROJECT_MEMORY.md`, `cline_docs/` |
 | 9 | **LLM 문제 생성 파이프라인 신규 작성** | `tools/generate_questions_llm.py` + 생성기 연동 (`generated_db.json`) |
 | 10 | **LLM 실제 생성 실행** | 9섹션 / **45문항 생성** (탈락 0건) → Reading 56 → **101문항** |
+| 11 | **연도별 기출 아카이브 확인** | OC/STT 2022~2025 **ENG 314편** 발견 (J: 드라이브) |
+| 12 | **대량 배치 추출** | `--workers 8 --append --skip-existing` 병렬 파이프라인 추가 후 실행 |
 
 ---
 
@@ -54,16 +56,17 @@ Reading 문제 생성 문제를 **해결 완료**했고, 기출 시험지 OCR �
 ## 4. 현재 실측 수치 (다음 세션에서 재검증할 것)
 
 ```
-[INFO] Pool loaded: 144 total questions (Math: 30, Reading: 101, Thinking: 13)
+[INFO] Pool loaded: 1119 total questions (Math: 30, Reading: 1076, Thinking: 13)
        LLM 생성 문항 포함: 45개 (generated_db.json)
-       Reading: 24 passages / long passages(>=300 chars): 10 passages, 87 questions
+       Reading: 343 passages / long passages(>=300 chars): 329 passages, 1062 questions
 
 Selective R26 30문항 세트 배분 예시 (학생별로 다름)
-  Aanya Surve    정답률 0.47/0.17/-     → 배분 9/12/9    (긴 지문 2개)
-  Deeksha        (가장 약함)             → 12/9/9        (Reading 12 = 기출 6 + LLM 6)
+  Aanya Surve    정답률 0.47/0.17/-     → 배분 9/12/9
+  Deeksha        (가장 약함)             → 12/9/9   (Reading 12 = 긴 지문 3개)
   Aaron He       0.61/0.69/0.62          → 10/10/10
 
 검증: 21명 × 3세트 errors 0 / check_duplicates 1,260문항 중복 0
+기출 추출: 333편 / 5,793문항 (정답 3,593, 62.0%) / 긴 지문 정답 3,465
 ```
 
 ### LLM 모델 현황 (2026-10-29 실측)

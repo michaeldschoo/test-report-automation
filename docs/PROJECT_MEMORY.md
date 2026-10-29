@@ -5,6 +5,60 @@
 
 ---
 
+## 2026-10-29 (6차) — 연도별 기출 아카이브(2022~2025) 대량 추출
+
+### 사용자 제공 신규 경로
+`J:\My Drive\EKC  OFFICE\OC - NEW\OC 202X\OC Test`, `J:\My Drive\EKC  OFFICE\STT - NEW\STT202X\STT test`
+(202X의 X = 연도 끝자리, 2022~2025)
+
+| 위치 | ENG 문제 수 |
+|---|---|
+| `OC - NEW\OC 2022\OC Test` | 33 |
+| `OC - NEW\OC 2023\OC Test` | 41 |
+| `OC - NEW\OC 2024\Test` | 38 |
+| `OC - NEW\OC 2025\TEST` | 36 |
+| `STT - NEW\STT2023\STT test` | 58 |
+| `STT - NEW\STT2024\TEST` | 55 |
+| `STT - NEW\STT2025\TEST` | 53 |
+| `STT - NEW\STT2022\STT test` | 0 (시험지 없음 — 리포트만) |
+| **합계** | **ENG 314편** (전체 PDF 2,824개) |
+
+### 발견한 함정과 수정
+1. **폴더명 표기 불일치** — `OC Test` / `OC TEST` / `Test` / `TEST` / `STT test`
+   → Windows 는 대소문자 무시라 같은 폴더가 두 번 수집됨 → **resolve() 기준 중복 루트 제거**
+2. **연도별 동일 파일명** — `OC01 ENG.pdf` 가 2022·2023·2024·2025 모두 존재
+   → 파일명만으로 `paper_id` 를 만들면 **다른 연도 시험지가 중복으로 skip** 됨
+   → `paper_id = "<연도>|<파일명>"` (예: `OC2023|OC01 ENG`) 로 변경
+3. **결과지 혼입 위험** — 같은 연도 폴더에 `RESULTS` 폴더 존재 → 상위 경로에 `RESULT` 포함 시 제외
+4. **`(2)` 사본** — `OC06 ENG (2).pdf` 같은 중복 파일 → paper_id 정규화로 제거
+5. **속도** — 순차 처리 시 편당 30~40초(300dpi × 2회 렌더) → 314편이면 3시간+
+   → `--workers N` (ProcessPoolExecutor) 추가. **실측 4편 33초(workers=4)**, 33편 4.2분(workers=6)
+   → `--append --skip-existing` 로 중단·재개 가능
+
+### 실행 로그
+```
+OC 2022 (33편, workers=6) : 4.2분 → 누적 40편 / 646문항 (정답 338)
+OC 2023 (41편, workers=6) : 5.8분 → 누적 96편 / 1,491문항 (정답 849)
+나머지 5개 연도(237편, workers=8): 40.0분 → 누적 333편 / 5,793문항 (정답 3,593, 62.0%)
+  긴 지문(>=300자) 섹션의 정답 확보 문항: 3,465개
+```
+
+### DB 병합 결과 (`--min-questions 2`)
+```
+papers=333, 신규 섹션=319, 건너뜀(짧은지문=78, 문항부족=702, 중복=111)
+reading_complete_db.json: 10섹션/42문항 → 329섹션/1,017문항
+생성기 Pool: 1,119문항 (Math 30, Reading 1,076, Thinking 13)
+  Reading 긴 지문: 329개 / 1,062문항
+문제집 재생성: 21명 × 3세트 = 1,260문항, 중복 0
+30문항 세트 Reading 12문항 = 긴 지문 3개(8+2+2문항 분산)
+```
+
+### 남은 작업
+- `exam_papers_review.json` 1,558건(정답 미판정) 사람 검수
+- MATH / TS 과목도 같은 방식으로 추출 (`--subjects ENG MATH TS`)
+
+---
+
 ## 2026-10-29 (5차) — LLM 실제 생성 실행 (45문항) + 연동 튜닝
 
 ### API 키 검증 결과

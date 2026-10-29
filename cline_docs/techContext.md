@@ -76,10 +76,15 @@ python tools/check_duplicates.py
 ### 시험지 DB 확장 (신규 파이프라인)
 ```powershell
 # J: 드라이브 시험지 OCR 추출 (기본: ENG, 전체 루트 2곳)
-python tools/extract_exam_papers.py                 # 전체 (오래 걸림: 편당 약 30~40초)
+python tools/extract_exam_papers.py                 # 전체 (편당 약 30~40초)
 python tools/extract_exam_papers.py --limit 10      # 10편만
 python tools/extract_exam_papers.py --match "STT26 ENG" --limit 1
 python tools/extract_exam_papers.py --subjects ENG MATH TS
+
+# 대량 배치 (병렬 + 이어붙이기) — 권장 방식
+python tools/extract_exam_papers.py --roots "<폴더1>" "<폴더2>" `
+  --workers 8 --append --skip-existing `
+  --out data/questions/exam_papers_raw.json
 
 # 추출 결과를 생성기 DB 로 병합
 python tools/build_reading_db_from_papers.py --dry-run
@@ -120,6 +125,21 @@ J:\My Drive\EKC  OFFICE\STT - NEW\STT2027\TEST\        ← STT 회차 시험지 
    STT10\STT10 ENG.pdf  /  STT10 ENG ANS.pdf  /  STT10 MATH.pdf  /  STT10 TS.pdf ...
 J:\My Drive\EKC  OFFICE\OC - NEW\OC 2027\TEST\         ← OC 회차 (동일 구조)
 ```
+
+### 연도별 아카이브 (2022~2025, 사용자 제공)
+```
+J:\My Drive\EKC  OFFICE\OC - NEW\OC 2022\OC Test\       ENG 33편
+J:\My Drive\EKC  OFFICE\OC - NEW\OC 2023\OC Test\       ENG 41편
+J:\My Drive\EKC  OFFICE\OC - NEW\OC 2024\Test\          ENG 38편
+J:\My Drive\EKC  OFFICE\OC - NEW\OC 2025\TEST\          ENG 36편
+J:\My Drive\EKC  OFFICE\STT - NEW\STT2023\STT test\     ENG 58편
+J:\My Drive\EKC  OFFICE\STT - NEW\STT2024\TEST\         ENG 55편
+J:\My Drive\EKC  OFFICE\STT - NEW\STT2025\TEST\         ENG 53편
+J:\My Drive\EKC  OFFICE\STT - NEW\STT2022\STT test\     (시험지 없음 — 리포트만)
+```
+- 총 ENG **314편**, 전체 PDF 2,824개
+- 하위 폴더명이 `OC Test` / `OC TEST` / `Test` / `TEST` / `STT test` 로 **대소문자·표기가 제각각**
+  → 스크립트가 **대소문자 무시 + 동일 폴더 중복 제거**로 처리
 
 - 파일명 규칙: `<회차> <과목>.pdf` + `<회차> <과목> ANS.pdf` (정답지)
 - **모든 PDF 는 스캔 이미지 (텍스트 레이어 0)** → OCR 필수

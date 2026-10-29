@@ -24,6 +24,7 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -34,6 +35,18 @@ DEFAULT_POPPLER = os.environ.get("POPPLER_PATH", r"F:\poppler-26.09.0\Library\bi
 DEFAULT_ROOTS = [
     r"J:\My Drive\EKC  OFFICE\STT - NEW\STT2027\TEST",
     r"J:\My Drive\EKC  OFFICE\OC - NEW\OC 2027\TEST",
+]
+
+# 2022~2025 연도별 아카이브 (--archive 로 추가)
+ARCHIVE_ROOTS = [
+    r"J:\My Drive\EKC  OFFICE\OC - NEW\OC 2022\OC Test",
+    r"J:\My Drive\EKC  OFFICE\OC - NEW\OC 2023\OC Test",
+    r"J:\My Drive\EKC  OFFICE\OC - NEW\OC 2024\Test",
+    r"J:\My Drive\EKC  OFFICE\OC - NEW\OC 2025\TEST",
+    r"J:\My Drive\EKC  OFFICE\STT - NEW\STT2022\STT test",
+    r"J:\My Drive\EKC  OFFICE\STT - NEW\STT2023\STT test",
+    r"J:\My Drive\EKC  OFFICE\STT - NEW\STT2024\TEST",
+    r"J:\My Drive\EKC  OFFICE\STT - NEW\STT2025\TEST",
 ]
 DPI = 300
 TESS_CFG = "--oem 3 --psm 4"
@@ -356,7 +369,7 @@ def process_paper(paper_path, poppler):
             valid_sections.append(section)
 
     return {
-        "paper_id": paper_path.stem.replace("  ", " ").strip(),
+        "paper_id": normalize_paper_id(paper_path.name, path_context(paper_path)),
         "file": paper_path.name,
         "ans_file": ans_path.name if ans_path else None,
         "subject": detect_subject(paper_path.name),
@@ -365,26 +378,70 @@ def process_paper(paper_path, poppler):
 
 
 def collect_papers(roots, subject_filter, include_ans=False, match=None):
-    """루트 목록에서 시험지 PDF(정답지 제외)를 수집한다."""
+    """루트 목록에서 시험지 PDF(정답지 제외)를 수집한다. (동일 파일명 중복 제거)"""
     papers = []
+    seen_ids = set()
+    seen_roots = set()
     for root in roots:
         base = Path(root)
         if not base.exists():
             log(f"[SKIP] 경로 없음: {root}")
             continue
+        try:
+            resolved = str(base.resolve()).lower()
+        except OSError:
+            resolved = str(base).lower()
+        if resolved in seen_roots:          # 대소문자만 다른 동일 폴더 중복 방지
+            continue
+        seen_roots.add(resolved)
+
         for pdf in sorted(base.rglob("*.pdf")):
             name = pdf.name.upper()
             if not include_ans and "ANS" in name:
                 continue
             if "WRITING" in name:
                 continue
+            if "RESULT" in str(pdf.parent).upper():    # 결과지 폴더 제외
+                continue
             if match and match.upper() not in name:
                 continue
             subject = detect_subject(pdf.name)
             if subject_filter and subject not in subject_filter:
                 continue
+            pid = normalize_paper_id(pdf.name, path_context(pdf))
+            if pid in seen_ids:             # "OC06 ENG (2).pdf" 같은 사본 제외
+                continue
+            seen_ids.add(pid)
             papers.append(pdf)
     return papers
+
+
+def path_context(pdf_path):
+    """상위 폴더에서 연도 컨텍스트를 뽑는다. (예: 'OC 2023' → OC2023, 'STT2024' → STT2024)"""
+    for part in reversed(Path(pdf_path).parts[:-1]):
+        m = re.search(r"(OC|STT)\s*[-_]?\s*(\d{4})", part, re.IGNORECASE)
+        if m:
+            return f"{m.group(1).upper()}{m.group(2)}"
+    return ""
+
+
+def normalize_paper_id(filename, context=""):
+    """파일명 → 안정적인 paper_id ('OC06 ENG (2).pdf' → 'OC2023|OC06 ENG')"""
+    stem = Path(filename).stem
+    stem = re.sub(r"\s*\(\d+\)\s*$", "", stem)
+    stem = re.sub(r"\s+", " ", stem).strip().upper()
+    return f"{context}|{stem}" if context else stem
+
+
+def worker(task):
+    """병렬 처리용 워커 (프로세스에서 실행)"""
+    path_str, poppler = task
+    try:
+        return process_paper(Path(path_str), poppler)
+    except Exception as exc:
+        p = Path(path_str)
+        return {"paper_id": normalize_paper_id(p.name, path_context(p)), "file": p.name,
+                "error": str(exc), "sections": []}
 
 
 def main():
@@ -396,30 +453,58 @@ def main():
     parser.add_argument("--out", default="data/questions/exam_papers_raw.json")
     parser.add_argument("--review", default="data/questions/exam_papers_review.json")
     parser.add_argument("--poppler", default=DEFAULT_POPPLER)
+    parser.add_argument("--workers", type=int, default=1, help="병렬 프로세스 수 (권장 4~8)")
+    parser.add_argument("--append", action="store_true", help="기존 결과 파일에 이어붙이기")
+    parser.add_argument("--skip-existing", action="store_true", help="이미 처리한 paper_id 는 건너뛰기")
+    parser.add_argument("--archive", action="store_true", help="2022~2025 연도별 아카이브 루트도 포함")
     args = parser.parse_args()
+
+    roots = list(args.roots)
+    if args.archive:
+        roots.extend(ARCHIVE_ROOTS)
 
     if not Path(args.poppler).exists():
         log(f"[WARN] poppler 경로를 찾을 수 없습니다: {args.poppler} (POPPLER_PATH 환경변수로 지정 가능)")
 
-    papers = collect_papers(args.roots, set(args.subjects), match=args.match)
+    papers = collect_papers(roots, set(args.subjects), match=args.match)
+    log(f"[INFO] 대상 시험지: {len(papers)}개 | 과목: {sorted(args.subjects)}")
+
+    previous = []
+    out_path = Path(args.out)
+    if (args.append or args.skip_existing) and out_path.exists():
+        try:
+            previous = json.loads(out_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            previous = []
+    done_ids = {p.get("paper_id") for p in previous if p.get("paper_id")}
+    if args.skip_existing and done_ids:
+        before = len(papers)
+        papers = [p for p in papers if normalize_paper_id(p.name, path_context(p)) not in done_ids]
+        log(f"[INFO] 이미 처리된 {before - len(papers)}개 제외 → 남은 {len(papers)}개")
+
     if args.limit:
         papers = papers[: args.limit]
-    log(f"[INFO] 대상 시험지: {len(papers)}개 | 과목: {sorted(args.subjects)}")
+    if not papers:
+        log("[INFO] 처리할 시험지가 없습니다.")
+        return 0
 
     results = []
     review = []
-    for idx, pdf in enumerate(papers, 1):
-        log(f"\n[{idx}/{len(papers)}] {pdf.name}")
-        try:
-            parsed = process_paper(pdf, args.poppler)
-        except Exception as exc:
-            log(f"  [ERR] {exc}")
-            continue
+    started = time.time()
+    tasks = [(str(p), args.poppler) for p in papers]
+
+    def handle(parsed, idx):
+        if not parsed:
+            return
+        if parsed.get("error"):
+            log(f"[{idx}/{len(papers)}] {parsed['file']}  [ERR] {parsed['error'][:80]}")
+            return
         results.append(parsed)
         q_total = sum(len(s["questions"]) for s in parsed["sections"])
         q_answered = sum(1 for s in parsed["sections"] for q in s["questions"] if q.get("answer"))
         long_sections = [s for s in parsed["sections"] if s.get("long_passage")]
-        log(f"  sections={len(parsed['sections'])} questions={q_total} answered={q_answered} long_passage={len(long_sections)}")
+        log(f"[{idx}/{len(papers)}] {parsed['file']}  sections={len(parsed['sections'])} "
+            f"questions={q_total} answered={q_answered} long={len(long_sections)}")
         for s in parsed["sections"]:
             for q in s["questions"]:
                 if not q.get("answer"):
@@ -428,21 +513,44 @@ def main():
                         "stem": q["stem"], "options": q["options"],
                     })
 
-    out_path = Path(args.out)
+    if args.workers and args.workers > 1:
+        from concurrent.futures import ProcessPoolExecutor, as_completed
+        log(f"[INFO] 병렬 처리: workers={args.workers}")
+        with ProcessPoolExecutor(max_workers=args.workers) as pool:
+            futures = {pool.submit(worker, t): i for i, t in enumerate(tasks, 1)}
+            for fut in as_completed(futures):
+                handle(fut.result(), futures[fut])
+    else:
+        for idx, task in enumerate(tasks, 1):
+            handle(worker(task), idx)
+
+    merged = previous + results
+    seen = set()
+    deduped = []
+    for item in merged:
+        pid = item.get("paper_id")
+        if pid and pid in seen:
+            continue
+        seen.add(pid)
+        deduped.append(item)
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(deduped, ensure_ascii=False, indent=2), encoding="utf-8")
     review_path = Path(args.review)
     review_path.write_text(json.dumps(review, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    total_q = sum(len(s["questions"]) for r in results for s in r["sections"])
-    total_ans = sum(1 for r in results for s in r["sections"] for q in s["questions"] if q.get("answer"))
-    total_long = sum(len([q for q in s["questions"] if q.get("answer")]) for r in results for s in r["sections"] if s.get("long_passage"))
+    elapsed = time.time() - started
+    total_q = sum(len(s["questions"]) for r in deduped for s in r["sections"])
+    total_ans = sum(1 for r in deduped for s in r["sections"] for q in s["questions"] if q.get("answer"))
+    total_long = sum(len([q for q in s["questions"] if q.get("answer")])
+                     for r in deduped for s in r["sections"] if s.get("long_passage"))
     log("\n" + "=" * 60)
-    log(f"완료: 시험지 {len(results)}개")
+    log(f"완료: 이번 {len(results)}편 / 누적 {len(deduped)}편  ({elapsed / 60:.1f}분)")
     log(f"  문항 {total_q}개 (정답 판정 {total_ans}개, {total_ans / total_q * 100 if total_q else 0:.1f}%)")
     log(f"  긴 지문(>={LONG_PASSAGE_MIN}자) 섹션의 정답 확보 문항: {total_long}개")
     log(f"  저장: {out_path}")
-    log(f"  검수 필요(정답 미판정): {len(review)}건 -> {review_path}")
+    log(f"  이번 실행 검수 필요(정답 미판정): {len(review)}건 -> {review_path}")
+    return 0
 
 
 if __name__ == "__main__":
