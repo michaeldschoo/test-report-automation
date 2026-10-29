@@ -30,6 +30,12 @@
 
 ## 2. 알려진 버그 (미수정 — 우선순위 순)
 
+### 🔴 Critical 0. 저작권 — 기출 지문 원문 사용 (2026-10-29 사고)
+- 증상: 학생용 문제집 지문이 **기출 원문 그대로** (예: `STT2023|STT29 ENG` "Making Mascara")
+- 원인: 대량 OCR 추출 데이터를 그대로 DB에 넣고 생성기가 사용
+- 조치(코드): `original: true` 섹션만 사용하도록 차단, 원문은 `original: false` + `verbatim_source`
+- **남은 조치**: 재생성 / 새 지문 창작 / 배포본 회수
+
 ### 🔴 Critical 1. `run_pipeline.py` 학생 이름/ID 유실 (회귀)
 - 위치: `parse_pdf()` 내부
 ```python

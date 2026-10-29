@@ -36,6 +36,13 @@ python tools/generate_personalized_practice_sets.py --test-type Selective --roun
 5. J: 드라이브의 시험지 PDF는 **학생이 푼 답안지가 아니라 빈 시험지(문제 원본)** 이다.
    - 따라서 상단 `Student Name`이 공란인 것이 정상이며, 버그로 오해하지 않는다.
    - 이 PDF들은 **문제 생성/참고용 학습 데이터**로 보관된 것이다.
+6. ⚠️ **저작권 — 기출 지문/문항을 그대로 학생용 출력물에 쓰지 않는다.**
+   - 기출 PDF는 **스타일·난이도 참조용**으로만 사용한다.
+   - 학생에게 배포되는 지문은 **새로 창작한 원문**이어야 한다.
+   - 데이터 플래그: `original: true` 인 섹션만 생성기가 읽는다.
+     - 기출 추출분: `original: false` + `verbatim_source: "<paper_id>"`
+     - LLM `--mode new`: `original: true` / LLM `--mode passage`(기출 지문 재사용): `original: false`
+   - 생성기는 원문이 아닌 섹션을 **자동 제외**하고 `[COPYRIGHT]` 경고를 출력한다.
 
 ---
 

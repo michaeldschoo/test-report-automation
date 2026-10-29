@@ -160,6 +160,7 @@ def load_pool():
     """
     pool = []
     seen_stems = set()
+    skipped_copyright = 0
 
     # 1. pool.json 로드
     pool_file = BASE / "data" / "questions" / "pool.json"
@@ -176,6 +177,10 @@ def load_pool():
                     pool.append(q_entry)
 
             for q in data.get("reading", []):
+                # ⚠️ 저작권: 기출 원문 지문(original=false)은 사용하지 않는다
+                if q.get("original") is False:
+                    skipped_copyright += 1
+                    continue
                 # 더미 옵션('A|B|C|D')/플레이스홀더 문항은 제외하고 유효 문제만 로드
                 if is_usable_question(q):
                     q_entry = dict(q, subject="Reading", verified=q.get("verified", True))
@@ -193,13 +198,18 @@ def load_pool():
                     q_entry["_id"] = hash(stem_key)
                     pool.append(q_entry)
 
-    # 2. reading_complete_db.json 로드 (유효한 세부 문항이 있는 경우 포함)
+    # 2. reading_complete_db.json 로드
+    #    ⚠️ 저작권: `original: true` 인 섹션만 사용한다.
+    #    기출 원문(original=false 또는 플래그 없음)은 학생용 PDF에 절대 쓰지 않는다.
     complete_db_file = BASE / "data" / "questions" / "reading_complete_db.json"
     if complete_db_file.exists():
         try:
             with complete_db_file.open("r", encoding="utf-8") as f:
                 complete_data = json.load(f)
                 for section in complete_data:
+                    if section.get("original") is not True:
+                        skipped_copyright += len(section.get("questions", []))
+                        continue
                     passage = section.get("passage", "")
                     for q in section.get("questions", []):
                         if is_usable_question(q):
@@ -230,6 +240,10 @@ def load_pool():
             for section in json.loads(generated_file.read_text(encoding="utf-8")):
                 if not (section.get("structure_ok") or section.get("verified")):
                     continue
+                # ⚠️ 저작권: 새로 생성한 원문(original=true)만 사용. 기출 지문 재사용분은 제외
+                if section.get("original") is not True:
+                    skipped_copyright += len(section.get("questions", []))
+                    continue
                 passage = section.get("passage", "")
                 for q in section.get("questions", []):
                     if not is_usable_question(q):
@@ -257,12 +271,50 @@ def load_pool():
         except Exception as e:
             print(f"[WARN] Error reading generated_db: {e}")
 
+    # 4. 자체 창작 원문 지문 로드 (저작권 안전 — original: true 전용 파일)
+    original_file = BASE / "data" / "questions" / "original_reading_db.json"
+    original_count = 0
+    if original_file.exists():
+        try:
+            for section in json.loads(original_file.read_text(encoding="utf-8")):
+                if section.get("original") is not True:
+                    continue
+                passage = section.get("passage", "")
+                for q in section.get("questions", []):
+                    if not is_usable_question(q):
+                        continue
+                    stem_key = _stem_key(q)
+                    if stem_key in seen_stems:
+                        continue
+                    seen_stems.add(stem_key)
+                    pool.append({
+                        "_id": hash(stem_key),
+                        "subject": "Reading",
+                        "topic": section.get("type", "Passage"),
+                        "skill": q.get("topic", "Inference"),
+                        "stem": q.get("stem", ""),
+                        "passage": passage,
+                        "options": q.get("options", ""),
+                        "answer": q.get("answer", ""),
+                        "explanation": q.get("explanation", ""),
+                        "difficulty": q.get("difficulty", "Medium"),
+                        "verified": True,
+                        "source": "original:authored",
+                    })
+                    original_count += 1
+        except Exception as e:
+            print(f"[WARN] Error reading original_reading_db: {e}")
+
     math_count = len([q for q in pool if q.get("subject") == "Mathematical Reasoning"])
     reading_count = len([q for q in pool if q.get("subject") == "Reading"])
     thinking_count = len([q for q in pool if "Thinking" in q.get("subject", "")])
     print(f"[INFO] Pool loaded: {len(pool)} total questions (Math: {math_count}, Reading: {reading_count}, Thinking: {thinking_count})")
     if generated_count:
         print(f"       LLM 생성 문항 포함: {generated_count}개 ({generated_file.name})")
+    if skipped_copyright:
+        print(f"[COPYRIGHT] 기출 원문 지문 문항 {skipped_copyright}개는 저작권 보호를 위해 제외했습니다.")
+    if original_count:
+        print(f"       자체 창작 원문 문항: {original_count}개 (original_reading_db.json)")
 
     reading_grouped = group_reading_by_passage([q for q in pool if q.get("subject") == "Reading"])
     long_groups = {p: qs for p, qs in reading_grouped.items() if len(p) >= LONG_PASSAGE_MIN}

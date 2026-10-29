@@ -22,6 +22,30 @@ DB = BASE / "data" / "questions" / "reading_complete_db.json"
 LONG_PASSAGE_MIN = 300
 DEFAULT_MIN_QUESTIONS = 3
 
+# 지문에 섞여 들어온 문항/보기/안내문 라인 (지문은 첫 문항 직전에서 자른다)
+QUESTION_START = re.compile(r"^\s*\d{1,2}\s*[\.\)]\s+\S")
+OPTION_START = re.compile(r"^\s*[A-E]\s*[\)\.]\s+\S")
+INSTRUCTION_LINE = re.compile(
+    r"^\s*(?:Read the (?:text|passage|following)|Use the information|Study the|"
+    r"Questions?\s+\d+\s+\w+\s+\d+|The following text)",
+    re.IGNORECASE,
+)
+# 보기에서 제거할 OCR 노이즈 접두/접미
+OPTION_NOISE = re.compile(r"^[~=<>_\-\|\s]+|[~=<>_\-\|\s]+$")
+
+# 2단 레이아웃이 한 줄로 섞여 읽힌 흔적 (예: "Killing Heidi's 45.when you're")
+INTERLEAVE_HINT = re.compile(r"\b\d{1,3}\.[a-z]")
+
+
+def looks_garbled(text):
+    """2단 지문이 뒤섞여 읽혔는지 판별한다. (학생에게 노출되면 안 되는 텍스트)"""
+    hits = len(INTERLEAVE_HINT.findall(text or ""))
+    if hits >= 2:
+        return True
+    if hits >= 1 and len(re.findall(r"\b\d{1,3}\.[A-Z]", text or "")) >= 2:
+        return True
+    return False
+
 # stem 이 잘린 것으로 보이는 어미 (줄바꿈 처리 실패 흔적)
 TRUNCATED_ENDINGS = {
     "a", "an", "the", "and", "or", "of", "to", "in", "on", "at", "by", "for", "from",
@@ -49,26 +73,54 @@ def norm(text):
 
 
 def clean_passage(text):
-    text = re.sub(r"[ \t]+", " ", text)
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return text.strip()
+    """지문에서 문항/보기/안내문 라인을 제거하고 첫 문항 직전에서 자른다."""
+    text = re.sub(r"[ \t]+", " ", str(text or ""))
+    kept = []
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line:
+            if kept and kept[-1] != "":
+                kept.append("")
+            continue
+        # 첫 문항/보기가 시작되면 그 이후는 지문이 아니다
+        if QUESTION_START.match(line) or OPTION_START.match(line):
+            break
+        if INSTRUCTION_LINE.match(line):
+            continue
+        kept.append(line)
+    cleaned = "\n".join(kept).strip()
+    return re.sub(r"\n{3,}", "\n\n", cleaned)
+
+
+def clean_option(text):
+    """보기 텍스트의 OCR 노이즈(~=, =, | 등)와 앞뒤 잡음을 제거한다."""
+    value = OPTION_NOISE.sub("", str(text or "")).strip()
+    value = re.sub(r"\s+", " ", value)
+    return value
 
 
 def convert_section(paper, section, min_questions):
     passage = clean_passage(section.get("passage", ""))
     if len(passage) < LONG_PASSAGE_MIN:
         return None
+    # 2단 레이아웃이 뒤섞여 읽힌 지문은 학생에게 노출하지 않는다
+    if looks_garbled(passage):
+        return None
 
     questions = []
     for q in section.get("questions", []):
-        opts = [str(o).strip() for o in q.get("options", []) if str(o).strip()]
+        opts = [clean_option(o) for o in q.get("options", [])]
         answer = q.get("answer")
         stem = clean_stem(q.get("stem", ""))
-        if not answer or answer not in "ABCDE"[: len(opts)] or len(opts) < 4:
+        # 보기 개수가 4~5가 아니면 폐기 (개별 삭제 시 정답 번호가 어긋남)
+        if not (4 <= len(opts) <= 5):
+            continue
+        # stem 조각(': '로 끝남)이나 빈 보기가 섞이면 신뢰할 수 없으므로 문항 폐기
+        if any(len(o) < 2 or o.endswith(":") for o in opts):
+            continue
+        if not answer or answer not in "ABCDE"[: len(opts)]:
             continue
         if len(stem) < 12 or is_truncated_stem(stem):
-            continue
-        if any(len(o) < 1 for o in opts):
             continue
         questions.append({
             "stem": stem,
@@ -85,6 +137,9 @@ def convert_section(paper, section, min_questions):
         "type": section.get("type", "Linked Extracts"),
         "title": f"{paper['paper_id']} — {section.get('title', '')}".strip(),
         "source": paper.get("file"),
+        # ⚠️ 기출 원문 그대로 사용 → 학생용 출력에 사용 금지 (스타일 참조 전용)
+        "original": False,
+        "verbatim_source": paper.get("paper_id"),
         "passage": passage,
         "questions": questions,
     }

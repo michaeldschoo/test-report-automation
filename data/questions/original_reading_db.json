@@ -1,0 +1,59 @@
+[
+  {
+    "type": "Passage",
+    "title": "Original: The Night Patrol",
+    "source": "original:authored-in-house",
+    "original": true,
+    "passage": "The Night Patrol\n\nEvery evening, just after the last beachgoer packs up an umbrella and the light turns the colour of weak tea, a small group gathers at the edge of Corrimal Beach. They carry clipboards, torches wrapped in red cellophane, and a thermos that is passed around more often than strictly necessary. They are volunteers in the Shorebird Watch program, and their job begins precisely when everyone else's ends.\n\nThe birds they protect are easy to overlook. Hooded plovers are small, sandy-coloured, and almost perfectly camouflaged against the shells and dry seaweed where they nest. Rather than building nests in trees, they scrape a shallow hollow directly into the sand and lay two or three speckled eggs. The strategy works well against hawks and gulls, which rarely notice a nest that looks like every other patch of beach. It works badly against almost everything else: bicycles, dogs, four-wheel drives, and the simple human habit of walking in a straight line without looking down.\n\nTen years ago, the local council counted only four nesting pairs along the whole stretch of coast. The volunteers decided that counting was not the same as helping. They began marking nests with low, unobtrusive fencing and small signs that explained, without scolding, why a patch of sand had suddenly been declared off-limits. They also discovered, after a season of trial and error, that the most effective tool was conversation. A person who has been told about a nest by someone holding a clipboard is far more likely to walk around it than a person who has merely read a notice.\n\nBy last summer the count had risen to nineteen pairs. The volunteers are careful not to claim all the credit. Fox control, changes to dog regulations, and a run of unusually mild springs each played a part. Yet the program's coordinator, Meera Rahal, argues that the most durable change was cultural. \"People used to see the beach as a place with nothing on it,\" she says. \"Now they arrive expecting to find something worth protecting.\"\n\nThe work is not glamorous. Some nights the wind carries sand into every pocket and the birds fail to appear at all. But the volunteers return the following evening regardless, thermos in hand, because the plovers cannot file a complaint and cannot move their nests when a school holiday begins.",
+    "questions": [
+      {
+        "stem": "What is the main purpose of the Shorebird Watch program described in the passage?",
+        "options": "To count visitors using the beach each evening|To protect the nests of small birds that breed on the sand|To train volunteers to become professional wildlife rangers|To persuade the council to close the beach to the public",
+        "answer": "B",
+        "explanation": "Volunteers mark nests, talk to beachgoers and protect plover nests laid directly in the sand.",
+        "topic": "Main Idea",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Why does the author say the plovers' nesting strategy 'works badly against almost everything else'?",
+        "options": "Because hawks and gulls destroy most nests each season|Because the nests are easily damaged by people, vehicles and dogs|Because the birds cannot lay more than one egg each year|Because the sand is too soft to hold the eggs in place",
+        "answer": "B",
+        "explanation": "The camouflage works against gulls and hawks but fails against bicycles, dogs, four-wheel drives and careless walkers.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "According to the passage, what did the volunteers find to be their most effective method of protection?",
+        "options": "Building tall fences around each nest|Reporting careless visitors to the council|Talking directly with people about the nests|Handing out printed notices along the beach",
+        "answer": "C",
+        "explanation": "The passage states that 'the most effective tool was conversation', contrasting it with merely reading a notice.",
+        "topic": "Detail",
+        "difficulty": "Easy"
+      },
+      {
+        "stem": "The phrase 'the most durable change was cultural' suggests that the program's lasting effect was:",
+        "options": "A permanent increase in council funding for the beach|A shift in how people think about the beach and its wildlife|A change in the regulations controlling dog ownership|A long-term rise in the number of volunteers joining",
+        "answer": "B",
+        "explanation": "'Cultural' refers to attitudes: visitors now expect to find something worth protecting.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "Why does the author mention the rise from four to nineteen pairs while also noting other factors?",
+        "options": "To suggest that the volunteers' work was unlikely to have mattered|To show the increase was real but partly caused by conditions outside the program|To argue that fox control was the true cause of the increase|To criticise the council for taking credit for the volunteers' efforts",
+        "answer": "B",
+        "explanation": "The passage acknowledges fox control, dog regulations and mild springs, indicating multiple causes.",
+        "topic": "Author's Purpose",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "The final sentence mainly conveys the volunteers' sense of:",
+        "options": "Amusement at their own stubbornness|Frustration with the council's slow response|Duty, because the birds depend entirely on them|Doubt about whether the program is worth continuing",
+        "answer": "C",
+        "explanation": "The birds cannot complain or relocate, which explains why volunteers keep returning.",
+        "topic": "Tone",
+        "difficulty": "Medium"
+      }
+    ]
+  }
+]

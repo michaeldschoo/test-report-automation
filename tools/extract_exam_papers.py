@@ -68,7 +68,7 @@ NOISE_RE = re.compile(
     r"|Student Name.*"
     r"|SELECTIVE HIGH SCHOOL.*"
     r"|\d+\s*$"
-    r"|[0-9OQUVW>\[\]|]{4,}\s*"          # OCR 잡음 토큰 (예: "00NWU>")
+    r"|[0-9]*[OQUVW>]+[0-9OQUVW>\[\]|]*\s*"   # OCR 잡음 토큰 (예: "00NWU>", 순수 숫자 보기는 보존)
     r")$",
     re.IGNORECASE,
 )
@@ -77,6 +77,10 @@ QUESTION_RE = re.compile(r"^\s*(\d{1,2})\s*[\.\)]\s*(.+?)\s*$")
 OPTION_RE = re.compile(r"^\s*([A-E])\s*(?:[\)\.\:]|[_=]{1,}|-{2,}|\s)\s*(.+?)\s*$")
 RANGE_RE = re.compile(r"Questions?\s+(\d{1,2})\s*(?:to|fo|ffo|—|-|~)\s*(\d{1,2})", re.IGNORECASE)
 PASSAGE_RE = re.compile(r"^\s*(Extract|Text|Passage)\s+([A-D])?\s*[:\-]?\s*(.*)$", re.IGNORECASE)
+
+# 지문에 섞여 들어온 문항/보기 라인 (지문은 첫 문항 직전에서 자른다)
+QUESTION_START_RE = re.compile(r"^\s*\d{1,2}\s*[\.\)]\s+\S")
+OPTION_START_RE = re.compile(r"^\s*[A-E]\s*[\)\.]\s+\S")
 
 # 정답 판정 임계값 (실측 기반)
 ANSWER_MIN_RATIO = 1.08      # 정답 보기의 최소 잉크 비율
@@ -88,8 +92,53 @@ def log(msg):
     print(msg, flush=True)
 
 
+def detect_gutter(image):
+    """
+    2단(칼럼) 레이아웃의 중앙 여백 x 위치를 찾는다.
+    세로 여백(잉크가 거의 없는 열)이 가운데 영역에 넓게 있으면 그 중앙을 반환.
+    """
+    arr = np.array(image.convert("L"))
+    h, w = arr.shape
+    ink = (arr < 128).sum(axis=0)
+    lo, hi = int(w * 0.30), int(w * 0.70)
+    threshold = max(1, int(h * 0.002))
+
+    runs = []
+    start = None
+    for x in range(lo, hi):
+        if ink[x] <= threshold:
+            if start is None:
+                start = x
+        elif start is not None:
+            runs.append((start, x))
+            start = None
+    if start is not None:
+        runs.append((start, hi))
+    if not runs:
+        return None
+
+    best = max(runs, key=lambda r: r[1] - r[0])
+    # 여백 폭이 페이지 대비 충분히 넓어야 실제 칼럼 간격이다
+    if best[1] - best[0] < max(20, int(w * 0.012)):
+        return None
+    return (best[0] + best[1]) // 2
+
+
 def ocr_lines(image):
-    """OCR 결과를 줄 단위(text, top, bottom)로 묶어 반환한다."""
+    """OCR 결과를 줄 단위(text, top, bottom, left)로 묶어 반환한다.
+    2단 레이아웃이면 칼럼별로 나눠 읽어 좌/우 텍스트가 섞이지 않게 한다."""
+    gutter = detect_gutter(image)
+    if gutter:
+        left_img = image.crop((0, 0, gutter, image.height))
+        right_img = image.crop((gutter, 0, image.width, image.height))
+        lines = _ocr_lines_single(left_img, x_offset=0)
+        lines += _ocr_lines_single(right_img, x_offset=gutter)
+        return lines
+    return _ocr_lines_single(image, x_offset=0)
+
+
+def _ocr_lines_single(image, x_offset=0):
+    """단일 영역 OCR → 줄 목록"""
     data = pytesseract.image_to_data(image, lang="eng", config=TESS_CFG, output_type=pytesseract.Output.DICT)
     groups = {}
     for i, raw in enumerate(data["text"]):
@@ -105,7 +154,7 @@ def ocr_lines(image):
         key = (data["block_num"][i], data["par_num"][i], data["line_num"][i])
         top = data["top"][i]
         height = data["height"][i]
-        left = data["left"][i]
+        left = data["left"][i] + x_offset
         entry = groups.setdefault(key, {"top": top, "bottom": top + height, "left": left, "words": []})
         entry["top"] = min(entry["top"], top)
         entry["bottom"] = max(entry["bottom"], top + height)
@@ -113,7 +162,7 @@ def ocr_lines(image):
         entry["words"].append(text)
     lines = [{"text": " ".join(v["words"]), "top": v["top"], "bottom": v["bottom"], "left": v["left"]}
              for v in groups.values()]
-    lines.sort(key=lambda x: x["top"])
+    lines.sort(key=lambda x: (x["left"] > 0, x["top"]))
     return lines
 
 
@@ -291,8 +340,15 @@ def build_sections_from_lines(all_lines):
         else:
             passage_lines, question_lines = block[:first_q], block[first_q:]
 
-        kept = [l["text"].strip() for l in passage_lines
-                if l["text"].strip() and not NOISE_RE.match(l["text"].strip())]
+        kept = []
+        for l in passage_lines:
+            t = l["text"].strip()
+            if not t or NOISE_RE.match(t):
+                continue
+            # 문항/보기가 시작되면 그 이후는 지문이 아니므로 자른다
+            if QUESTION_START_RE.match(t) or OPTION_START_RE.match(t):
+                break
+            kept.append(t)
         passage = re.sub(r"\n{3,}", "\n\n", "\n".join(kept)).strip()
         allowed = set(range(q_start, q_end + 1))
         questions = parse_questions(question_lines, allowed)

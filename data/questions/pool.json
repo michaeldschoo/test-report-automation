@@ -327,7 +327,8 @@
       "explanation": "Text A gives the benefit; Text B adds a possible disadvantage.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Cloze Passage",
@@ -339,7 +340,8 @@
       "explanation": "Clouds cover or hide stars.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Linked Extracts",
@@ -351,7 +353,8 @@
       "explanation": "The warning and later debate are linked by the closed bridge.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Paired Comprehension",
@@ -363,7 +366,8 @@
       "explanation": "Evening availability is the reason suggested by the survey.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Poetry",
@@ -375,7 +379,8 @@
       "explanation": "Soft rain, silver rhythm and moonlight create a peaceful mood.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Cloze Exercise",
@@ -387,7 +392,8 @@
       "explanation": "Regular practice would naturally lead to confidence.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Linked Extracts",
@@ -399,7 +405,8 @@
       "explanation": "The display's popularity directly explains the growing queue.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Poetry",
@@ -411,7 +418,8 @@
       "explanation": "The sunset becomes a lamp, using visual imagery and metaphor.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Cloze Passage",
@@ -423,7 +431,8 @@
       "explanation": "Avoiding a mistake suggests careful reading.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Paired Comprehension",
@@ -435,7 +444,8 @@
       "explanation": "Paper maps do not require batteries or an electronic device.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Cloze Exercise",
@@ -447,7 +457,8 @@
       "explanation": "A footprint beside the missing necklace suggests theft.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Linked Extracts",
@@ -459,7 +470,8 @@
       "explanation": "The contrasting results suggest different effects on shop and online sales.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Poetry",
@@ -471,7 +483,8 @@
       "explanation": "The river carries seeds and life onward, symbolising progress.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Cloze Passage",
@@ -483,7 +496,8 @@
       "explanation": "Changing positions should improve organisation and reduce errors.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Paired Comprehension",
@@ -495,7 +509,8 @@
       "explanation": "The outdoor location creates a risk of forgetting belongings.",
       "subject": "Reading",
       "source": "original sample — no reused exam item",
-      "verified": false
+      "verified": false,
+      "original": true
     },
     {
       "topic": "Linked Extracts",
@@ -507,7 +522,9 @@
       "explanation": "In Extract A, Blakeley was exasperated when Lasseter announced they were badly off course, making his directions unpredictable.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     },
     {
       "topic": "Linked Extracts",
@@ -519,7 +536,9 @@
       "explanation": "Both extracts center around an obsessive pursuit of hidden wealth: the lost gold reef and the Money Pit treasure.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     },
     {
       "topic": "Linked Extracts",
@@ -531,7 +550,9 @@
       "explanation": "Extract B states that torrents of water suddenly surged into the shaft through man-made flood tunnels connected to the sea.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     },
     {
       "topic": "Linked Extracts",
@@ -543,7 +564,9 @@
       "explanation": "“In the teeth of” means doing something directly against severe hardship, namely the Great Depression.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     },
     {
       "topic": "Linked Extracts",
@@ -555,7 +578,9 @@
       "explanation": "McGinnis noticed an old ship’s block and tackle hanging on a tree limb directly above the odd depression.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     },
     {
       "topic": "Linked Extracts",
@@ -567,7 +592,9 @@
       "explanation": "The word “hopefully” highlights that searchers christened the pit with great optimism of uncovering fortune.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     },
     {
       "topic": "Linked Extracts",
@@ -579,7 +606,9 @@
       "explanation": "In Extract B, Daniel McGinnis originally paddled over simply to hunt for game.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     },
     {
       "topic": "Linked Extracts",
@@ -591,7 +620,9 @@
       "explanation": "The passage notes that “the dates shifted, and so did the story,” undermining his credibility.",
       "subject": "Reading",
       "source": "STT26 Reading Skills",
-      "verified": true
+      "verified": true,
+      "original": false,
+      "verbatim_source": "STT26 ENG"
     }
   ],
   "thinking": [

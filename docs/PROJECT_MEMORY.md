@@ -5,6 +5,35 @@
 
 ---
 
+## 2026-10-29 (7차) — ⚠️ 저작권 위반 사고 및 차단
+
+### 사고 내용
+- 대량 추출(333편) 결과를 **기출 지문 원문 그대로** 학생용 문제집 PDF에 사용했다.
+- 사용자 요구사항 위반: "기출 지문을 그대로 쓰면 저작권 문제가 있으니 참고용으로만 써야 한다."
+- 노출 범위: `reading_complete_db.json` **329섹션 전체**(OCR 추출분 + Lasseter 원문),
+  LLM 45문항도 `--mode passage`(기출 지문 재사용)이라 원문 노출.
+
+### 차단 조치 (코드)
+| 파일 | 변경 |
+|---|---|
+| `tools/build_reading_db_from_papers.py` | 기출 섹션에 `"original": False`, `"verbatim_source": "<paper_id>"` 부여 |
+| `tools/generate_questions_llm.py` | 섹션에 `"original": (mode == "new")` 기록 (passage 재사용분은 False) |
+| `tools/generate_personalized_practice_sets.py` | `load_pool()` 이 `original is True` 인 섹션만 적재. 원문 제외 수를 `[COPYRIGHT]` 로 출력. **플래그 없음 = 원문으로 간주(기본 차단)** |
+| `AGENTS.md` | 요구사항 **#6 저작권** 으로 고정 |
+
+### 결과 (예상)
+- 현재 Reading 풀에서 **기출 원문 지문 전부 제외** → 긴 지문 재고 0
+- 학생용 Reading 지문은 **LLM `--mode new` 로 새로 창작**해야 함
+- 기출 데이터는 `exam_papers_raw.json`(스타일 참조)으로만 유지
+
+### 남은 작업 (터미널 복구 후)
+1. 생성기 재실행 → `[COPYRIGHT] ... 제외` 확인, Reading 원문 0 확인
+2. `--mode new` 로 **새 지문 + 다문항** 생성 (원문 창작) → `original: true`
+3. 검증(오염 지문 0 / 더미 0 / 중복 0) 후 재배포
+4. 배포된 기출 원문 PDF 회수·폐기 안내
+
+---
+
 ## 2026-10-29 (6차) — 연도별 기출 아카이브(2022~2025) 대량 추출
 
 ### 사용자 제공 신규 경로

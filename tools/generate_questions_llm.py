@@ -135,7 +135,11 @@ RULES
 2. Questions: exactly {MIN_OPTIONS} or {MAX_OPTIONS} options each, one correct answer.
 3. Answer must be the option LETTER (A/B/C/D/E).
 4. Mix question types: main idea, detail, inference, vocabulary in context, author's purpose, tone.
-5. Original content only — do not reproduce any existing published text.
+5. ORIGINAL WORK ONLY:
+   - Do NOT reproduce, paraphrase closely, or quote any existing published text, exam paper,
+     article, book or website.
+   - Invent your own characters, data, places and wording.
+   - Passages must be substantially your own creation, not a disguised version of a known text.
 6. Output STRICT JSON object only (no markdown, no commentary):
 
 {{
@@ -144,6 +148,21 @@ RULES
   "questions": {SCHEMA_HINT}
 }}
 """
+
+
+# --mode new 에서 순환 사용할 주제 (기출 스타일, 내용은 새로 창작)
+NEW_TOPIC_ROTATION = [
+    "informative article about Australian wildlife conservation",
+    "narrative about a young person overcoming a personal challenge",
+    "persuasive opinion piece about a school policy",
+    "informative article about space exploration and discovery",
+    "two linked extracts presenting different perspectives on technology",
+    "informative article about Aboriginal and Torres Strait Islander knowledge of land",
+    "narrative set in a coastal town during a severe storm",
+    "persuasive piece about reducing household waste",
+    "informative article about how human memory works",
+    "two linked extracts about fair play and competition in sport",
+]
 
 
 # ---------------------------------------------------------------- LLM 호출
@@ -312,7 +331,7 @@ def generate_one(exemplar, args, api_key):
     """예시 1개에 대해 문항을 생성하고 검증하여 섹션을 반환한다."""
     count = args.questions
     if args.mode == "new":
-        prompt = build_new_prompt(args.topic_hint, count)
+        prompt = build_new_prompt(exemplar.get("title") or args.topic_hint, count)
     else:
         prompt = build_passage_prompt(exemplar, count)
 
@@ -341,6 +360,12 @@ def generate_one(exemplar, args, api_key):
         raw_questions = payload
         section_type = "Linked Extracts" if re.search(r"(Extract|Text)\s+[A-D]\b", passage, re.I) else "Passage"
 
+    # 새 지문 모드에서는 지문이 반드시 존재해야 한다 (빈 지문 방지)
+    if args.mode == "new" and len(passage) < LONG_PASSAGE_MIN:
+        rejects.append({"title": title, "stem": "(passage)",
+                        "reasons": [f"passage_too_short({len(passage)})"]})
+        return None, rejects
+
     existing = collect_existing_stems()
     accepted, rejects = [], []
     for raw in raw_questions:
@@ -360,6 +385,8 @@ def generate_one(exemplar, args, api_key):
         "source": f"llm:{args.provider}:{args.model}",
         "passage": passage,
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        # ⚠️ 저작권: 기출 지문을 재사용한 경우(original=False)는 학생용 출력에 쓰지 않는다
+        "original": args.mode == "new",
         "structure_ok": True,
         "verified": False,
         "questions": accepted,
@@ -401,9 +428,12 @@ def main():
             log("      먼저 흐름을 확인하려면:  --dry-run  또는  --mock")
             return 1
 
-    exemplars = load_exemplars()
-    if args.mode == "new" and not exemplars:
-        exemplars = [{"title": args.topic_hint, "passage": "", "questions": [], "source": "n/a"}]
+    if args.mode == "new":
+        n = args.limit if args.limit > 0 else len(NEW_TOPIC_ROTATION)
+        exemplars = [{"title": NEW_TOPIC_ROTATION[i % len(NEW_TOPIC_ROTATION)],
+                      "passage": "", "questions": [], "source": "n/a"} for i in range(n)]
+    else:
+        exemplars = load_exemplars()
     if not exemplars:
         log("[ERR] 스타일 참조로 쓸 예시가 없습니다. reading_complete_db.json 을 먼저 채우세요.")
         return 1
