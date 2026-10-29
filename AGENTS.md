@@ -1,8 +1,8 @@
 # AGENTS.md — 프로젝트 컨텍스트 & 작업 규칙
 
-> 이 파일은 **AI 에이전트(Cline, Claude, Copilot 등)가 세션 시작 시 반드시 읽는 프로젝트 기억 파일**입니다.
-> 모델이 바뀌거나 세션이 끊겨도 이전에 조사·검증한 사실을 잃지 않도록 유지합니다.
-> 상세 조사 근거는 [`docs/PROJECT_MEMORY.md`](docs/PROJECT_MEMORY.md) 참조.
+> **📌 새 세션은 먼저 [`cline_docs/activeContext.md`](cline_docs/activeContext.md) 와 [`cline_docs/progress.md`](cline_docs/progress.md) 를 읽으세요.**
+> `cline_docs/` 가 Memory Bank(프로젝트 브리핑·구조·진행상황)의 원본이고,
+> 이 파일은 **규칙·요약**만 유지합니다. 상세 조사 로그는 [`docs/PROJECT_MEMORY.md`](docs/PROJECT_MEMORY.md).
 
 ---
 
@@ -44,7 +44,9 @@ python tools/generate_personalized_practice_sets.py --test-type Selective --roun
 | 파일 | 내용 | 상태 |
 |---|---|---|
 | `data/questions/pool.json` | math 30 / reading 23(유효 22) / thinking 13 | ✅ 사용 중 (수작업 작성 문항) |
-| `data/questions/reading_complete_db.json` | 1 section, **8문항**, 지문 4,419자 (Lasseter + Oak Island) | ✅ 사용 중 (유일한 긴 지문+다문항 세트) |
+| `data/questions/reading_complete_db.json` | **10개 섹션 / 42문항** (Lasseter 수작업 8 + 시험지 OCR 추출 34) | ✅ 사용 중 |
+| `data/questions/exam_papers_raw.json` | OCR 추출 원본 (ENG 7편) — 배치 확장 대상 | ✅ 추출 완료 |
+| `data/questions/exam_papers_review.json` | 정답 미판정 문항 (사람 검수용) | ⚠️ 검수 필요 |
 | `data/questions/full_nsw_db.json` | 130편 파싱 결과 → **문항 있는 편 2개, 총 7문항** | ❌ 사실상 실패 (미사용) |
 | `data/questions/reading_nsw_db.json` | 1 section, **문항 0** (지문만) | ❌ 미사용 |
 | `data/questions/reading_nsw.json` | 2 section, questions 키 없음 (지문만) | ❌ 미사용 |
@@ -52,7 +54,18 @@ python tools/generate_personalized_practice_sets.py --test-type Selective --roun
 | `output/parsed_reports_v2.json` | Selective R26 17명, OC R11 4명 | ✅ 파이프라인 입력 |
 
 - **생성기가 실제로 읽는 것은 `pool.json` + `reading_complete_db.json` 두 개뿐**이다.
-- Reading 긴 지문 재고는 현재 **1세트 8문항**뿐 → 30문항 세트에서 Reading 최대 8문항.
+- Reading 긴 지문 재고: 긴 지문 세트 10개 / 56문항 (Lasseter + STT10/13/14/15/16/17 추출분)
+
+### 시험지 OCR 추출 파이프라인 (2026-10-29 신규)
+```powershell
+python tools/extract_exam_papers.py --limit 10              # J: 시험지 OCR 추출
+python tools/extract_exam_papers.py --match "STT26 ENG"     # 특정 시험지
+python tools/build_reading_db_from_papers.py --dry-run      # DB 병합 미리보기
+python tools/build_reading_db_from_papers.py                # DB 병합 (기존 문항 보존)
+```
+- 시험지는 **스캔 PDF(텍스트 레이어 0)** → poppler + tesseract **`--psm 4`** 필수
+- 정답은 `... ANS.pdf` 의 **굵은 글씨**를 잉크 밀도 비율로 판정 (판정된 정답 오류 0건 실측)
+- 채택 조건: 긴 지문(≥300자) + 정답 있는 문항 3개 이상 + stem 미절단
 
 ### J: 드라이브 시험지 (학습 데이터 원본)
 - `J:\My Drive\EKC  OFFICE\STT - NEW\STT2027\TEST\` → PDF **167개** (ENG 52개, `STT<회차>\STT<회차> ENG.pdf` + `... ENG ANS.pdf` 쌍)

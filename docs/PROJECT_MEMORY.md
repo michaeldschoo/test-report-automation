@@ -5,6 +5,50 @@
 
 ---
 
+## 2026-10-29 (3차) — 기출 시험지 OCR 추출 파이프라인 구축
+
+### 배경
+- J: 드라이브 시험지 PDF 167개가 있으나 기존 DB화는 실패(130편 중 문항 있는 편 2개).
+- 텍스트 추출 테스트 결과 **모든 시험지가 스캔 PDF(텍스트 레이어 0)** → OCR 필수.
+
+### 핵심 발견 (실험으로 확정)
+| 실험 | 결과 |
+|---|---|
+| pypdf 로 `STT26 ENG.pdf` 추출 | 0 chars (스캔본) |
+| tesseract `psm 3` | 보기 라벨 유실 (`A ____ despite...` → `despite...`) |
+| tesseract **`psm 4`** | `A ...` / `Cc ...` / `D___ ...` 형태로 안정 추출 ✅ |
+| 정답지와 원본 이미지 diff | 모든 줄이 달라 사용 불가 |
+| **잉크 밀도 비율(ANS/paper)** | 정답 보기 1.17~1.22 vs 오답 0.99~1.05 → **정답 판정 가능** ✅ |
+| 검증 | STT26 정답 대조: 판정 7건 중 **오류 0건** |
+
+### 구현
+- `tools/extract_exam_papers.py`
+  - poppler(300dpi, grayscale) + tesseract `--psm 4`
+  - `Questions N to M.` 마커 기반 섹션 분할, 마커~첫 문항 사이 = 지문
+  - 보기 라벨 변형 처리(`Cc`, `D___`, `A __`, 라벨 유실), stem 줄바꿈 판정(줄 간격 <30px)
+  - 정답 판정: `ANSWER_MIN_RATIO=1.08`, `ANSWER_MIN_MARGIN=0.05`
+  - 출력: `data/questions/exam_papers_raw.json`, 미판정 문항은 `exam_papers_review.json`
+- `tools/build_reading_db_from_papers.py`
+  - 긴 지문(≥300자) + 정답 문항 ≥3 + stem 미절단 조건으로 채택
+  - 기존 DB 보존 병합 (지문/문항 중복 제거)
+
+### 실측 결과
+```
+배치(ENG 7편): 문항 92개 추출 / 정답 판정 54개
+DB 병합: reading_complete_db.json  1섹션/8문항 → 10섹션/42문항
+생성기: Pool 99문항 (Math 30, Reading 56, Thinking 13)
+30문항 세트 배분: Reading 9~12 (학생별 상이, 8가지 조합), 긴 지문 2개 포함
+검증: 21명×3세트 errors 0 / 중복 0
+```
+
+### 남은 한계
+- cloze 표(2열) 형식 섹션은 파싱 불가 → 자동 제외 (문항 손실)
+- 정답 미판정 38건 → `exam_papers_review.json` 검수 필요
+- ENG 7편만 처리 (잔여 약 40편 + MATH/TS 미처리)
+- LLM 기반 신규 문제 생성은 미구현
+
+---
+
 ## 2026-10-29 (2차) — 문제 선별 정책 재설계 + 지식 베이스 도입
 
 ### 사용자 요구사항 (신규 확정)
