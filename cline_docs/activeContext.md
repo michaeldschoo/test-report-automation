@@ -24,6 +24,7 @@ Reading 문제 생성 문제를 **해결 완료**했고, 기출 시험지 OCR �
 | 7 | 산출물 재생성 | 21명 × 3세트, 1,260문항, **중복 0** |
 | 8 | 지식 베이스 도입 | `AGENTS.md`, `docs/PROJECT_MEMORY.md`, `cline_docs/` |
 | 9 | **LLM 문제 생성 파이프라인 신규 작성** | `tools/generate_questions_llm.py` + 생성기 연동 (`generated_db.json`) |
+| 10 | **LLM 실제 생성 실행** | 9섹션 / **45문항 생성** (탈락 0건) → Reading 56 → **101문항** |
 
 ---
 
@@ -53,15 +54,25 @@ Reading 문제 생성 문제를 **해결 완료**했고, 기출 시험지 OCR �
 ## 4. 현재 실측 수치 (다음 세션에서 재검증할 것)
 
 ```
-[INFO] Pool loaded: 99 total questions (Math: 30, Reading: 56, Thinking: 13)
+[INFO] Pool loaded: 144 total questions (Math: 30, Reading: 101, Thinking: 13)
+       LLM 생성 문항 포함: 45개 (generated_db.json)
+       Reading: 24 passages / long passages(>=300 chars): 10 passages, 87 questions
 
 Selective R26 30문항 세트 배분 예시 (학생별로 다름)
-  Aanya Surve    정답률 0.47/0.17/-     → 배분 9/12/9   (Reading 지문 2개)
+  Aanya Surve    정답률 0.47/0.17/-     → 배분 9/12/9    (긴 지문 2개)
+  Deeksha        (가장 약함)             → 12/9/9        (Reading 12 = 기출 6 + LLM 6)
   Aaron He       0.61/0.69/0.62          → 10/10/10
-  Asees Kaur     0.37/0.69/0.40          → 11/8/11
 
 검증: 21명 × 3세트 errors 0 / check_duplicates 1,260문항 중복 0
 ```
+
+### LLM 모델 현황 (2026-10-29 실측)
+| Provider | 상태 |
+|---|---|
+| Gemini `gemini-3.5-flash` | ✅ 정상 (기본값) |
+| Gemini `gemini-2.0-flash` / `2.5-flash` / `2.5-pro` | ❌ 404 — **신규 사용자 제공 중단** |
+| Gemini `gemini-flash-latest`, `gemini-3.8-flash` | ⚠️ 503 (수요 폭주) → 재시도 로직으로 대응 |
+| OpenAI `gpt-4o-mini` | ❌ 429 `insufficient_quota` (크레딧 소진) |
 
 ---
 
@@ -73,15 +84,11 @@ Selective R26 30문항 세트 배분 예시 (학생별로 다름)
 - 그 후 `python tools/build_reading_db_from_papers.py` → 생성기 재실행.
 - 현재 ENG 7편만 처리됨. 남은 ENG 약 40편 + MATH/TS 미처리.
 
-### ⓑ LLM 기반 신규 문제 생성 파이프라인 (구현 완료 · API 키 대기)
-- `tools/generate_questions_llm.py` 신규 작성 완료.
-- 두 가지 모드: `--mode passage`(기존 지문 재사용 + 새 문항) / `--mode new`(새 지문+문항)
-- 생성 결과는 **구조 검증 게이트** 통과분만 저장: `data/questions/generated_db.json`
-  - 검증: stem 15자↑ / 선택지 4~5개 / 중복 선택지 없음 / 정답 범위 / 해설 10자↑ / stem 중복 0
-  - `structure_ok=true, verified=false` 로 저장 → 검수 후 `verified=true` 로 바꾸면 우선 사용
-- 생성기는 `structure_ok` 또는 `verified` 인 섹션만 읽는다 (`PRACTICE_GENERATED_DB` 로 경로 override 가능)
-- **아직 실제 생성 전**: `.env` 에 `GEMINI_API_KEY` (또는 `OPENAI_API_KEY`) 필요
-- 키 없이 확인하는 방법: `--dry-run`(프롬프트만) / `--mock`(파이프라인 동작 검증)
+### ⓑ LLM 문제 생성 — **1차 실행 완료** (45문항)
+- `tools/generate_questions_llm.py` 로 **9섹션 / 45문항** 실제 생성 (탈락 0건)
+- 기본 모델: `gemini-3.5-flash` (2.0/2.5 계열은 신규 사용자 제공 중단 → 404)
+- 산출물: `data/questions/generated_db.json` (`structure_ok=true`, `verified=false`)
+- 다음: 생성 문항 **사람 검수** 후 `verified: true` 승격, 필요 시 `--mode new`로 새 지문 생성
 
 ### ⓒ 미수정 버그 (progress.md 참조)
 - `run_pipeline.py` 학생 이름/ID 유실 (Anonymous 회귀) — **파이프라인 재실행 전 필수 수정**

@@ -71,10 +71,11 @@ python tools/build_reading_db_from_papers.py                # DB 병합 (기존 
 ```powershell
 python tools/generate_questions_llm.py --dry-run --limit 1        # 프롬프트만 확인
 python tools/generate_questions_llm.py --mock --limit 2 --out "$env:TEMP\mock.json"   # 키 없이 동작 검증
-python tools/generate_questions_llm.py --mode passage --limit 10 --questions 5        # 실제 생성(Gemini)
+python tools/generate_questions_llm.py --mode passage --limit 10 --questions 5        # 실제 생성(Gemini 3.5-flash)
 python tools/generate_questions_llm.py --mode new --provider openai --limit 3         # 새 지문 생성
 ```
 - `.env` 에 `GEMINI_API_KEY`(또는 `GOOGLE_API_KEY`) / `OPENAI_API_KEY` 필요
+- ⚠️ Gemini `2.0/2.5` 계열은 **신규 사용자 제공 중단(404)** → `gemini-3.5-flash` 사용 (기본값)
 - 결과: `data/questions/generated_db.json` (`structure_ok` 자동검증 / `verified` 사람검수)
 - 생성기는 `structure_ok` 또는 `verified` 인 섹션만 읽는다 (경로 override: `PRACTICE_GENERATED_DB`)
 - 검증 탈락 문항은 `data/questions/generated_review.json` 에 사유와 함께 저장

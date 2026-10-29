@@ -1,0 +1,461 @@
+[
+  {
+    "type": "Linked Extracts",
+    "title": "[LLM] Extract A: Lasseter’s Lost Reef & Extract B: The Oak Island Mystery",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "Extract A: Lasseter’s Lost Reef\n\nIn 1897, Harold Bell Lasseter a gold prospector was found unconscious in the desert southwest of Alice Springs by an Afghan camel-driver, with a few curious rocks in his pockets. And the legend grew from there. He said he had stumbled on a fabulously rich gold reef somewhere in the trackless country to the west, but he would not say exactly where. Later, he told officials that a surveyor had tried to help him fix the spot and that his first finding might have been in 1897 or perhaps in the years just before the Great War. The dates shifted, and so did the story, which only added to the mystery.\n\nBy 1930, in the teeth of the Depression, he had persuaded backers to send a well-equipped expedition. They left Alice Springs on 21 July with a truck, a six-wheeled Thornycroft, and even an aircraft. Fred Blakeley led; Errol Coote flew the plane. They headed for Ilbilba, an airstrip scratched into the sand and pushed on despite troubles. Eventually a forced landing cost them their aircraft. Out near Mount Leisler, Lasseter announced that they were badly off course. Tempers frayed. Blakeley, exasperated, turned most of the party back. Lasseter would not give up. He went on with a dingo shooter, Paul Johns, and a string of camels. He came back to camp one evening with concealed rock samples and declared he had found his reef, but he would not show Johns where. They quarrelled in the desert. Johns turned for home. Lasseter went on alone with two camels.\n\nThen the desert closed in. The camels bolted. Lasseter’s eyes inflamed with sandy-blight; his strength ebbed. A local Aboriginal group gave him food and shelter, but he could not recover his animals or his bearings. He cached pages and messages—sometimes under the ashes of camp-fires with carved hints to 'dig'—and crawled into a cave by a lonely creek to wait. Weeks passed. In early 1931 he died of hunger and exhaustion, far from any town but not entirely alone.\n\nA search party led by bushman Bob Buck found him that autumn, buried in the Aboriginal manner beneath branches, not far from a tree later marked with his name. Buck gathered Lasseter’s effects from the cave—his diary among them—and brought the sad news out to the stations and the police. The diary told of the bolting camels, the friendly camp, the blindness, and the last attempt to walk toward the great domes on the horizon. In time, Lasseter’s remains were reinterred at Alice Springs.\n\n\nExtract B: The Oak Island Mystery\n\nJust off the rugged southeast shore of Nova Scotia lies a tiny island fashioned somewhat like a question mark. The shape is appropriate, for little Oak Island is the scene of a baffling whodunit that has defied solution for over two centuries. Here, ever since 1795, not long after pirates prowled the Atlantic coast and left glittering legends of buried gold in their wake, people have been trying to find out what lies at the bottom of a mysterious shaft dubbed, hopefully, the 'Money Pit.'\n\nUsing picks and shovels, divining rods and drilling rigs, treasure hunters poured about .5 million into the Money Pit. Despite more than 20 attempts, no one has yet reached bottom: each time a digging crew has seemed close to success, torrents of water have suddenly surged into the shaft to drown their hopes. Although it’s now known that the Money Pit is protected by an ingenious system of man-made flood tunnels that use the sea as a watchdog, no one knows who dug the pit, or why.\n\nThe long parade of searchers began one day 200 years ago, when Daniel McGinnis, a 16-year-old from Chester, Nova Scotia, paddled over to uninhabited Oak Island to hunt for game. On a knoll at one end of the island, he noticed an odd depression. Above it, on a sawed-off tree limb, hung an old ship’s block and tackle. McGinnis’s heart raced, for in the nearby port of LaHave, once a lair for pirates preying on New England shipping, he had heard many legends of buried treasure.\n\nOne legend makes the pit the hiding place for the plunder of Captain Kidd, who was hanged for piracy in 1701. Other theories favour the booty of Blackbeard and Henry Morgan, both notorious buccaneers; or the French crown jewels that Louis XVI and Marie Antoinette were said to be carrying when they attempted to flee during the French Revolution; or Shakespeare's missing manuscripts. Whatever the pit may contain, few other treasures have been sought so avidly.",
+    "generated_at": "2026-10-29 14:48:44",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "In Extract A, the phrase \"the desert closed in\" (paragraph 3) most closely suggests that:",
+        "options": "A violent sandstorm physically sealed the entrance of Lasseter's cave.|Lasseter was increasingly overwhelmed by harsh environmental hazards and isolation.|Search parties lost all optical visibility of the western desert horizon.|Local Aboriginal groups surrounded Lasseter to block his movement across the terrain.",
+        "answer": "B",
+        "explanation": "'The desert closed in'은 낙타의 도망, 눈병(sandy-blight), 체력 저하 등 사막의 혹독한 환경과 고립이 라세터를 압박해 오는 상황을 비유적으로 표현한 것입니다.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Based on Extract B, what is the main reason treasure hunters have repeatedly failed to reach the bottom of the Money Pit?",
+        "options": "Government regulations prohibited the use of heavy drilling machinery on Oak Island.|An artificial network of flood tunnels directs seawater into the shaft whenever diggers get close.|The earth surrounding the knoll regularly collapses due to natural seismic activity.|Search parties consistently run out of financial funding before completing their excavation.",
+        "answer": "B",
+        "explanation": "지문은 'the Money Pit is protected by an ingenious system of man-made flood tunnels that use the sea as a watchdog'이라고 언급하며, 발굴 작업이 깊어질 때마다 바닷물이 쏟아져 들어와 실패했다고 명시하고 있습니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What can be inferred about Lasseter's character from his actions during the 1930 expedition in Extract A?",
+        "options": "He prioritized the physical safety and comfort of his companions above his personal goals.|He was deeply secretive about his discoveries and single-mindedly driven despite mounting conflicts.|He readily shared his exact geographic coordinates with Blakeley to maintain party morale.|He quickly abandoned the enterprise once the party's aircraft suffered a forced landing.",
+        "answer": "B",
+        "explanation": "라세터는 암석 샘플을 숨기고 동료인 존스에게 위치를 밝히기를 거부했으며, 탐사대가 돌아가고 동료와 결별한 후에도 혼자 사막으로 나아갈 만큼 비밀스럽고 집요한 태도를 보였습니다.",
+        "topic": "Inference",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "In Extract B, what is the author's primary purpose in mentioning the \"sawed-off tree limb\" and the \"old ship's block and tackle\"?",
+        "options": "To prove definitively that Captain Kidd visited Oak Island before his execution in 1701.|To illustrate how 18th-century timber workers cleared the island for incoming settlers.|To highlight physical evidence of human activity that sparked initial interest in the site.|To demonstrate the destructive impact of Atlantic ocean storms on the island's vegetation.",
+        "answer": "C",
+        "explanation": "다니엘 매기니스가 인공적인 흔적(잘려진 나뭇가지와 도르래)을 발견하여 보물 매장의 전설을 떠올리고 최초로 발굴을เริ่ม하게 된 계기를 설명하기 위해 제시된 증거입니다.",
+        "topic": "Author's Purpose",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Which statement best captures a central thematic similarity between both extracts?",
+        "options": "Both accounts describe expeditions that ultimately recovered vast fortunes of buried treasure.|Both mysteries rely primarily on detailed diary entries that provide exact geographical coordinates.|Both narratives detail persistent, high-stakes attempts to find hidden wealth despite formidable obstacles.|Both stories depict intense conflicts between military authorities and local coastal residents.",
+        "answer": "C",
+        "explanation": "두 지문 모두 혹독한 사막과 인공 해수 터널이라는 거대한 장애물에도 불구하고 숨겨진 금광/보물을 찾기 위해 반복적이고 집요하게 이루어진 탐색 노력을 다루고 있다는 공통점이 있습니다.",
+        "topic": "Main Idea",
+        "difficulty": "Hard"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "[LLM] STT10 ENG — Questions 1-8",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "If you've got blackheads, oily skin or pimples,\nhere are the only things you should squeeze.\nSCRUB OUT is for blackheads and FREE & CLEAR is greaseless and\noily skin. It cleans your skin by gently won't stain. And you only need to apply\nscrubbing out excessive oil and skin FREE & CLEAR once a day. As well as\ndebris, leaving your pores open and being invisible on the skin it is slightly\nclean. Because of its formula you can _ astringent and cooling. You can actually\nactually feel SCRUB OUT working, feel it starting to dry out your pimples as\ngently cleansing your skin and helping _ soon as you apply it. It tingles!\nremove blackheads wherever they\nappear. Now at leading chemists everywhere.\nFREE & CLEAR helps dry out\nSCRUB OUT\npimples on face, chest, shoulders and\nFor blackheads and oily skin.\nback. It's a non sticky, transparent\nmedicated gel. Guys can use it day or FREE & CLEAR\nnight. And girls can use it even under Helps dry out pimples.\nmake-up.",
+    "generated_at": "2026-10-29 14:48:55",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "Which property of FREE & CLEAR allows girls to wear it conveniently during the day?",
+        "options": "It acts as a substitute for facial cleanser.|It is a transparent gel that can be worn under make-up.|It changes color once it dries out pimples.|It completely seals pores to prevent sweating.",
+        "answer": "B",
+        "explanation": "지문에서 FREE & CLEAR는 'transparent medicated gel'이며 'girls can use it even under make-up'이라고 명시되어 있습니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "In the text, the description of FREE & CLEAR as 'astringent' suggests that it helps to:",
+        "options": "Moisturize dry and cracked skin.|Tighten the skin and dry up spots.|Bleach blackheads to make them invisible.|Numb the skin to reduce pain.",
+        "answer": "B",
+        "explanation": "지문에서 'slightly astringent and cooling' 바로 뒤에 'dry out your pimples'라는 문장이 이어지므로, 모공을 조이고 여드름을 건조시키는 특성을 의미함을 알 수 있습니다.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "Based on the text, how do the main functions of SCRUB OUT and FREE & CLEAR differ?",
+        "options": "SCRUB OUT washes away excess oil and skin debris, while FREE & CLEAR targets and dries out pimples.|SCRUB OUT is used for body acne, while FREE & CLEAR is strictly for facial blackheads.|SCRUB OUT is meant to be used once a day, while FREE & CLEAR must be applied constantly.|SCRUB OUT is designed for guys, while FREE & CLEAR is exclusively formulated for girls.",
+        "answer": "A",
+        "explanation": "SCRUB OUT은 블랙헤드와 과도한 기름, 피부 노폐물(debris)을 세정하는 제품이고, FREE & CLEAR는 여드름(pimples)을 말려주는 제품으로 기술되어 있습니다.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What is the primary purpose of highlighting sensations like 'cooling' and 'tingles' in the advertisement?",
+        "options": "To warn users about possible side effects.|To persuade consumers that the product is actively taking effect.|To explain why the product must be bought at a chemist.|To demonstrate that the product contains harsh chemical ingredients.",
+        "answer": "B",
+        "explanation": "광고주는 사용자가 'tingles', 'cooling' 등의 감각을 통해 제품이 즉각적으로 작용하고 있음을 느끼게 하여 제품의 효과를 신뢰하도록 설득하고 있습니다.",
+        "topic": "Author's Purpose",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "According to the advertisement, FREE & CLEAR can be used on all of the following parts of the body EXCEPT the:",
+        "options": "Face|Back|Scalp|Chest",
+        "answer": "C",
+        "explanation": "지문에 FREE & CLEAR는 'face, chest, shoulders and back'에 사용할 수 있다고 언급되어 있으며, Scalp(두피)는 언급되지 않았습니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "[LLM] STT10 ENG — Questions 17-22",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "\"CLOTHES\"\nBy Elizabeth Jennings\nMy mother keeps on telling me\nWhen she was in her teens\nShe wore quite different clothes from mine\nAnd hadn't heard of jeans,\nT-shirts, no hats, and dresses that\nReach far above our knees.\n| laughed at first and then | thought\nOne day my kids will tease\nAnd scoff at what I’m wearing now.\nWhat will their fashions be?\nI’d give an awful lot to know,\nTo look ahead and see.\nGirls dressed like girls perhaps once more\nAnd boys no longer half\nResembling us. Oh, what's in store\nTo make our children laugh?",
+    "generated_at": "2026-10-29 14:49:07",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "What is the primary tone of the speaker when contemplating future fashion trends?",
+        "options": "Fearful and dismissive|Curious and reflective|Angry and resentful|Indifferent and bored",
+        "answer": "B",
+        "explanation": "화자는 미래의 패션이 어떻게 변할지 간절히 알고 싶어하며('I’d give an awful lot to know'), 세대 간 패션 변화에 대해 생각하고 있으므로 호기심 많고 성찰적인 어조가 적절합니다.",
+        "topic": "Tone",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "According to the passage, how did the mother's teenage wardrobe differ from the speaker's?",
+        "options": "The mother wore skirts that reached down to her ankles.|The mother had never even heard of jeans and T-shirts.|The mother was forced to wear formal hats every day.|The mother dressed in a much more masculine style.",
+        "answer": "B",
+        "explanation": "지문의 4~5행에서 화자의 어머니가 십 대였을 때는 청바지(jeans)와 T셔츠(T-shirts)를 들어보지도 못했다고 언급되어 있습니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "In line 9, what is the meaning of the word 'scoff' as used in the context of the poem?",
+        "options": "Mock or laugh at mockingly|Admire with deep respect|Imitate or copy closely|Ignore completely",
+        "answer": "A",
+        "explanation": "'Scoff'는 앞에서 언급된 'tease' 및 뒤의 'make our children laugh'와 맥락을 같이하여, 미래 아이들이 현재 화자의 옷차림을 비웃거나 놀릴 것임을 뜻합니다.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What observation does the speaker make about current clothing styles in lines 13-15?",
+        "options": "Boys are wearing much more traditional and formal clothes than girls.|Girls are starting to wear dresses that cover their knees.|The distinction between boys' and girls' clothing has blurred.|Children are required to wear identical uniforms in public.",
+        "answer": "C",
+        "explanation": "'And boys no longer half Resembling us'라는 표현은 남학생들의 패션이 여학생들과 유사해져 남녀 옷차림의 경계가 흐려졌음을 암시합니다.",
+        "topic": "Inference",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "Which of the following best expresses the main theme of the poem?",
+        "options": "Fashion constantly evolves over generations, making past styles seem amusing to the next.|Young people should always follow their parents' advice regarding fashion.|Modern clothing is vastly superior in quality compared to vintage styles.|Children and parents inevitably quarrel over appropriate hemlines for dresses.",
+        "answer": "A",
+        "explanation": "시 전체는 어머니 세대, 현재 세대, 미래 자녀 세대의 옷차림을 비교하며 유행은 늘 변하고 다음 세대에게 이전 세대의 옷은 웃음거리가 된다는 주제를 담고 있습니다.",
+        "topic": "Main Idea",
+        "difficulty": "Medium"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "[LLM] STT13 ENG — Questions 1-4",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "Hating Alison Ashley (PG)\nDirected by Geoff Bennett\nScreenplay by Christine Madafferi from the novel by Robin Klein\nRated PG\nCinemas Everywhere\nReview by Sandra Hall\nit's a girls’ world in this comic and colourful adaptation of a-much-loved children's\nnovel.\nIt should come as no surprise that Delta Goodrem doesn't convince as a 14-year-old\nschoolgirl. Hiding under a Mona Lisa smile and a Goldilocks wig, she looks like a 20-year-\nold pop star on the run from the paparazzi.\nNot that it matters. The film of Hating Alison Ashley, Robin Klein's much-read children's\nnovel, has little to do with the real world. It's set in Ockerdom, a place where we patriotic\nfilmgoers have spent a lot of time lately, thanks to the run of comedies which have been\ntrying, with raucous relentlessness, to make themselves loveable in the happy-go-lucky\nmanner of The Castle.\nHating Alison Ashley is not really Alison's story. As Klein's many fans know, its narrator is\nAlison's classmate, Erica Yurken (Saskia Burmeister), a talented self-dramatist, who\nfancies she's been stranded in the wrong life. Her refined sensibilities, she thinks, are\nmore suited to some ivy-covered temple of learning than scungy, working-class Barringa\nEast, where she's been dumped among the delinquents of 9C. Whenever she can, she\nescapes to the sick bay, where her impressive list of imaginary ailments has gained her a\nreputation as a creative hypochondriac.\nAnd life at home is no better. Although her sweet-natured mum (Tracy Mann) does her\nbest, Erica can't forgive her for taking up with Lennie (Richard Carter), a truck driver she\nmet at Parents Without Partners, or for giving her such unbearable siblings. Her chief\ntorturer is her elder sister, boy-mad Valjoy (Rachael Carpani), whose boots and big hair\nare almost as scary as her interest in martial arts.\nSchool improves for Erica with the arrival of Miss Belmont (Jean Kittson), whose fishnet\nstockings and gallows humour give her the air of a semi-respectable dominatrix. Miss\nBelmont does the previously unthinkable and keeps 9C in order. She also gives Erica high\nmarks and makes her fee! special - until the arrival of Goodrem's Alison Ashley.\nAlison is perfection incarnate. For a minute or two, Erica fancies she has found a kindred\nspirit. But Alison proves to be strangely aloof. And, even worse, the quality of her\nclasswork eclipses Erica's.",
+    "generated_at": "2026-10-29 14:49:53",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "Why does Erica Yurken frequently visit the school sick bay?",
+        "options": "She suffers from a chronic physical illness that requires regular medical attention.|She invents exaggerated medical conditions to escape her uncomfortable reality.|She seeks refuge from her sister Valjoy, who bullies her at school.|She hopes to get Miss Belmont's attention and sympathy.",
+        "answer": "B",
+        "explanation": "지문에 따르면 에리카는 자신의 상상 속 병 증상(imaginary ailments)으로 양호실로 도피하며 '창의적인 건강염려증 환자'라는 평판을 얻었습니다.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "According to the passage, how does Erica's impression of Alison Ashley evolve after meeting her?",
+        "options": "Erica initially fears Alison, but soon realizes Alison is very welcoming.|Erica hopes Alison will be a kindred spirit, but finds her distant and academically superior.|Erica believes Alison is a delinquent, but discovers she is a refined student.|Erica respects Alison's talent, but dislikes her aggressive behavior in class.",
+        "answer": "B",
+        "explanation": "지문 마지막 단락에서 에리카는 처음에 앨리슨을 동류(kindred spirit)라고 생각했지만, 곧 앨리슨이 냉담하고(aloof) 학업적으로 자신을 능가한다는 것(eclipses Erica's classwork)을 깨닫게 됩니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What is the reviewer's perspective on recent Australian film comedies set in 'Ockerdom'?",
+        "options": "She appreciates their realistic representation of modern Australian suburbia.|She is critical of their loud, persistent efforts to mimic the charm of 'The Castle'.|She is unimpressed by their dark themes and lack of memorable characters.|She is enthusiastic about their ability to appeal to international audiences.",
+        "answer": "B",
+        "explanation": "리뷰어는 최근 영화들이 영화 'The Castle'의 해학을 시끄럽고 끊임없이(raucous relentlessness) 흉내 내며 사랑받으려 애쓰고 있다고 비판적으로 묘사합니다.",
+        "topic": "Tone",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "What impact does Miss Belmont's arrival initially have on Erica?",
+        "options": "It causes Erica to give up her imaginary illnesses to impress her teacher.|It restores order to class 9C and boosts Erica's confidence with high marks.|It creates friction between Erica and her classmates in Barringa East.|It prompts Erica to join the school drama club to show off her talents.",
+        "answer": "B",
+        "explanation": "지문 6번째 단락에서 벨몬트 선생님은 9C반의 질서를 잡고, 에리카에게 높은 점수를 주어 특별한 기분을 느끼게 해주었습니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Why does Erica feel out of place in her hometown of Barringa East?",
+        "options": "She believes her sophisticated nature belongs in a prestigious academic institution.|She comes from a wealthy background that contrasts with her working-class peers.|She is forced to abandon her artistic pursuits due to her family's financial troubles.|Her siblings prevent her from attending a better school in another district.",
+        "answer": "A",
+        "explanation": "지문 4번째 단락에서 에리카는 자신의 세련된 감수성(refined sensibilities)이 지저분한 노동자 동네인 바링가 이스트보다는 명문 학문의 전당(ivy-covered temple of learning)에 더 어울린다고 생각합니다.",
+        "topic": "Author's Purpose",
+        "difficulty": "Hard"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "[LLM] STT13 ENG — Questions 17-22",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "Andy’s Return\nBy Henry Lawson\nWith pannikins all rusty,\nAnd billy burnt and black,\nAnd clothes all torn and dusty,\nThat scarcely hide his back;\nWith sun-cracked saddle leather,\nAnd knotted green-hide rein,\nHis face burnt brown with weather,\nOur Andy’s home again.\nHis unkempt hair is faded\nWith sleeping in the wet;\nHe’s looking old and jaded;\nBut he is hearty yet.\nWith eyes sunk in their sockets —\nBut merry as of yore;\nWith big cheques in his pockets,\nOur Andy’s home once more!\nOld Uncle’s bright and cheerful;\nHe wears a smiling face;\nAnd Aunty’s never tearful\nNow Andy’s round the place.\nOld Blutcher barks for gladness;\nHe broke his rusty chain,\nAnd leapt in joyous madness\nWhen Andy came again.",
+    "generated_at": "2026-10-29 14:50:05",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "What detail in the poem indicates that Andy’s journey was financially successful despite his ragged appearance?",
+        "options": "A) He brought back new saddle leather and reins.|B) He had big cheques stored in his pockets.|C) He purchased a brand new billy and pannikin.|D) He was able to replace Old Blutcher's chain.",
+        "answer": "B",
+        "explanation": "지문 2연의 \"With big cheques in his pockets\"라는 구절을 통해 Andy가 험난한 여정 끝에 상당한 돈을 벌어 돌아왔음을 알 수 있습니다.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "In the phrase \"He’s looking old and jaded\", what does the word \"jaded\" most closely mean in this context?",
+        "options": "A) Deeply bitter and resentful|B) Exhausted and worn out|C) Unfriendly and distant|D) Unusually secretive",
+        "answer": "B",
+        "explanation": "지문에서 Andy의 푹 꺼진 눈과 초라한 몰골을 설명하는 맥락상, 'jaded'는 거친 여정으로 인해 지치고 피곤해진(exhausted and worn out) 상태를 뜻합니다.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Why does the poet include the image of Old Blutcher breaking his chain in the final stanza?",
+        "options": "A) To warn the reader that Andy's dog has become wild and aggressive.|B) To show that the equipment on the farm is poorly maintained.|C) To emphasize the overwhelming joy and unrestrained excitement surrounding Andy's return.|D) To imply that Andy had been gone for so long that the dog forgot who he was.",
+        "answer": "C",
+        "explanation": "녹슨 사슬을 끊고 기쁨의 광기(joyous madness)로 뛰어오르는 개의 모습은 Andy의 귀환이 집안 전체에 가져다준 극도의 기쁨과 환희를 강조합니다.",
+        "topic": "Author's Purpose",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "Which option best describes the contrast presented between Andy’s physical state and his emotional spirit?",
+        "options": "A) He is physically healthy and well-groomed, but emotionally bitter.|B) He is physically battered and exhausted, yet remains cheerful and spirited.|C) He is physically wealthy and neat, but emotionally overwhelmed by grief.|D) He is physically weak and bedridden, but eager to travel again.",
+        "answer": "B",
+        "explanation": "2연에서 Andy는 낡고 야윈(old and jaded, eyes sunk) 육체적 시련을 겪었음에도 불구하고 여전히 기운차고(hearty yet) 눈빛은 옛날처럼 유쾌하다(merry as of yore)고 대조하여 묘사됩니다.",
+        "topic": "Tone",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "According to the second stanza, what specific cause is given for Andy’s hair being faded?",
+        "options": "A) Working under the intense desert sun|B) Sleeping outside in damp, wet conditions|C) Washing in harsh, salty river water|D) Getting older and suffering from illness",
+        "answer": "B",
+        "explanation": "2연의 \"His unkempt hair is faded / With sleeping in the wet\" 구절에 직접적으로 젖은 곳에서 자며 머리카락이 바랬다고 명시되어 있습니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      }
+    ]
+  },
+  {
+    "type": "Linked Extracts",
+    "title": "[LLM] STT14 ENG — Questions 1-8",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "Extract A: Excerpt from ‘Brenda is the Night’ by Geoffrey McSkimming\nIn the great deserts of Egypt, where the hot and golden-grained sands stretch on and on\ntowards the shimmering, far away ends of the earth, miracles are said still to happen.\nEverything out here is wide open and lonely. Nearly all of the desert land is dry, the sand\nbaked almost rock-hard in places by the sun. Sometimes, if you are travelling through this |\nfurnace of a place, you might come across an oasis — a small patch where there is a\nwater-hole, with palm trees and small plants called Lilies of the Nile growing around it.\nHere you will find shade, and you will be able to fill your water-bottle and wet your\nhandkerchief and tie it around your neck to cool yourself. If you find an oasis in the desert,\nyou will be very lucky, as they are few and most definitely far between.\nNot many people live in the desert. Those who do usually travel around a lot, not staying in\nthe one place for a very long time at all. Sometimes they will camp at an oasis for a few\nweeks, but they will always move on, for they are usually fearful of meeting up with a\ncertain tribe — a tribe which has dwelt under the Egyptian sun for thousands of years. The\npeople who live out in the desert will do anything to avoid coming into contact with this\ntribe (one man, long ago, was said to have glued ibis feathers to his body and a long\ncurved stick to his mouth, and then stood on one leg in the sand, crowing loudly, just so\nthe tribe would think he was a bird and maybe leave him alone), and so they keep\nconstantly on the move.\nThe reason why everyone avoids this particular tribe has nothing to do with dastardliness,\nor with their being murderers or thieves or taxation cheats — because they’re not. Nor do\nthe tribe members make rude sounds or push people to the ground and sit on them,\nactions which would automatically make them disagreeable. As a matter of fact, the tribe is\nfairly harmless. As another matter of fact, they're not even human beings. They are, as\neverybody who has journeyed through these wide sandy plains and hills knows, one of the\noldest wayfaring groups in all of the African continent: camels.\nExtract B: What is a Mirage?\nA mirage is an optical illusion. Most commonly observed in desert environments, mirages\narise when the sun-heated ground warms the adjacent layer of air more intensely than\nthe air above it, producing a steep temperature gradient. Since warmer air is less dense\nthan cooler air, light traversing these layers undergoes continual refraction—bending\ngradually away from regions of lower density.\nTravellers crossing arid expanses may glimpse what seems to be a shimmering oasis just\nahead—a patch of glimmering water fringed by palm trees and verdant foliage.\nCompelled by thirst and hope, they advance, only to find the vision dissolving as they\napproach. In reality, the water and trees lie far beyond the true horizon, their light\nrefracted upward by the denser, cooler air above the hot surface layer. This type of\nmirage, known as an inferior mirage, produces inverted—or “upside-down’—images of\nthe distant scene directly beneath the upright image, explaining why one might perceive a\nwaterline or the glint of liquid on the desert floor.\nAsimilar process occurs at sea under particular atmospheric conditions, giving rise to\nsuperior mirages, in which cooler air lies closer to the ocean’s surface and warmer air sits\naloft. Light from a ship beyond the horizon can be bent downward into the colder layer,\ncausing the vessel to appear lifted, elongated or even inverted above its actual position—\nsometimes floating eerily above the waterline. Mariners of old recorded such spectral\nsightings, attributing them to supernatural forces, yet we now understand them as natural\nconsequences of atmospheric refraction.",
+    "generated_at": "2026-10-29 14:50:41",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "Based on both extracts, what is a major difference in how an oasis is portrayed?",
+        "options": "Extract A describes an oasis as a rare, real refuge, whereas Extract B explains how a distant oasis can be an optical illusion caused by light refraction.|Extract A treats an oasis as an optical illusion, while Extract B describes it as a permanent city.|Extract A warns travellers that oases are hostile environments, whereas Extract B treats them as scientific laboratories.|Both extracts claim that oases do not actually exist in the desert.",
+        "answer": "A",
+        "explanation": "Extract A describes an oasis as a tangible, albeit rare, resting spot with water and palm trees, whereas Extract B explains that a visible oasis ahead in the desert is often an inferior mirage caused by light passing through air layers of different temperatures.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "In Extract A, the word \"wayfaring\" in the phrase \"one of the oldest wayfaring groups in all of the African continent\" most nearly means:",
+        "options": "aggressive or predatory|nomadic or travelling|stationary or rooted|treacherous or dishonest",
+        "answer": "B",
+        "explanation": "In context, 'wayfaring' describes groups that travel across the wide sandy plains rather than staying in one place, which means nomadic or travelling.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What is the main purpose of the humorous detail in Extract A regarding a man who \"glued ibis feathers to his body\"?",
+        "options": "To document a genuine ancient Egyptian method for hunting desert birds.|To emphasize through comedic exaggeration the extreme efforts people made to avoid the mysterious tribe.|To prove that camels are easily fooled by humans wearing bird disguises.|To criticize the foolishness of ancient desert tribes in Egypt.",
+        "answer": "B",
+        "explanation": "The author uses this absurd anecdote to highlight how desperate desert dwellers were to avoid encounter with the tribe, adding comedic effect before revealing the tribe is actually camels.",
+        "topic": "Author's Purpose",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "According to Extract B, what atmospheric conditions give rise to a superior mirage at sea?",
+        "options": "A layer of warmer air sitting directly above a layer of cooler air near the ocean surface.|Intense sun heating the ocean surface, creating warmer air near the water than above it.|High wind speeds dispersing light evenly across identical density layers.|Complete absence of temperature gradients in the air above the water.",
+        "answer": "A",
+        "explanation": "Extract B explicitly states that superior mirages occur when 'cooler air lies closer to the ocean’s surface and warmer air sits aloft', bending light downwards.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Which statement best captures the difference in tone and style between Extract A and Extract B?",
+        "options": "Extract A is a lighthearted, narrative excerpt that builds suspense, whereas Extract B is a formal, informative text explaining scientific phenomena.|Extract A is an academic report on camel migration, whereas Extract B is a personal diary entry of a sailor.|Extract A uses dry, clinical language, whereas Extract B relies on poetic exaggeration and drama.|Extract A expresses skepticism towards desert myths, whereas Extract B promotes supernatural explanations for mirages.",
+        "answer": "A",
+        "explanation": "Extract A employs storytelling, humor, and narrative tension to describe desert life and reveal the camels, while Extract B is an objective, explanatory text describing the physics of mirages.",
+        "topic": "Tone",
+        "difficulty": "Hard"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "[LLM] STT15 ENG — Questions 17-22",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "Do you Believe that a Child can Die\nin the Middle of the Pacific Ocean?\nBy YEN-HA CHAU\nDo you believe that a child can die\nin the middle of the Pacific Ocean?\nHis boat in the middle of the ocean\nthe whole ocean surrounding him\nwhile we have a soft drink\ncoffee or beer.\nWe say this coffee is too sweet\nit’s not very good for our health\nbut he hasn't got a cup of sweet coffee even a drop of water.\nHis mother’s tears can’t save him.\nHe looks like a dried tomato.\nHe holds his little hands tightly.\nHe dies with his eyes open.\nGod can't even save him.\nNobody can save him.\nYou can hear\nThe sea wave's cry and the wind call his name.\nYou can see\nHell waving to him.\nHe is dying\nWithout a drop of water.\nHe is dead\nin the middle of the Pacific Ocean.",
+    "generated_at": "2026-10-29 14:51:25",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "Why does the poet contrast the everyday comforts of \"we\" with the child's situation in lines 5-11?",
+        "options": "To suggest that modern beverages cause long-term health problems.|To highlight the stark contrast between comfortable societal indifference and the child's extreme deprivation.|To imply that the child wished he could have sweet drinks rather than fresh water.|To criticize the boy's family for failing to pack sufficient food and drinks.",
+        "answer": "B",
+        "explanation": "시인은 편안하게 음료를 마시며 건강을 불평하는 '우리'의 일상과 물 한 방울 없이 죽어가는 아이의 극단적 상황을 대비하여 비극성과 사회적 무관심을 강조합니다.",
+        "topic": "Author's Purpose",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "What physical condition is most directly suggested by the simile \"He looks like a dried tomato\"?",
+        "options": "Severe dehydration causing a shriveled physical state|Extreme sunburn making his skin turn bright red|A small physique compared to the vastness of the ocean|Deep emotional shame and embarrassment at his situation",
+        "answer": "A",
+        "explanation": "'말린 토마토'라는 비유는 오랫동안 물을 마시지 못해 몸의 수분이 바짝 말라버린 아이의 심각한 탈수 상태를 직접적으로 암시합니다.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "The personification in the lines \"The sea wave's cry and the wind call his name / You can see / Hell waving to him\" serves to create an atmosphere of:",
+        "options": "Peaceful harmony between human life and natural elements.|Imminent doom and the heartbreaking inevitability of the child's fate.|Childish fantasy masking a grim and desperate reality.|Fierce physical conflict between nature and human forces.",
+        "answer": "B",
+        "explanation": "파도의 울음, 바람의 부름, 지옥의 손짓과 같은 자연과 사후 세계의 의인화는 아이에게 다가온 피할 수 없는 임박한 죽음과 비극적 분위기를 극대화합니다.",
+        "topic": "Inference",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "What does the line \"God can't even save him. / Nobody can save him\" emphasize about the boy's situation?",
+        "options": "The boy's total loss of religious faith during his suffering.|The absolute hopelessness and irreversible nature of his condition.|The poet's disbelief in traditional rescue operations.|The severe harshness of ocean storms overriding human power.",
+        "answer": "B",
+        "explanation": "신조차도, 그 누구도 구할 수 없다는 표현은 아이가 도달한 절망의 깊이와 죽음을 돌이킬 수 없는 상태임을 강력하게 강조합니다.",
+        "topic": "Main Idea",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Which set of adjectives best describes the overall tone of the poet throughout the passage?",
+        "options": "Accusatory and solemn|Detached and clinical|Resigned and nostalgic|Sarcastic and indifferent",
+        "answer": "A",
+        "explanation": "독자에게 직접 질문을 던지며 무관심을 지적하는 고발적(accusatory) 태도와, 아이의 죽음을 다루는 엄숙하고 비극적인(solemn) 어조가 시 전체를 지배하고 있습니다.",
+        "topic": "Tone",
+        "difficulty": "Hard"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "[LLM] STT16 ENG — Questions 5-8",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "ARY THUER\nOn 3 May 1978, Gary Thuerk (USA) sent the first ‘spam’ (an unsolicited e-mail,\nusually advertising a product or service) via ARPAnet, a system seen as the\npredecessor to the internet.\nWhy exactly did you send your first spam e-mail?\n| wanted to reach people in western USA to tell them about our mainframe-class server.\nHow many people were on your mailing List?\nOver 400, which was about 25% of everyone online in the world at that time. We took the\nnames from a printed phone book and typed them in!\nWhat do think of spam today?\n| don’t get a lot of spam because | don’t leave my contact details on the Internet — chat\nroom, etc. Also, when people forward jokes to friends, they leave the e-mail list in there\nand spammers can eventually get hold of it.\nDoes anybody ever blame you for the current volumes of spam today?\nOh yes — | get people who blame me but if | talk to them we normally end up smiling or\nlaughing about it.\nDo you feel guilty?\nNo. of course not. If you take a plane flight and the airline loses your luggage, you don’t\nblame the Wright brothers!\nWhy exactly are unsolicited e-mails called ‘spam’?\nIt came from a Monty Python’s Flying Circus sketch. Somebody who just watched it was\ngoing through his unsolicited e-mails and complained that he was being spammed — and\neveryone around him began singing the Monty Python spam song!",
+    "generated_at": "2026-10-29 14:51:37",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "Why does Gary Thuerk mention the Wright brothers when asked if he feels guilty about spam?",
+        "options": "To highlight the importance of technological innovation in transport.|To argue that pioneers should not be held responsible for later misuses or issues.|To show that early inventions always result in unexpected inconveniences.|To suggest that sending mass emails is as revolutionary as human flight.",
+        "answer": "B",
+        "explanation": "Gary는 비행기 수하물 분실로 라이트 형제를 탓하지 않는다는 비유를 통해, 최초의 시도를 한 선구자에게 이후에 발생한 문제나 악용의 책임을 물을 수 없다고 주장합니다.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "In the context of the passage, the word 'unsolicited' most nearly means",
+        "options": "urgently requested|not asked for or unwanted|illegally transmitted|strictly commercial",
+        "answer": "B",
+        "explanation": "지문 초반에서 'unsolicited e-mail'을 보통 제품이나 서비스를 광고하는 이메일로 설명하며, 요청받지 않은(not asked for/unwanted) 메일을 의미함을 알 수 있습니다.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "According to the passage, how do modern spammers often obtain people's email addresses?",
+        "options": "By looking up contact details in printed phone books.|By hacking directly into mainframe-class servers.|Through forwarded messages where email lists are left exposed.|By purchasing user databases from chat room moderators.",
+        "answer": "C",
+        "explanation": "Gary는 사람들이 친구들에게 농담을 전달(forward)할 때 이메일 목록을 남겨두기 때문에 스패머들이 이를 손에 넣게 된다고 지문에서 언급합니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Which of the following best describes Gary Thuerk's tone when people blame him for modern spam?",
+        "options": "Defensive and irritable|Good-humoured and relaxed|Apologetic and remorseful|Indifferent and cold",
+        "answer": "B",
+        "explanation": "Gary는 자기를 탓하는 사람들과 이야기하다 보면 보통 미소를 짓거나 웃게 된다고 말하여 쾌활하고 여유로운(good-humoured and relaxed) 태도를 보여줍니다.",
+        "topic": "Tone",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "How did unsolicited bulk emails come to be known by the term 'spam'?",
+        "options": "Gary Thuerk named his initial advertising project after a canned food brand.|A person who watched a comedy sketch used the word while complaining about unwanted emails.|ARPAnet creators developed the name as an acronym for automated messages.|It was adopted from a popular song used in early internet chat rooms.",
+        "answer": "B",
+        "explanation": "몬티 파이튼 스케치를 본 누군가가 원치 않는 이메일을 확인하며 '스팸당하고 있다'고 불평한 데서 'spam'이라는 명칭이 유래했습니다.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "[LLM] STT16 ENG — Questions 17-22",
+    "source": "llm:gemini:gemini-3.5-flash",
+    "passage": "Viva La Vida\nSong By Cold Play\n| used to rule the world Revolutionaries wait\nSeas would rise when | gave the word For my head on a silver plate\nNow in the morning | sleep alone Just a puppet on a lonely string\nSweep the streets | used to own Oh who would ever want to be king?\n| used to roll the dice | hear Jerusalem bells a ringing\nFeel the fear in my enemy’s eyes Roman Cavalry choirs are singing\nListen as the crowd would sing: Be my mirror, my sword and shield\n“Now the old king is dead! Long live the king!” My missionaries in a foreign field\nOne minute | held the key For some reason | can’t explain\nNext the walls were closed on me | know Saint Peter won't call my name\nAnd | discovered that my castles stand Never an honest word\nUpon pillars of salt and pillars of sand But that was when | ruled the world\n| hear Jerusalem bells a ringing | hear Jerusalem bells a ringing\nRoman Cavalry choirs are singing Roman Cavalry choirs are singing\nBe my mirror, my sword and shield Be my mirror, my sword and shield\nMy missionaries in a foreign field My missionaries in a foreign field\nFor some reason | can’t explain For some reason | can’t explain\nOnce you go there was never | know Saint Peter won't call my name\nNever.an.honest word Never an honest word\nAnd that was when | ruled the world But that was when I ruled the world\nIt was the wicked and wild wind\nBlew down the doors to let me in\nShattered windows and the sound of drums\nPeople couldn't believe what I’d become",
+    "generated_at": "2026-10-29 14:52:04",
+    "structure_ok": true,
+    "verified": false,
+    "questions": [
+      {
+        "stem": "What does the imagery of castles standing \"Upon pillars of salt and pillars of sand\" suggest about the speaker's former kingdom?",
+        "options": "It was built on fragile, precarious, and temporary foundations.|It was heavily fortified against natural disasters and invasions.|It was located near desert regions and coastal waters.|It was legendary for its immense material wealth and trade.",
+        "answer": "A",
+        "explanation": "소금과 모래 기둥 위에 쌓은 성은 모래성처럼 쉽게 무너지고 불안정한 기반 위에 세워진 권력을 비유적으로 나타냅니다.",
+        "topic": "Inference",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "Which of the following best describes the speaker's tone throughout the passage?",
+        "options": "Aggressive and vengeful|Reflective and fallen from grace|Indifferent and detached|Optimistic and forward-looking",
+        "answer": "B",
+        "explanation": "한때 세계를 지배했으나 권력을 잃고 성찰하며 씁쓸함과 회한을 느끼는 몰락한 왕의 어조가 드러납니다.",
+        "topic": "Tone",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Based on the text, why does the speaker expect that \"Saint Peter won't call my name\"?",
+        "options": "He rejected the advice of his religious advisors.|He failed to defend his kingdom against foreign invaders.|He acknowledges that his reign was characterized by dishonesty and corruption.|He was exiled to a foreign land away from his church.",
+        "answer": "C",
+        "explanation": "지문에서 \"Never an honest word / But that was when I ruled the world\"라고 말하며, 통치 시절 진실되지 못했기 때문에 천국의 문을 지키는 성 베드로가 자신의 이름을 부르지 않을 것이라 추론합니다.",
+        "topic": "Detail",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "In the line \"Revolutionaries wait / For my head on a silver plate\", the phrase \"head on a silver plate\" metaphorically signifies:",
+        "options": "A ceremonial gift presented to foreign diplomatic ambassadors.|A luxurious feast held to celebrate the king's coronation.|The complete downfall and execution of the ruler.|The demands of the citizens for lower taxes and reform.",
+        "answer": "C",
+        "explanation": "혁명가들이 왕의 목이 쟁반 위에 놓이기를 기다린다는 표현은 왕의 처형과 완전한 몰락을 비유합니다.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What is the primary contrast explored in the lyrics of the song?",
+        "options": "The contrast between religious devotion and secular rule|The contrast between the speaker's past absolute power and present powerlessness|The contrast between military conquest and peaceful diplomacy|The contrast between the loyalty of subjects and the betrayal of missionaries",
+        "answer": "B",
+        "explanation": "노래 전체에 걸쳐 한때 세계를 다스리고 시대를 호령했던 과거의 절대적 권력과, 홀로 거리를 쓸고 정해진 것 없이 몰락한 현재의 모습이 대비됩니다.",
+        "topic": "Main Idea",
+        "difficulty": "Medium"
+      }
+    ]
+  }
+]

@@ -5,6 +5,44 @@
 
 ---
 
+## 2026-10-29 (5차) — LLM 실제 생성 실행 (45문항) + 연동 튜닝
+
+### API 키 검증 결과
+| Provider | 모델 | 결과 |
+|---|---|---|
+| Gemini | `gemini-2.0-flash` / `2.5-flash` / `2.5-pro` | ❌ 404 — "no longer available to new users" |
+| Gemini | `gemini-flash-latest`, `gemini-3.8-flash` | ⚠️ 503 high demand (간헐적) |
+| Gemini | **`gemini-3.5-flash`** | ✅ 200 (기본값으로 채택) |
+| Gemini | `gemini-flash-lite-latest` | ✅ 200 (대안) |
+| OpenAI | `gpt-4o-mini` | ❌ 429 `insufficient_quota` (크레딧 소진) |
+
+- 인증은 기존 `?key=` 쿼리 파라미터로 정상 동작 (헤더 `x-goog-api-key` 도 동일).
+- `responseMimeType: application/json` + `maxOutputTokens: 8192` 필요 (3.x 는 thinking 토큰 소모).
+
+### 실행 결과 (mode=passage, 지문 10개 × 5문항)
+```
+[INFO] Pool loaded: 144 total questions (Math: 30, Reading: 101, Thinking: 13)
+       LLM 생성 문항 포함: 45개 (generated_db.json)
+생성: 9섹션 / 45문항, 검증 탈락 0건
+문서 재생성: 21명 × 3세트 / 1,260문항 / 중복 0
+```
+
+### 실행 중 발견·수정한 3가지
+1. **생성 문항의 topic 공간 불일치** — 생성 문항 topic 은 `Inference`/`Author's Purpose` 인데
+   리포트 약점 토픽은 `Linked Extracts`/`Poetry` 등 → 선택에서 항상 밀림.
+   → 생성기 적재 시 `topic = section["type"]`, `skill = 세부 유형` 으로 분리 (PDF 표시는 `skill`).
+2. **한 지문에 문항 몰림** — 30문항 세트에서 Reading 12문항이 지문 1개에 집중.
+   → `MAX_PER_PASSAGE = 8` 도입으로 지문당 최대 8문항, 나머지는 다음 지문으로 분산(2지문 구성).
+3. **기출 독점** — 기출이 항상 먼저 선택됨 → **기출/LLM 교대 배치(round-robin)** 로 혼합.
+   검증: 샘플 세트 Reading 12문항 중 6문항이 LLM 생성분.
+
+### 남은 작업
+- 생성 문항 사람 검수 → `verified: true` 승격
+- `--mode new` (새 지문 생성) 시도
+- OpenAI 크레딧 충전 후 provider 교차 검증
+
+---
+
 ## 2026-10-29 (4차) — LLM 기반 문제 생성 파이프라인 구축
 
 ### 요구사항

@@ -41,7 +41,7 @@ REVIEW = BASE / "data" / "questions" / "generated_review.json"
 LONG_PASSAGE_MIN = 300
 MAX_OPTIONS = 5
 MIN_OPTIONS = 4
-DEFAULT_GEMINI_MODEL = "gemini-2.0-flash"
+DEFAULT_GEMINI_MODEL = "gemini-3.5-flash"
 DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
 
 SCHEMA_HINT = """[
@@ -147,23 +147,56 @@ RULES
 
 
 # ---------------------------------------------------------------- LLM 호출
+def request_with_retry(method, url, *, params=None, headers=None, json_body=None, timeout=180, attempts=3):
+    """429/503/타임아웃에 대해 지수 백오프로 재시도한다."""
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            resp = requests.request(method, url, params=params, headers=headers, json=json_body, timeout=timeout)
+            if resp.status_code in (429, 500, 502, 503, 504):
+                last_error = RuntimeError(f"HTTP {resp.status_code}: {resp.text[:200]}")
+                if attempt < attempts:
+                    wait = 5 * attempt
+                    log(f"  [retry {attempt}/{attempts - 1}] HTTP {resp.status_code} → {wait}초 후 재시도")
+                    time.sleep(wait)
+                    continue
+            if resp.status_code >= 400:
+                raise RuntimeError(f"HTTP {resp.status_code}: {resp.text[:300]}")
+            return resp
+        except requests.exceptions.Timeout as exc:
+            last_error = exc
+            if attempt < attempts:
+                log(f"  [retry {attempt}/{attempts - 1}] 타임아웃 → 재시도")
+                time.sleep(5 * attempt)
+                continue
+            raise
+    raise last_error if last_error else RuntimeError("요청 실패")
+
+
 def call_gemini(prompt, model, api_key, timeout=180):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 4096,
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 8192,
                              "responseMimeType": "application/json"},
     }
-    resp = requests.post(url, params={"key": api_key}, json=payload, timeout=timeout)
-    resp.raise_for_status()
-    return resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+    resp = request_with_retry("POST", url, params={"key": api_key}, json_body=payload, timeout=timeout)
+    data = resp.json()
+    candidates = data.get("candidates") or []
+    if not candidates:
+        raise RuntimeError(f"응답에 candidates 없음: {json.dumps(data)[:200]}")
+    parts = candidates[0].get("content", {}).get("parts") or []
+    text = "".join(p.get("text", "") for p in parts)
+    if not text.strip():
+        raise RuntimeError(f"빈 응답 (finishReason={candidates[0].get('finishReason')})")
+    return text
 
 
 def call_openai(prompt, model, api_key, timeout=180):
     url = "https://api.openai.com/v1/chat/completions"
     payload = {"model": model, "messages": [{"role": "user", "content": prompt}], "temperature": 0.7}
-    resp = requests.post(url, headers={"Authorization": f"Bearer {api_key}"}, json=payload, timeout=timeout)
-    resp.raise_for_status()
+    resp = request_with_retry("POST", url, headers={"Authorization": f"Bearer {api_key}"},
+                              json_body=payload, timeout=timeout)
     return resp.json()["choices"][0]["message"]["content"]
 
 

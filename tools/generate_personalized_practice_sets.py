@@ -39,6 +39,7 @@ styles.add(ParagraphStyle(name="PS", parent=styles["Normal"], fontSize=8, leadin
 # Reading 은 긴 지문(long passage) 기반 다문항 세트를 우선 사용한다.
 LONG_PASSAGE_MIN = 300     # 긴 지문 최소 길이(문자)
 MIN_PER_SUBJECT = 2        # 학생 성취도와 무관하게 모든 과목에 보장하는 최소 문항 수
+MAX_PER_PASSAGE = 8        # 한 지문에서 뽑을 최대 문항 수 (실제 시험지 구성과 동일하게)
 SUBJECT_GROUPS = ("Reading", "Mathematical Reasoning", "Thinking")
 
 # 지문만 있고 실제 문제가 없는 플레이스홀더 stem (예: "Read Extract A: ... carefully. - Q1")
@@ -240,7 +241,9 @@ def load_pool():
                     pool.append({
                         "_id": hash(stem_key),
                         "subject": "Reading",
-                        "topic": q.get("topic", "Inference"),
+                        # 리포트 토픽(Linked Extracts 등)과 동일한 공간으로 맞춰 선택되도록 한다
+                        "topic": section.get("type", "Linked Extracts"),
+                        "skill": q.get("topic", "Inference"),
                         "stem": q.get("stem", ""),
                         "passage": passage,
                         "options": q.get("options", ""),
@@ -368,7 +371,7 @@ def make_pdf(path, title, student, test_type, round_no, questions, answer_key=Fa
         for q in q_list:
             stem_safe = escape_xml(q.get("stem", ""))
             subj_safe = escape_xml(q.get("subject", ""))
-            topic_safe = escape_xml(q.get("topic", ""))
+            topic_safe = escape_xml(q.get("skill") or q.get("topic", ""))
             story.append(Paragraph(f"<b>{q_idx}. {stem_safe}</b> <font color='#718096'>[{subj_safe} · {topic_safe}]</font>", styles["PQ"]))
 
             opts = q.get("options", "").split("|")
@@ -468,11 +471,22 @@ def select_questions(areas, count, pool, report=None):
         if remaining_quota("Reading") <= 0:
             break
         ordered = sorted(group_questions, key=lambda q: 0 if topic_matches(q, wanted_reading) else 1)
-        for q in ordered:
-            if remaining_quota("Reading") <= 0:
+        # 기출/LLM 생성 문항을 교대로 배치해 학생이 다양한 출처의 문항을 받도록 한다
+        exam_qs = [q for q in ordered if not str(q.get("source", "")).startswith("llm")]
+        llm_qs = [q for q in ordered if str(q.get("source", "")).startswith("llm")]
+        mixed = []
+        for i in range(max(len(exam_qs), len(llm_qs))):
+            if i < len(exam_qs):
+                mixed.append(exam_qs[i])
+            if i < len(llm_qs):
+                mixed.append(llm_qs[i])
+        taken_here = 0
+        for q in mixed:
+            if remaining_quota("Reading") <= 0 or taken_here >= MAX_PER_PASSAGE:
                 break
             if q["_id"] not in used_ids:
                 take(q)
+                taken_here += 1
 
     # 5. Math / Thinking: 약점 주제 우선 → 같은 과목의 다른 문항으로 보충
     for subj_group, subj_pool in (("Mathematical Reasoning", math_pool), ("Thinking", thinking_pool)):

@@ -105,6 +105,12 @@ python tools/generate_questions_llm.py --mode new --provider openai --model gpt-
 python tools/generate_personalized_practice_sets.py --test-type Selective --round 26
 ```
 
+> **모델 주의 (2026-10-29 실측)**
+> - Gemini `gemini-2.0-flash` / `gemini-2.5-flash` / `gemini-2.5-pro` → **404 (신규 사용자 제공 중단)**
+> - 사용 가능: `gemini-3.5-flash`(기본값), `gemini-flash-lite-latest`
+> - `gemini-flash-latest`, `gemini-3.8-flash` 는 503(수요 폭주) 빈번 → 스크립트가 자동 재시도(2회, 5·10초)
+> - OpenAI 키는 등록되어 있으나 **크레딧 소진**(`insufficient_quota`) 상태
+
 ---
 
 ## 6. 시험지 데이터 위치 (J: 드라이브)
