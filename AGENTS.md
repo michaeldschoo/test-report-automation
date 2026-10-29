@@ -67,6 +67,18 @@ python tools/build_reading_db_from_papers.py                # DB 병합 (기존 
 - 정답은 `... ANS.pdf` 의 **굵은 글씨**를 잉크 밀도 비율로 판정 (판정된 정답 오류 0건 실측)
 - 채택 조건: 긴 지문(≥300자) + 정답 있는 문항 3개 이상 + stem 미절단
 
+### LLM 문제 생성 파이프라인 (2026-10-29 신규)
+```powershell
+python tools/generate_questions_llm.py --dry-run --limit 1        # 프롬프트만 확인
+python tools/generate_questions_llm.py --mock --limit 2 --out "$env:TEMP\mock.json"   # 키 없이 동작 검증
+python tools/generate_questions_llm.py --mode passage --limit 10 --questions 5        # 실제 생성(Gemini)
+python tools/generate_questions_llm.py --mode new --provider openai --limit 3         # 새 지문 생성
+```
+- `.env` 에 `GEMINI_API_KEY`(또는 `GOOGLE_API_KEY`) / `OPENAI_API_KEY` 필요
+- 결과: `data/questions/generated_db.json` (`structure_ok` 자동검증 / `verified` 사람검수)
+- 생성기는 `structure_ok` 또는 `verified` 인 섹션만 읽는다 (경로 override: `PRACTICE_GENERATED_DB`)
+- 검증 탈락 문항은 `data/questions/generated_review.json` 에 사유와 함께 저장
+
 ### J: 드라이브 시험지 (학습 데이터 원본)
 - `J:\My Drive\EKC  OFFICE\STT - NEW\STT2027\TEST\` → PDF **167개** (ENG 52개, `STT<회차>\STT<회차> ENG.pdf` + `... ENG ANS.pdf` 쌍)
 - `J:\My Drive\EKC  OFFICE\OC - NEW\OC 2027\TEST\` → 동일 구조

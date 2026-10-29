@@ -17,6 +17,7 @@
 | 시험지 OCR 추출 | ENG 7편 | ✅ 92문항 / 정답 54 |
 | 굵은글씨 정답 판정 | STT26 정답 대조 | ✅ 판정 7건 중 오류 0 |
 | 추출→DB 병합 | 9섹션/34문항 추가 | ✅ 기존 8문항 보존 |
+| LLM 생성 파이프라인 | `--dry-run` / `--mock` | ✅ 프롬프트·검증·저장·연동 동작 확인 (실제 생성은 API 키 필요) |
 
 ---
 
@@ -70,7 +71,8 @@ final_student_name = parsed_name or student_name or "Anonymous"
 - [ ] OCR 폴백 실제 연결 또는 dead code 정리 (Critical 2)
 - [ ] 잔여 ENG 시험지 약 40편 + MATH/TS 배치 추출
 - [ ] 사용자가 제공할 **추가 시험지 경로** 반영
-- [ ] LLM 기반 신규 문제 생성 파이프라인 (`generated_db.json`)
+- [ ] LLM 파이프라인 **실제 생성 실행** (`.env` 에 `GEMINI_API_KEY` 또는 `OPENAI_API_KEY` 설정 후)
+- [ ] 생성 문항 **사람 검수** → `verified: true` 승격 (샘플링 검수 기준 필요)
 - [ ] cloze 표 형식 파서 (2열 좌표 기반)
 - [ ] 저신뢰 정답 검수 워크플로 (`exam_papers_review.json` 활용)
 - [ ] README 의 "문제 은행: Math 15, Reading 10, Thinking 3" 수치 갱신 (실제 30/22/13 + 추출분)

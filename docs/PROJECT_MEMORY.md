@@ -5,6 +5,52 @@
 
 ---
 
+## 2026-10-29 (4차) — LLM 기반 문제 생성 파이프라인 구축
+
+### 요구사항
+- 기출 시험지 데이터를 **학습/참조**해서 새 문제를 생성하는 단계가 필요 (사용자 요청 2번).
+- 생성 결과는 품질 게이트를 통과해야만 문제집에 투입.
+
+### 설계 결정
+- **런타임 생성 금지**: 생성기(문제집 조립)는 LLM을 호출하지 않는다.
+  LLM 호출은 **오프라인 배치**로 분리 (`tools/generate_questions_llm.py`).
+- 이유: 재현성·비용·검수 가능성. 런타임 LLM 호출은 결과가 매번 달라진다.
+- 두 모드: `--mode passage`(기존 긴 지문 재사용 + 새 문항) / `--mode new`(새 지문 + 다문항)
+
+### 구현
+| 파일 | 내용 |
+|---|---|
+| `tools/generate_questions_llm.py` (신규) | exemplar 로드 → 프롬프트 → Gemini/OpenAI 호출 → JSON 파싱 → 구조 검증 → `generated_db.json` |
+| `generate_personalized_practice_sets.py` | `load_pool()` 이 `generated_db.json` 도 로드 (`structure_ok`/`verified` 섹션만) |
+
+### 검증 게이트 (탈락 시 `generated_review.json`)
+stem 15자↑ / 선택지 4~5개 / 중복 선택지 금지 / 정답이 선택지 범위 내 / 해설 10자↑ / 기존·신규 stem 중복 금지
+
+### 지원 모드
+- `--dry-run`: API 호출 없이 프롬프트 미리보기 (키 불필요)
+- `--mock`: 결정적 샘플로 파이프라인 전체 동작 검증 (임시 경로 출력)
+- 실제 생성: `.env` 의 `GEMINI_API_KEY`(또는 `GOOGLE_API_KEY`) / `OPENAI_API_KEY`
+
+### 실측 검증
+```
+--dry-run  → 프롬프트 생성 정상 (Lasseter 지문 + 스타일 참조 3문항 포함)
+--mock     → 2섹션 / 8문항 생성, 탈락 0건
+연동 테스트 → PRACTICE_GENERATED_DB 로 mock 주입 시 Pool 99 → 107 (mock 8문항 포함)
+실제 풀     → generated_db 없을 때 99문항 유지 (기존 동작 불변)
+문서 재생성 → 21명 × 3세트 / 1,260문항 / 중복 0
+```
+
+### 부수 버그 수정
+- `load_pool()` 의 중복 키가 `stem[:80]` 절단이라, 앞 80자가 같은 서로 다른 문항이 병합되던 문제
+  → `_stem_key()` 도입(공백/대소문자 정규화 + 전체 stem + topic)
+
+### 남은 작업
+- 실제 LLM 생성 실행 (API 키 필요)
+- 생성 문항 사람 검수 후 `verified: true` 승격 기준 마련
+- 기출 잔여 편(ENG 약 40편 + MATH/TS) 배치 추출
+
+---
+
 ## 2026-10-29 (3차) — 기출 시험지 OCR 추출 파이프라인 구축
 
 ### 배경

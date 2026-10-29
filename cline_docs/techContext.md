@@ -49,6 +49,8 @@ playwright install chromium
 ```env
 BRANCH_USERNAME=...
 BRANCH_PASSWORD=...
+GEMINI_API_KEY=...      # LLM 문제 생성용 (또는 GOOGLE_API_KEY)
+# OPENAI_API_KEY=...    # OpenAI 사용 시
 ```
 
 ---
@@ -82,6 +84,25 @@ python tools/extract_exam_papers.py --subjects ENG MATH TS
 # 추출 결과를 생성기 DB 로 병합
 python tools/build_reading_db_from_papers.py --dry-run
 python tools/build_reading_db_from_papers.py
+```
+
+### LLM 문제 생성 (신규)
+```powershell
+# 프롬프트만 확인 (API 호출 없음)
+python tools/generate_questions_llm.py --dry-run --limit 1 --questions 5
+
+# API 키 없이 파이프라인 동작 검증 (임시 파일로만 출력)
+python tools/generate_questions_llm.py --mock --limit 2 `
+  --out "$env:TEMP\mock_generated.json" --review "$env:TEMP\mock_review.json"
+
+# 실제 생성 (Gemini)
+python tools/generate_questions_llm.py --mode passage --limit 10 --questions 5
+
+# 새 지문 생성 (OpenAI 호환)
+python tools/generate_questions_llm.py --mode new --provider openai --model gpt-4o-mini --limit 3
+
+# 생성 후 문제집 재생성
+python tools/generate_personalized_practice_sets.py --test-type Selective --round 26
 ```
 
 ---

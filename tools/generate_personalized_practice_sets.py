@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import argparse, json, re
+import argparse, json, os, re
 from datetime import datetime
 from pathlib import Path
 from collections import defaultdict
@@ -43,6 +43,13 @@ SUBJECT_GROUPS = ("Reading", "Mathematical Reasoning", "Thinking")
 
 # 지문만 있고 실제 문제가 없는 플레이스홀더 stem (예: "Read Extract A: ... carefully. - Q1")
 _PLACEHOLDER_STEM = re.compile(r'^\s*Read\s+Extract\s+.*carefully\.?\s*-?\s*Q\d+\s*$', re.IGNORECASE)
+
+
+# stem 중복 판정용 키 (공백/대소문자 정규화 + 전체 문장 사용)
+def _stem_key(q):
+    stem = re.sub(r"\s+", " ", str(q.get("stem", "")).strip()).lower()
+    topic = str(q.get("topic", "")).strip().lower()
+    return stem + "|" + topic
 
 
 def is_usable_question(q):
@@ -161,7 +168,7 @@ def load_pool():
 
             for q in data.get("math", []):
                 q_entry = dict(q, subject="Mathematical Reasoning", verified=q.get("verified", False))
-                stem_key = q_entry.get("stem", "")[:80] + str(q_entry.get("topic", ""))
+                stem_key = _stem_key(q_entry)
                 if stem_key and stem_key not in seen_stems:
                     seen_stems.add(stem_key)
                     q_entry["_id"] = hash(stem_key)
@@ -171,7 +178,7 @@ def load_pool():
                 # 더미 옵션('A|B|C|D')/플레이스홀더 문항은 제외하고 유효 문제만 로드
                 if is_usable_question(q):
                     q_entry = dict(q, subject="Reading", verified=q.get("verified", True))
-                    stem_key = q_entry.get("stem", "")[:80] + str(q_entry.get("topic", ""))
+                    stem_key = _stem_key(q_entry)
                     if stem_key and stem_key not in seen_stems:
                         seen_stems.add(stem_key)
                         q_entry["_id"] = hash(stem_key)
@@ -179,7 +186,7 @@ def load_pool():
 
             for q in data.get("thinking", []):
                 q_entry = dict(q, subject="Thinking Skills", verified=q.get("verified", False))
-                stem_key = q_entry.get("stem", "")[:80] + str(q_entry.get("topic", ""))
+                stem_key = _stem_key(q_entry)
                 if stem_key and stem_key not in seen_stems:
                     seen_stems.add(stem_key)
                     q_entry["_id"] = hash(stem_key)
@@ -195,7 +202,7 @@ def load_pool():
                     passage = section.get("passage", "")
                     for q in section.get("questions", []):
                         if is_usable_question(q):
-                            stem_key = q.get("stem", "")[:80] + str(q.get("topic", ""))
+                            stem_key = _stem_key(q)
                             if stem_key and stem_key not in seen_stems:
                                 seen_stems.add(stem_key)
                                 pool.append({
@@ -213,10 +220,46 @@ def load_pool():
         except Exception as e:
             print(f"[WARN] Error reading complete_db_file: {e}")
 
+    # 3. LLM 생성 문항 로드 (구조 검증을 통과한 섹션만 사용)
+    generated_file = Path(os.environ.get("PRACTICE_GENERATED_DB",
+                                         BASE / "data" / "questions" / "generated_db.json"))
+    generated_count = 0
+    if generated_file.exists():
+        try:
+            for section in json.loads(generated_file.read_text(encoding="utf-8")):
+                if not (section.get("structure_ok") or section.get("verified")):
+                    continue
+                passage = section.get("passage", "")
+                for q in section.get("questions", []):
+                    if not is_usable_question(q):
+                        continue
+                    stem_key = _stem_key(q)
+                    if not stem_key or stem_key in seen_stems:
+                        continue
+                    seen_stems.add(stem_key)
+                    pool.append({
+                        "_id": hash(stem_key),
+                        "subject": "Reading",
+                        "topic": q.get("topic", "Inference"),
+                        "stem": q.get("stem", ""),
+                        "passage": passage,
+                        "options": q.get("options", ""),
+                        "answer": q.get("answer", ""),
+                        "explanation": q.get("explanation", ""),
+                        "difficulty": q.get("difficulty", "Hard"),
+                        "verified": bool(section.get("verified", False)),
+                        "source": section.get("source", "llm"),
+                    })
+                    generated_count += 1
+        except Exception as e:
+            print(f"[WARN] Error reading generated_db: {e}")
+
     math_count = len([q for q in pool if q.get("subject") == "Mathematical Reasoning"])
     reading_count = len([q for q in pool if q.get("subject") == "Reading"])
     thinking_count = len([q for q in pool if "Thinking" in q.get("subject", "")])
     print(f"[INFO] Pool loaded: {len(pool)} total questions (Math: {math_count}, Reading: {reading_count}, Thinking: {thinking_count})")
+    if generated_count:
+        print(f"       LLM 생성 문항 포함: {generated_count}개 ({generated_file.name})")
 
     reading_grouped = group_reading_by_passage([q for q in pool if q.get("subject") == "Reading"])
     long_groups = {p: qs for p, qs in reading_grouped.items() if len(p) >= LONG_PASSAGE_MIN}

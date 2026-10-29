@@ -23,6 +23,7 @@ Reading 문제 생성 문제를 **해결 완료**했고, 기출 시험지 OCR �
 | 6 | 실제 기출 7편 추출 | 긴 지문 섹션 9개 / 문항 34개를 DB에 병합 (Reading 8 → 42문항) |
 | 7 | 산출물 재생성 | 21명 × 3세트, 1,260문항, **중복 0** |
 | 8 | 지식 베이스 도입 | `AGENTS.md`, `docs/PROJECT_MEMORY.md`, `cline_docs/` |
+| 9 | **LLM 문제 생성 파이프라인 신규 작성** | `tools/generate_questions_llm.py` + 생성기 연동 (`generated_db.json`) |
 
 ---
 
@@ -72,12 +73,15 @@ Selective R26 30문항 세트 배분 예시 (학생별로 다름)
 - 그 후 `python tools/build_reading_db_from_papers.py` → 생성기 재실행.
 - 현재 ENG 7편만 처리됨. 남은 ENG 약 40편 + MATH/TS 미처리.
 
-### ⓑ LLM 기반 신규 문제 생성 파이프라인 (사용자 요청: 2번)
-- 목표: 추출된 기출 문항을 **스타일 참조(exemplar)** 로 삼아 새 문제 생성.
-- 필요 산출물: `data/questions/generated_db.json` (verified 플래그 포함)
-- 검증 게이트 필수: 선택지 4~5개 / 정답 범위 / stem 중복 0 / 지문-문항 연결 / 지문 ≥300자
-- 생성기 연동: `load_pool()` 이 `generated_db.json` 도 읽도록 확장
-- **주의**: 저장소에 LLM 연동 코드가 아직 없다. API 키(.env) 및 모델 선택 필요.
+### ⓑ LLM 기반 신규 문제 생성 파이프라인 (구현 완료 · API 키 대기)
+- `tools/generate_questions_llm.py` 신규 작성 완료.
+- 두 가지 모드: `--mode passage`(기존 지문 재사용 + 새 문항) / `--mode new`(새 지문+문항)
+- 생성 결과는 **구조 검증 게이트** 통과분만 저장: `data/questions/generated_db.json`
+  - 검증: stem 15자↑ / 선택지 4~5개 / 중복 선택지 없음 / 정답 범위 / 해설 10자↑ / stem 중복 0
+  - `structure_ok=true, verified=false` 로 저장 → 검수 후 `verified=true` 로 바꾸면 우선 사용
+- 생성기는 `structure_ok` 또는 `verified` 인 섹션만 읽는다 (`PRACTICE_GENERATED_DB` 로 경로 override 가능)
+- **아직 실제 생성 전**: `.env` 에 `GEMINI_API_KEY` (또는 `OPENAI_API_KEY`) 필요
+- 키 없이 확인하는 방법: `--dry-run`(프롬프트만) / `--mock`(파이프라인 동작 검증)
 
 ### ⓒ 미수정 버그 (progress.md 참조)
 - `run_pipeline.py` 학생 이름/ID 유실 (Anonymous 회귀) — **파이프라인 재실행 전 필수 수정**
