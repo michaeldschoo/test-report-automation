@@ -332,5 +332,192 @@
         "difficulty": "Hard"
       }
     ]
+  },
+  {
+    "type": "Passage",
+    "title": "Original: How Bees Find Their Way",
+    "source": "original:authored-in-house",
+    "original": true,
+    "passage": "How Bees Find Their Way\n\nA honeybee leaving a hive to search for flowers is doing something that looks, at first, impossible. It may fly five kilometres in a wandering line, visit several patches of blossoms, and then return to a hive the size of a shoebox without hesitation. The bee has no map, no landmarks drawn for its benefit, and no way to ask for directions. What it has instead is a set of overlapping methods, each fairly crude on its own, which together amount to an extraordinarily reliable navigation system.\n\nThe first method is memory of movement. As the bee flies, it keeps a running tally of direction and distance by watching the world slide past its eyes. This process is imperfect and accumulates error over long flights, which is why bees leaving a new food source often loop back to look at it before heading home. The loop gives them a clearer record of the route.\n\nNear the hive, sight takes over. Bees learn the arrangement of trees, fences, sheds and hedges around their home and use these shapes as a sequence of markers, much as a driver uses a series of familiar buildings. Researchers who moved a hive a short distance found that returning foragers hovered at the old site in confusion, then searched outwards along the ring of landmarks they remembered.\n\nThe final method is the oddest. Bees can detect the polarisation pattern of sunlight, a property of light invisible to humans, and use it to find the position of the sun even when the sky is heavily overcast. Because the hive's dances communicate direction relative to the sun, this ability means a bee can interpret those instructions on a cloudy afternoon when no sun is visible at all.\n\nWhat all three methods share is that none of them is accurate on its own. Memory drifts. Landmarks disappear. Clouds thicken. The system works because the bee does not rely on any single source but keeps correcting one against another. Engineers who build navigation systems for robots have taken an interest for exactly this reason: combining several noisy signals produces a result that is steadier than any one of them.",
+    "questions": [
+      {
+        "stem": "Which statement best expresses the main idea of the passage about bee navigation?",
+        "options": "Bees navigate using several imperfect methods that correct one another|Bees can see landmarks that are invisible to humans|Bees travel further than scientists previously believed|Robots have copied the bee's navigation system exactly",
+        "answer": "A",
+        "explanation": "The passage stresses that no single method is accurate, but together they are reliable.",
+        "topic": "Main Idea",
+        "difficulty": "Easy"
+      },
+      {
+        "stem": "Why do bees sometimes loop back to look at a new food source before returning home?",
+        "options": "To check whether the flowers have been visited by other bees|To build a clearer memory of the route back|To warn other insects away from the flowers|To collect more pollen before flying to the hive",
+        "answer": "B",
+        "explanation": "The loop gives them a clearer record of the route, compensating for drifting memory.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "The experiment in which a hive was moved showed that bees:",
+        "options": "Abandon landmarks completely and rely on memory of movement|Return to the old location first and then search using remembered landmarks|Cannot find their hive after any change near it|Use the position of the sun to locate a moved hive",
+        "answer": "B",
+        "explanation": "Foragers hovered at the old site, then searched outwards along the familiar ring of landmarks.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Why is the ability to detect polarised light useful to a bee?",
+        "options": "It allows the bee to see flowers in dark conditions|It reveals the sun's position even when the sky is overcast|It helps the bee measure the distance to the hive|It warns the bee when a storm is approaching",
+        "answer": "B",
+        "explanation": "The passage states this lets bees interpret dance instructions on cloudy afternoons.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "The phrase 'combining several noisy signals' refers to:",
+        "options": "Bees communicating loudly inside the hive|Mixing imperfect information sources to produce a steadier result|Robot sensors that malfunction in cloudy weather|Researchers recording bees with several microphones",
+        "answer": "B",
+        "explanation": "'Noisy' here means imprecise or error-prone, not literally loud.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "Why does the author mention engineers building navigation systems for robots?",
+        "options": "To suggest that scientists should stop studying insects|To show that the bee's method has practical value beyond biology|To argue that robots are better navigators than bees|To explain how the hive experiment was conducted",
+        "answer": "B",
+        "explanation": "The comparison links the bee's combined-signal strategy to real engineering practice.",
+        "topic": "Author's Purpose",
+        "difficulty": "Medium"
+      }
+    ]
+  },
+  {
+    "type": "Passage",
+    "title": "Original: The Real Price of a Cheap T-shirt",
+    "source": "original:authored-in-house",
+    "original": true,
+    "passage": "The Real Price of a Cheap T-shirt\n\nA t-shirt that costs nine dollars is not cheap. It is simply priced in a way that hides most of its cost from the person paying at the counter.\n\nConsider what happens before the shirt reaches a shop. A crop must be grown, usually cotton, which in many regions requires enormous volumes of water and frequent applications of pesticide. The fibre is then spun, dyed, cut and sewn, often across several countries, before being shipped thousands of kilometres. Every one of these steps consumes resources and produces waste, and none of that vanishes because the label says nine dollars. It has merely been charged to somebody else: to a river downstream of a dye house, to a farmer breathing pesticide, or to a worker paid by the piece rather than by the hour.\n\nSupporters of the current system argue that inexpensive clothing has been a genuine benefit. It is true that a family on a tight budget is better off when school uniforms and children's clothes cost less. But this argument confuses low price with low cost. A shirt that loses its shape after eight washes is not cheaper than one that lasts four years; it is a more expensive shirt purchased repeatedly. The household budget eventually pays for the difference, with interest.\n\nThe environmental arithmetic is just as unfavourable. Clothing that fails quickly becomes waste quickly. In many countries, a large share of discarded textiles ends up buried or burned rather than recycled, and the fibres that do get recycled are frequently of lower quality. Meanwhile, the pressure to release new collections every few weeks means that design decisions are made for the photograph rather than for the fifth year of wear.\n\nWhat would a better system look like? Not a return to a world where clothing was scarce and expensive for everyone, which is a fantasy that helps nobody. A better system would make durability visible: clear labelling of how many washes a garment survived in testing, repair services that are cheaper than replacement, and tax rules that reward mending over discarding. None of these ideas is glamorous. All of them attack the same problem from different sides, which is that the price on the tag and the cost to the world have drifted far apart.\n\nThe next time a shirt seems like a bargain, the honest question is not whether you can afford it. It is what the difference is being paid for, and by whom.",
+    "questions": [
+      {
+        "stem": "What is the writer's central argument?",
+        "options": "Clothing should be manufactured only in one country|Low prices hide costs that are paid by other people and the environment|Cotton farming should be banned completely|Families on tight budgets buy too many clothes",
+        "answer": "B",
+        "explanation": "The essay argues that a low tag price conceals costs shifted onto workers, communities and ecosystems.",
+        "topic": "Main Idea",
+        "difficulty": "Easy"
+      },
+      {
+        "stem": "The writer says the counter-argument 'confuses low price with low cost' because:",
+        "options": "Cheap clothing is usually better made than expensive clothing|Garments that wear out quickly must be replaced, so the saving disappears|Families who buy cheap clothes do not care about quality|Retailers set prices without considering production costs",
+        "answer": "B",
+        "explanation": "The writer explains that a shirt failing after eight washes is a more expensive shirt bought repeatedly.",
+        "topic": "Inference",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "The tone of the third paragraph can best be described as:",
+        "options": "Hostile towards families on tight budgets|Fair-minded, conceding a point before rejecting it|Amused by the arguments of supporters|Uncertain about whether cheap clothing helps anyone",
+        "answer": "B",
+        "explanation": "The writer accepts that inexpensive clothing can help some households, then challenges the conclusion drawn from it.",
+        "topic": "Tone",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Which of the following is NOT one of the writer's suggested improvements?",
+        "options": "Labels showing how many washes a garment survived|Repair services that cost less than replacing an item|Tax rules that reward mending over discarding|A legal limit on how many collections a brand may release",
+        "answer": "D",
+        "explanation": "The passage lists labelling, repair services and tax rules; a limit on collections is not proposed.",
+        "topic": "Detail",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "What does the writer mean by saying design decisions are made 'for the photograph rather than for the fifth year of wear'?",
+        "options": "Clothing is designed to look good in advertising rather than to last|Photographers influence the colours chosen by designers|Designers are not paid enough to consider durability|Shoppers only buy clothes they have seen photographed",
+        "answer": "A",
+        "explanation": "The phrase contrasts short-term visual appeal with long-term usefulness.",
+        "topic": "Vocabulary in Context",
+        "difficulty": "Hard"
+      },
+      {
+        "stem": "The final paragraph is intended to make the reader:",
+        "options": "Feel guilty about every purchase they have made|Question who bears the hidden cost of a cheap item|Stop buying clothing entirely|Support a return to scarce and expensive clothing",
+        "answer": "B",
+        "explanation": "It redirects attention from affordability to the question of who pays the difference.",
+        "topic": "Author's Purpose",
+        "difficulty": "Medium"
+      }
+    ]
+  },
+  {
+    "type": "Cloze Passage",
+    "title": "Original: Cloze — The Bridge at Kestrel Creek",
+    "source": "original:authored-in-house",
+    "original": true,
+    "passage": "The Bridge at Kestrel Creek\n\nFor thirty years the bridge at Kestrel Creek carried almost nothing: a farmer's ute, a postman on Tuesdays, and the occasional cyclist who had (1) ______ the turn-off and was too proud to ask for directions. Then the highway was closed for repairs, and within a week the old bridge became the busiest road in the district.\n\nThe council had always (2) ______ the bridge as a liability. Its timber deck had been patched so many times that no two planks matched, and the (3) ______ railing leaned like a fence after a storm. Engineers had inspected it twice and delivered the same verdict both times: sound, but only just.\n\nWhat the engineers could not measure was the bridge's hold on the people who used it. Drivers slowed instinctively at the first plank, not because they had been told to, but because everyone did. Strangers (4) ______ hands as they passed, a habit nobody could explain and nobody wanted to break.\n\nWhen the highway reopened, the traffic (5) ______ back to almost nothing. A reporter came out to write a gentle piece about the bridge's brief fame, and discovered that the council had already (6) ______ a demolition date. The story changed the plan. Instead of a new concrete crossing, the council agreed to replace the deck plank by plank, (7) ______ the original shape of the structure.\n\nThe work took eighteen months and cost more than the demolition would have. The bridge is now listed on the local heritage register, which means it is protected and, more importantly, (8) ______ to the people who keep using it out of habit rather than necessity.",
+    "questions": [
+      {
+        "stem": "Choose the word that best fits blank (1).",
+        "options": "missed|collected|avoided|reached",
+        "answer": "A",
+        "explanation": "The cyclist had 'missed' the turn-off and was too proud to ask for directions.",
+        "topic": "Cloze",
+        "difficulty": "Easy"
+      },
+      {
+        "stem": "Choose the word that best fits blank (2).",
+        "options": "celebrated|regarded|forgiven|repaired",
+        "answer": "B",
+        "explanation": "'Regarded as a liability' means the council viewed the bridge as a risk.",
+        "topic": "Cloze",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Choose the word that best fits blank (3).",
+        "options": "timber|distant|removed|hidden",
+        "answer": "A",
+        "explanation": "The sentence continues the description of the bridge's timber construction and its leaning railing.",
+        "topic": "Cloze",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Choose the word that best fits blank (4).",
+        "options": "washed|raised|clasped|dropped",
+        "answer": "C",
+        "explanation": "'Clasped hands as they passed' describes the unexplained habit of greeting other drivers.",
+        "topic": "Cloze",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Choose the word that best fits blank (5).",
+        "options": "fell|grew|leapt|turned",
+        "answer": "A",
+        "explanation": "Once the highway reopened, traffic 'fell back' to almost nothing.",
+        "topic": "Cloze",
+        "difficulty": "Easy"
+      },
+      {
+        "stem": "Choose the word that best fits blank (6).",
+        "options": "cancelled|set|postponed|denied",
+        "answer": "B",
+        "explanation": "The council had already 'set' a demolition date, meaning it had been scheduled.",
+        "topic": "Cloze",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Choose the word that best fits blank (7).",
+        "options": "preserving|ignoring|replacing|reducing",
+        "answer": "A",
+        "explanation": "Replacing the deck plank by plank 'preserved' the original shape of the structure.",
+        "topic": "Cloze",
+        "difficulty": "Medium"
+      },
+      {
+        "stem": "Choose the word that best fits blank (8).",
+        "options": "closed|valuable|invisible|ordinary",
+        "answer": "B",
+        "explanation": "The register protects the bridge and makes it 'valuable' to the people who still use it.",
+        "topic": "Cloze",
+        "difficulty": "Hard"
+      }
+    ]
   }
 ]

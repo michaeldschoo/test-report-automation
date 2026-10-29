@@ -511,14 +511,25 @@ def select_questions(areas, count, pool, report=None):
 
     # 4. Reading: 약점 주제를 담은 긴 지문 그룹을 우선 선택하고, 그룹 안에서 여러 문항을 연속 배정
     wanted_reading = weak_topics("Reading")
-    group_order = sorted(
-        use_groups.items(),
-        key=lambda item: (
-            0 if any(topic_matches(q, wanted_reading) for q in item[1]) else 1,  # 약점 지문 우선
-            -len(item[0]),                                                        # 긴 지문 우선
-            -len(item[1]),                                                        # 문항이 많은 지문 우선
-        )
-    )
+
+    def has_weak_match(group_questions):
+        return any(topic_matches(q, wanted_reading) for q in group_questions)
+
+    tier1 = [g for g in use_groups.items() if has_weak_match(g[1])]      # 약점 주제 포함 지문
+    tier2 = [g for g in use_groups.items() if not has_weak_match(g[1])]  # 나머지 지문
+    for tier in (tier1, tier2):
+        tier.sort(key=lambda item: (-len(item[0]), -len(item[1])))
+
+    # 학생별 회전: 동일 우선순위 그룹의 시작점을 학생마다 다르게 하여 세트 내용을 분산
+    if report:
+        student = str(report.get("student_name") or "")
+        seed = sum((i + 1) * ord(ch) for i, ch in enumerate(student))
+        for tier in (tier1, tier2):
+            if len(tier) > 1:
+                k = seed % len(tier)
+                tier[:] = tier[k:] + tier[:k]
+
+    group_order = tier1 + tier2
     for passage, group_questions in group_order:
         if remaining_quota("Reading") <= 0:
             break
