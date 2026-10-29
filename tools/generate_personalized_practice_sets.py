@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse, json, re
+from datetime import datetime
 from pathlib import Path
 from collections import defaultdict
 from reportlab.lib import colors
@@ -34,6 +35,115 @@ styles.add(ParagraphStyle(name="PT", parent=styles["Title"], alignment=TA_CENTER
 styles.add(ParagraphStyle(name="PQ", parent=styles["Normal"], fontSize=9.5, leading=12.5, spaceAfter=3))
 styles.add(ParagraphStyle(name="PS", parent=styles["Normal"], fontSize=8, leading=10.5))
 
+# --- 문제 선별 정책 -------------------------------------------------------
+# Reading 은 긴 지문(long passage) 기반 다문항 세트를 우선 사용한다.
+LONG_PASSAGE_MIN = 300     # 긴 지문 최소 길이(문자)
+MIN_PER_SUBJECT = 2        # 학생 성취도와 무관하게 모든 과목에 보장하는 최소 문항 수
+SUBJECT_GROUPS = ("Reading", "Mathematical Reasoning", "Thinking")
+
+# 지문만 있고 실제 문제가 없는 플레이스홀더 stem (예: "Read Extract A: ... carefully. - Q1")
+_PLACEHOLDER_STEM = re.compile(r'^\s*Read\s+Extract\s+.*carefully\.?\s*-?\s*Q\d+\s*$', re.IGNORECASE)
+
+
+def is_usable_question(q):
+    """더미 선택지('A|B|C|D'), 빈 본문, 플레이스홀더 stem, 잘못된 정답을 배제한다."""
+    options_raw = str(q.get("options", ""))
+    opts = [o.strip() for o in options_raw.split("|") if o.strip()]
+    stem = str(q.get("stem", "")).strip()
+    if len(opts) < 2 or options_raw.strip() == "A|B|C|D":
+        return False
+    if not stem or _PLACEHOLDER_STEM.match(stem):
+        return False
+    if str(q.get("answer", "")).strip().upper() not in list("ABCDE")[:len(opts)]:
+        return False
+    return True
+
+
+def normalize_subject(name_raw):
+    """'Selective Trial Test Reading Skills' 같은 원본 이름을 표준 과목명으로 정규화"""
+    raw = str(name_raw or "")
+    if "Reading" in raw and "Mathematical" not in raw:
+        return "Reading"
+    if "Mathematical" in raw:
+        return "Mathematical Reasoning"
+    if "Thinking" in raw:
+        return "Thinking"
+    return raw
+
+
+def subject_accuracy(report):
+    """Progress Report 의 과목별 정답률(0~1). 리포트가 없으면 빈 dict."""
+    accuracy = {}
+    for subject in (report or {}).get("subjects", []):
+        questions = subject.get("questions", [])
+        total = subject.get("total") or len(questions)
+        if not total:
+            continue
+        correct = subject.get("correct_count")
+        if correct is None:
+            correct = sum(1 for q in questions if q.get("correct"))
+        accuracy[normalize_subject(subject.get("name_raw"))] = correct / total
+    return accuracy
+
+
+def allocate_counts(count, report, stock):
+    """
+    학생 성취도 기반 유동 배분.
+    - 정답률이 낮은 과목(약점)에 더 많은 문항 배정
+    - 모든 과목 최소 MIN_PER_SUBJECT 문항 보장 (재고가 부족하면 축소)
+    - 과목별 가용 재고(stock)를 넘지 않음
+    """
+    subjects = [s for s in SUBJECT_GROUPS if stock.get(s, 0) > 0]
+    if not subjects or count <= 0:
+        return {}
+
+    accuracy = subject_accuracy(report)
+    # 정답률이 낮을수록 큰 가중치 (1.0 ~ 3.0). 리포트에 과목이 없으면 중립(0.5)
+    weights = {s: 1.0 + (1.0 - accuracy.get(s, 0.5)) * 2.0 for s in subjects}
+
+    counts = {s: 0 for s in subjects}
+    remaining = count
+
+    # 1) 과목별 최소 보장
+    for subj in subjects:
+        base = min(MIN_PER_SUBJECT, stock[subj], remaining)
+        counts[subj] = base
+        remaining -= base
+
+    # 2) 남은 문항을 약점 가중치 비례로 분배 (재고 한도)
+    eligible = [s for s in subjects if stock[s] > counts[s]]
+    total_weight = sum(weights[s] for s in eligible)
+    if remaining > 0 and total_weight > 0:
+        shares = {s: remaining * weights[s] / total_weight for s in eligible}
+        for s in eligible:
+            give = min(int(shares[s]), stock[s] - counts[s], remaining)
+            counts[s] += give
+            remaining -= give
+        # 소수부가 큰 과목부터 1문항씩 추가 배정
+        order = sorted(eligible, key=lambda s: -(shares[s] - int(shares[s])))
+        while remaining > 0 and order:
+            progressed = False
+            for s in order:
+                if remaining <= 0:
+                    break
+                if counts[s] < stock[s]:
+                    counts[s] += 1
+                    remaining -= 1
+                    progressed = True
+            if not progressed:
+                break
+
+    return counts
+
+
+def group_reading_by_passage(questions):
+    """Reading 문항을 지문 단위로 묶는다 (긴 지문에 여러 문항이 함께 출제되도록)"""
+    groups = defaultdict(list)
+    for q in questions:
+        groups[str(q.get("passage", "")).strip()].append(q)
+    return groups
+
+
 
 def load_pool():
     """
@@ -58,9 +168,8 @@ def load_pool():
                     pool.append(q_entry)
 
             for q in data.get("reading", []):
-                opts = [o.strip() for o in q.get("options", "").split("|") if o.strip()]
-                # 더미 옵션('A|B|C|D')이 아니고 실제 선택지가 있는 유효 문제만 로드
-                if len(opts) >= 2 and q.get("options") != "A|B|C|D":
+                # 더미 옵션('A|B|C|D')/플레이스홀더 문항은 제외하고 유효 문제만 로드
+                if is_usable_question(q):
                     q_entry = dict(q, subject="Reading", verified=q.get("verified", True))
                     stem_key = q_entry.get("stem", "")[:80] + str(q_entry.get("topic", ""))
                     if stem_key and stem_key not in seen_stems:
@@ -85,8 +194,7 @@ def load_pool():
                 for section in complete_data:
                     passage = section.get("passage", "")
                     for q in section.get("questions", []):
-                        opts = [o.strip() for o in q.get("options", "").split("|") if o.strip()]
-                        if len(opts) >= 2 and q.get("options") != "A|B|C|D":
+                        if is_usable_question(q):
                             stem_key = q.get("stem", "")[:80] + str(q.get("topic", ""))
                             if stem_key and stem_key not in seen_stems:
                                 seen_stems.add(stem_key)
@@ -109,6 +217,19 @@ def load_pool():
     reading_count = len([q for q in pool if q.get("subject") == "Reading"])
     thinking_count = len([q for q in pool if "Thinking" in q.get("subject", "")])
     print(f"[INFO] Pool loaded: {len(pool)} total questions (Math: {math_count}, Reading: {reading_count}, Thinking: {thinking_count})")
+
+    reading_grouped = group_reading_by_passage([q for q in pool if q.get("subject") == "Reading"])
+    long_groups = {p: qs for p, qs in reading_grouped.items() if len(p) >= LONG_PASSAGE_MIN}
+    long_count = sum(len(qs) for qs in long_groups.values())
+    print(f"       Reading: {len(reading_grouped)} passages / long passages(>={LONG_PASSAGE_MIN} chars): "
+          f"{len(long_groups)} passages, {long_count} questions")
+
+    if reading_count == 0:
+        print("[WARN] Reading 문항이 0개입니다! data/questions/pool.json 의 reading 항목과 "
+              "data/questions/reading_complete_db.json 을 확인하세요. (지문만 있고 문항이 없으면 생성되지 않습니다)")
+    elif long_count == 0:
+        print(f"[WARN] 긴 지문(>={LONG_PASSAGE_MIN}자) Reading 문항이 없어 단문 위주로 출제됩니다. "
+              "reading_complete_db.json 에 긴 지문+다문항 세트를 추가하세요.")
     return pool
 
 
@@ -228,111 +349,126 @@ def make_pdf(path, title, student, test_type, round_no, questions, answer_key=Fa
     doc.build(story)
 
 
-def select_questions(areas, count, pool):
+def select_questions(areas, count, pool, report=None):
     """
-    학생 약점 기반 문제 선택 및 과목별 균형 배분
-    - 유효한 문제만 선택 (더미 A|B|C|D 제외)
-    - 중복 출제 완전 방지
+    학생 약점 + 성취도 기반 문제 선택
+    - Reading: 긴 지문(>=LONG_PASSAGE_MIN) 그룹을 우선 사용하고, 한 지문에 여러 문항을 묶어 출제
+    - 모든 과목 최소 MIN_PER_SUBJECT 문항 보장
+    - 학생 리포트의 과목별 정답률에 따라 과목별 문항 수를 유동 배분
+    - 세트 내 중복 출제 금지
     """
-    # 1. 유효 문제 필터링
+    # 1. 유효 문제 필터링 (더미/플레이스홀더/정답오류 배제) + 동일 stem 중복 제거
     valid_pool = []
+    seen_stems = set()
     for q in pool:
-        opts = [o.strip() for o in q.get("options", "").split("|") if o.strip()]
-        stem = str(q.get("stem", "")).strip()
-        if len(opts) >= 2 and q.get("options") != "A|B|C|D" and stem:
-            if "_id" not in q:
-                q["_id"] = hash(q.get("subject", "") + str(q.get("topic", "")) + stem[:80])
-            valid_pool.append(q)
+        if not is_usable_question(q):
+            continue
+        norm_stem = re.sub(r'\s+', ' ', str(q.get("stem", "")).strip()).lower()
+        if not norm_stem or norm_stem in seen_stems:
+            continue
+        seen_stems.add(norm_stem)
+        if "_id" not in q:
+            q["_id"] = hash(q.get("subject", "") + str(q.get("topic", "")) + norm_stem[:80])
+        valid_pool.append(q)
 
-    reading_pool = [q for q in valid_pool if q.get("subject") == "Reading"]
+    reading = [q for q in valid_pool if q.get("subject") == "Reading"]
     math_pool = [q for q in valid_pool if q.get("subject") == "Mathematical Reasoning"]
     thinking_pool = [q for q in valid_pool if "Thinking" in q.get("subject", "")]
 
-    # 2. 목표 과목별 할당량 설정
-    if count == 30:
-        target_counts = {
-            "Reading": min(10, len(reading_pool)),
-            "Mathematical Reasoning": min(10, len(math_pool)),
-            "Thinking Skills": min(10, len(thinking_pool))
-        }
-    elif count == 20:
-        target_counts = {
-            "Reading": min(7, len(reading_pool)),
-            "Mathematical Reasoning": min(7, len(math_pool)),
-            "Thinking Skills": min(6, len(thinking_pool))
-        }
-    else:  # 10문항 기본 세트
-        target_counts = {
-            "Reading": min(4, len(reading_pool)),
-            "Mathematical Reasoning": min(4, len(math_pool)),
-            "Thinking Skills": min(2, len(thinking_pool))
-        }
+    # 2. Reading 은 긴 지문 그룹만 후보로 사용 (긴 지문이 없을 때만 단문으로 폴백)
+    reading_groups = group_reading_by_passage(reading)
+    long_groups = {p: qs for p, qs in reading_groups.items() if len(p) >= LONG_PASSAGE_MIN}
+    use_groups = long_groups or {p: qs for p, qs in reading_groups.items() if p}
+    reading_candidates = [q for qs in use_groups.values() for q in qs]
+
+    # 3. 과목별 재고를 반영한 유동 배분
+    stock = {
+        "Reading": len(reading_candidates),
+        "Mathematical Reasoning": len(math_pool),
+        "Thinking": len(thinking_pool),
+    }
+    target_counts = allocate_counts(count, report, stock)
 
     selected = []
     used_ids = set()
 
-    # 3. 1차: 학생의 약점 Topic 순위대로 문제 매칭
-    for area in sorted(areas, key=lambda x: (-x["error_rate"], -x["wrong"])):
-        wanted_topic = area["topic"].lower().strip()
-        wanted_subj = area["subject"].lower().strip()
-        subj_key = "Reading" if "reading" in wanted_subj else ("Mathematical Reasoning" if "math" in wanted_subj else "Thinking Skills")
+    def take(q):
+        selected.append(q)
+        used_ids.add(q["_id"])
 
-        current_subj_count = len([s for s in selected if s.get("subject") == subj_key or (subj_key == "Thinking Skills" and "Thinking" in s.get("subject", ""))])
-        if current_subj_count >= target_counts.get(subj_key, 10):
+    def subject_count(subj_group):
+        if subj_group == "Thinking":
+            return len([s for s in selected if "Thinking" in s.get("subject", "")])
+        return len([s for s in selected if s.get("subject") == subj_group])
+
+    def remaining_quota(subj_group):
+        return target_counts.get(subj_group, 0) - subject_count(subj_group)
+
+    def weak_topics(subj_group):
+        return {a["topic"].lower().strip() for a in areas if normalize_subject(a["subject"]) == subj_group}
+
+    def topic_matches(q, wanted):
+        q_topic = str(q.get("topic", "")).lower().strip()
+        return any(w == q_topic or (w and (w in q_topic or q_topic in w)) for w in wanted)
+
+    # 4. Reading: 약점 주제를 담은 긴 지문 그룹을 우선 선택하고, 그룹 안에서 여러 문항을 연속 배정
+    wanted_reading = weak_topics("Reading")
+    group_order = sorted(
+        use_groups.items(),
+        key=lambda item: (
+            0 if any(topic_matches(q, wanted_reading) for q in item[1]) else 1,  # 약점 지문 우선
+            -len(item[0]),                                                        # 긴 지문 우선
+            -len(item[1]),                                                        # 문항이 많은 지문 우선
+        )
+    )
+    for passage, group_questions in group_order:
+        if remaining_quota("Reading") <= 0:
+            break
+        ordered = sorted(group_questions, key=lambda q: 0 if topic_matches(q, wanted_reading) else 1)
+        for q in ordered:
+            if remaining_quota("Reading") <= 0:
+                break
+            if q["_id"] not in used_ids:
+                take(q)
+
+    # 5. Math / Thinking: 약점 주제 우선 → 같은 과목의 다른 문항으로 보충
+    for subj_group, subj_pool in (("Mathematical Reasoning", math_pool), ("Thinking", thinking_pool)):
+        if remaining_quota(subj_group) <= 0:
             continue
+        wanted = weak_topics(subj_group)
+        ordered = sorted(subj_pool, key=lambda q: (0 if topic_matches(q, wanted) else 1, str(q.get("topic", ""))))
+        for q in ordered:
+            if remaining_quota(subj_group) <= 0:
+                break
+            if q["_id"] not in used_ids:
+                take(q)
 
-        for q in valid_pool:
-            if q["_id"] in used_ids:
-                continue
-            q_subj = q.get("subject", "").lower()
-            q_topic = q.get("topic", "").lower()
-            if (wanted_subj in q_subj or q_subj in wanted_subj) and (wanted_topic == q_topic or wanted_topic in q_topic or q_topic in wanted_topic):
-                selected.append(q)
-                used_ids.add(q["_id"])
-                current_subj_count += 1
-                if len(selected) >= count:
-                    break
-                if current_subj_count >= target_counts.get(subj_key, 10):
-                    break
-        if len(selected) >= count:
-            break
+    # 6. 모든 과목 최소 보장 (재고 부족으로 배분이 비었을 때 대비)
+    for subj_group, subj_pool in (("Reading", reading_candidates),
+                                  ("Mathematical Reasoning", math_pool),
+                                  ("Thinking", thinking_pool)):
+        need = MIN_PER_SUBJECT - subject_count(subj_group)
+        for q in subj_pool:
+            if need <= 0 or len(selected) >= count:
+                break
+            if q["_id"] not in used_ids:
+                take(q)
+                need -= 1
 
-    # 4. 2차: 과목별 할당량이 남아있으면 해당 과목의 다른 문제들로 보충
-    subject_pools = {
-        "Reading": reading_pool,
-        "Mathematical Reasoning": math_pool,
-        "Thinking Skills": thinking_pool
-    }
-    for subj_key, s_pool in subject_pools.items():
-        cur_count = len([s for s in selected if s.get("subject") == subj_key or (subj_key == "Thinking Skills" and "Thinking" in s.get("subject", ""))])
-        needed = target_counts.get(subj_key, 0) - cur_count
-        if needed > 0:
-            for q in s_pool:
-                if q["_id"] not in used_ids:
-                    selected.append(q)
-                    used_ids.add(q["_id"])
-                    needed -= 1
-                    if len(selected) >= count:
-                        break
-                    if needed <= 0:
-                        break
-        if len(selected) >= count:
-            break
+    # 7. 남은 자리는 전체 재고에서 보충 (중복 없음)
+    if len(selected) < count:
+        for q in reading_candidates + math_pool + thinking_pool:
+            if len(selected) >= count:
+                break
+            if q["_id"] not in used_ids:
+                take(q)
 
-    # 5. 3차: 전체 문항 수(count)에 도달할 때까지 남은 유효 문제로 채우기 (중복 없음)
-    for q in valid_pool:
-        if len(selected) >= count:
-            break
-        if q["_id"] not in used_ids:
-            selected.append(q)
-            used_ids.add(q["_id"])
-
-    # 6. 문제집 순서 정렬: 지문이 있는 문제들은 지문 단위로 묶고 과목별로 정돈
+    # 8. 문제집 순서 정렬: 과목 순 → 긴 지문 그룹 → 주제
     def sort_order(q):
         subj_prio = {"Reading": 1, "Mathematical Reasoning": 2, "Thinking Skills": 3, "Thinking Ability": 3}
-        has_passage = 0 if len(str(q.get("passage", "")).strip()) > 80 else 1
+        has_passage = 0 if len(str(q.get("passage", "")).strip()) >= LONG_PASSAGE_MIN else 1
         passage_id = str(q.get("passage", ""))[:40]
-        return (subj_prio.get(q.get("subject"), 4), has_passage, passage_id, q.get("topic", ""))
+        return (subj_prio.get(q.get("subject"), 4), has_passage, passage_id, str(q.get("topic", "")))
 
     selected.sort(key=sort_order)
     return selected[:count]
@@ -385,7 +521,13 @@ def main():
          "options": "It is red.|It is a square.|It is a circle.|It is large.|It has four sides.",
          "answer": "C", "explanation": "The stated rule means a blue shape is a circle."},
     ]
+    # 기본 사고력 템플릿은 문제은행에 동일 문항이 없을 때만 추가
+    existing_stems = {re.sub(r'\s+', ' ', str(q.get("stem", "")).strip()).lower() for q in pool}
     for t in thinking_templates:
+        norm_stem = re.sub(r'\s+', ' ', t["stem"].strip()).lower()
+        if norm_stem in existing_stems:
+            continue
+        existing_stems.add(norm_stem)
         t["_id"] = hash(t["stem"])
         pool.append(t)
 
@@ -394,11 +536,12 @@ def main():
     manifest = {
         "test_type": args.test_type,
         "round": args.round,
-        "generated_at": "2026-10-28",
+        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "students": {},
         "question_bank_topics_available": bank_topics[:20],
         "note": "Weak-area practice generated from student reports with verified unique questions."
     }
+    allocation_log = defaultdict(lambda: defaultdict(int))
 
     for report in sorted(round_reports, key=lambda r: r.get("student_name", "")):
         student = str(report.get("student_name", "")).strip()
@@ -415,7 +558,7 @@ def main():
             "sets": {}
         }
         for set_name, count in SET_COUNTS.items():
-            questions = select_questions(areas, count, pool)
+            questions = select_questions(areas, count, pool, report)
             folder = student_folder / set_name
             folder.mkdir(parents=True, exist_ok=True)
             payload = {
@@ -424,14 +567,21 @@ def main():
                 "test_type": args.test_type,
                 "round": args.round,
                 "key_areas": areas,
-                "questions": [dict(q, number=i) for i, q in enumerate(questions, 1)]
+                "questions": [dict({k: v for k, v in q.items() if k != "_id"}, number=i)
+                              for i, q in enumerate(questions, 1)]
             }
             (folder / "questions.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
             title = f"{student} — {SET_NAMES[set_name]}"
             make_pdf(folder / "student_practice.pdf", title, student, args.test_type, args.round, questions, False)
             make_pdf(folder / "teacher_answer_key.pdf", title + " — Teacher Answer Key", student, args.test_type, args.round, questions, True)
+            subject_counts = defaultdict(int)
+            for q in questions:
+                subject_counts[normalize_subject(q.get("subject"))] += 1
+            for key, val in subject_counts.items():
+                allocation_log[set_name][key] += val
             student_manifest["sets"][set_name] = {
                 "question_count": len(questions),
+                "subject_counts": dict(subject_counts),
                 "student_pdf": "student_practice.pdf",
                 "teacher_pdf": "teacher_answer_key.pdf",
                 "json_file": "questions.json"
@@ -441,6 +591,10 @@ def main():
 
     manifest_name = f"personalised_practice_manifest_R{args.round}.json"
     (output / manifest_name).write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    print("\n[INFO] 세트별 과목 배분 합계 (학생 전체 누적)")
+    for set_name in SET_COUNTS:
+        dist = dict(allocation_log[set_name])
+        print(f"  {set_name}: {dist}")
     print(json.dumps({
         "students_generated": len(manifest["students"]),
         "student_names": sorted(manifest["students"]),
